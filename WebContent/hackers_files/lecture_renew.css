@@ -1,0 +1,490 @@
+	*{font-family:'Nanum Gothic';}
+	.container.hacademia{width:100%;overflow:hidden;}
+	.container{width:100%;}
+	.contents{width:1000px;margin:0 auto;position:relative;}
+	
+		/*타이틀 영역*/
+	.titles{width:100%;position:relative;}
+	.titles h2{font-size:26px;padding:20px 0 15px;}
+	.titles span{font-size:12px;color:#878787}
+	.titles span.t_color{font-weight:bold;color:#e41917;padding-left:15px;}
+	.titles .question_ha{position:absolute;right:0;top:34px;}
+
+
+.hacademia .contents {position:relative; width:1000px; margin:0 auto; padding:40px 0 35px 0}
+.hacademia .contents h2.title {width:100%; height:24px; padding-bottom:15px; border-bottom:1px solid #d4d4d4; font-size:12px; color:#787878; margin-bottom:20px}
+.hacademia .kontents {position:relative; width:1000px; margin:0 auto; padding:40px 0 35px 0}
+.hacademia .kontents h2.title {width:100%; height:24px; padding-bottom:15px; border-bottom:1px solid #d4d4d4; font-size:12px; color:#787878; margin-bottom:20px}
+
+.hacademia h2.title strong {font-family:'Nanum Gothic'; color:#d01715; font-size:26px; display:inline-block; margin-right:10px}
+.hacademia h2.title .navi {font-size:11px; float:right; padding-top:13px}
+.hacademia h2.title .navi li {float:left; margin-left:7px}
+.hacademia h2.title .navi li a {padding-left:7px}
+.hacademia h2.title .navi li:first-child {margin-left:0}
+.hacademia h2.title .navi li:first-child a {padding-left:0}
+h2.title .navi a {color:#787878}
+.hacademia h2.title em {color:#000}
+.hacademia .content h3, .hacademia .content h3 em {font-size:18px;font-weight:600; color:#000}
+.hacademia .kontent h3, .hacademia .kontent h3 em {font-size:18px;font-weight:600; color:#000}
+	/*//타이틀 영역*/
+
+	/*학사일정,배너 영역*/
+		.visuals{width:100%;height:195px;}
+		.visual_left{width:330px;height:165px;padding:15px 20px;float:left;margin-right:17px;color:#fff;background-image:url("https://image.hackers.ac/images/lecture/lecture_new/winter_bg.jpg")}
+		.visual_left h3{font-size:22px;}
+		.visual_left .lecture_bar{width:20px;height:2px;background-color:#fff;margin:7px 0;}
+		.visual_left .lecture_area > li{display:none;font-size:15px;line-height:20px;padding-bottom:25px;}
+		.visual_left .lecture_area > li.on{display:block;}
+		.week_btn a{padding:8px 14px;background-color:rgba(0,0,0,0.2);color:#fff;font-weight:bold;}
+		.week_btn a.on{background-color:#fff;color:#000;}
+		.visual_right{width:613px;height:100%;float:left;position:relative;}
+		.bx-controls .bx-pager{position:absolute;width:98%;height:25px;top:10px;text-align:right}
+		.bx-controls .bx-pager .bx-pager-item{display:inline-block;width:10px;height:10px;margin-right:10px;}
+		 
+	/*//학사일정, 배너 영역*/
+
+	/*검색 영역*/
+		.search_wrap{width:100%;padding:50px 0;}
+		.search_top{}
+		.search_top:after{content:"";display:block;clear:both;}
+		.search_top h3{font-size:22px;width:400px;float:left;}
+		.search_top .search_bar{width:600px;float:left;text-align:right;}
+		.search_top .search_bar a{display:inline-block;width:180px;text-align:center;height:40px;float:right;background-color:#e41917;line-height:40px;margin-left:10px;color:#fff;font-weight:bold;position:relative;}
+		.search_top .search_bar a.new_icon:before{content:"";display:block;width:44px;height:33px;background:url("https://image.hackers.ac/images/lecture/lecture_new/my_level_con.png") no-repeat;position:absolute;left:25px;top:-26px;}
+		.search_top .search_bar a.btn_gr{height:38px;line-height:38px;background-color:#fff;color:#2b2b2b;font-weight:normal;}
+
+
+
+
+		.my_lecture{width:1000px;margin-top:20px;position:relative;}
+		.my_lecture th{background-color:#efefef;border:1px solid #ccc;border-right:none;}
+		.my_lecture td{border:1px solid #ccc;}
+		.my_lecture .my_lecture_left{width:119px;height:100%;float:left;background-color:#f9f9f9;border-right:1px solid #ccc;}
+		.my_lecture .my_lecture_1{height:80px;}
+		.my_lecture .my_lecture_2{height:130px;}
+		.my_lecture .my_lecture_3{height:65px;}
+		.my_lecture .my_lecture_left span{color:#f00;display:block;}
+		.my_lecture .my_lecture_left strong{display:block;width:70px;}
+		.my_lecture .my_lecture_1 .my_lecture_left strong{padding:20px 30px;}
+		.my_lecture .my_lecture_2 .my_lecture_left strong{padding:43px 30px;}
+		.my_lecture .my_lecture_3 .my_lecture_left strong{padding:12px 30px;}
+		.my_lecture .my_lecture_right{padding-bottom:10px;padding-left:10px;min-height:50px;}
+		.my_lecture .my_lecture_right .level_text{display:block;font-size:10px;color:#aaa;}
+		.my_lecture .my_lecture_right label{display:block;padding:6px 11px;background-color:#f3f3f3;color:#333;text-align:center;font-size:12px;
+		border-radius:40px;border:1px solid #ccc;cursor:pointer;float:left;margin-right:10px;font-weight:bold;margin-top:10px;}
+		.my_lecture .level_he{display:block;min-height:50px;line-height:50px;height:100%;}
+
+		.my_lecture .my_lecture_right label .teacher_sel_del{display:inline-block;margin-left:5px;font-size:11px;color:rgb(170, 170, 170);font-weight:normal;}
+
+
+		.my_lecture .my_lecture_right.level_box label{width:92px;height:35px;position:relative;padding:3px 0;}
+		.my_lecture .my_lecture_right.level_box .level_su{display:block;width:100%;position:relative;top:50%;transform:translatey(-55%);left:0;}
+
+
+		.my_lecture .my_lecture_2 .my_lecture_right label{margin-top:15px;}
+		.my_lecture .my_lecture_1 .my_lecture_right a{display:block;width:100px;height:40px;line-height:40px;text-align:center;float:left;margin-top:20px;border-radius:20px;border:1px solid #ccc;background-color:#f3f3f3;font-weight:bold;}
+
+		.my_lecture .my_lecture_right input[type="checkbox"]{width:0px;height:0px;line-height:0;font-size:0;overflow:hidden;}
+		.my_lecture .my_lecture_right.lect_name input{width:230px;height:20px;font-size:12px;margin-top:10px;}
+		.my_lecture .my_lecture_right.lect_name a{display:inline-block;width:18px;vertical-align:middle;margin-left:5px;margin-top:7px;}
+		.my_lecture .my_lecture_right.lect_name a img{width:100%;}
+
+		.serch_close1{line-height:65px;position:relative;}
+		a.serch_cl{display:block;width:20px;height:11px;position:absolute;right:20px;top:25px;overflow:hidden;}
+		a.serch_cl img{margin-top:-11px;}
+		
+		.subm_btn{width:100%;text-align:right;padding-top:15px;}
+		.subm_btn a{display:inline-block;width:157px;height:44px;background-color:#e41917;color:#fff;line-height:44px;text-align:center;font-weight:bold;font-size:17px;}
+		.subm_btn a.sub_re{background-color:#bbb}
+		.subm_btn a.sub_mit{background-color:#e41917}
+		.sel_seach select{width:150px;height:30px;margin-top:10px;}
+		
+
+		/*로딩*/
+			.loadings{width:50px;position:absolute;left:50%;margin-left:-25px;top:50%;transform:translatey(-50%);}
+		/*//로딩*/
+	
+	
+
+	/*//검색 영역*/
+	
+	
+	/*수강혜택*/
+		.dc_wrap{width:100%;} 
+		.dc_lec{padding:20px 0 0;overflow:hidden;background-color:#f5f5f5;}
+		
+		.dc_lec h3{width:48%;float:left;padding-left:2%;}
+		.dc_lec > strong{display:block;width:48%;float:left;text-align:right;padding-right:2%;}
+		.dc_lec .dc_area{padding-top:20px;overflow:hidden;clear:both;width:100%;}
+		.dc_lec .dc_area > li{width:130px;overflow:hidden;float:left;position:relative;padding:20px 0;}
+		.dc_lec .dc_area > li .test32{width:400px;overflow:hidden;}
+		.dc_area > li .dc_area_left{width:130px;position:relative;text-align:center;cursor:pointer;float:left;}
+		.dc_area .dc_area_left span{width:100%;position:absolute;left:0;top:50%;transform:translatey(-50%);color:#fff;}
+		.dc_area > li.on .area_bg{display:none;}
+		.dc_area > li .dc_area_right{width:0;height:0;overflow:hidden;float:left;}
+		.dc_area > li.on .dc_area_right{width:270px;height:100px;overflow:hidden;float:left;position:relative;}
+		.dc_area > li .dc_area_right .show_box{width:100%;position:absolute;left:0;top:50%;transform:translatey(-50%);display:none;}
+		.dc_area > li.on .dc_area_right .show_box{display:block;}
+		.dc_area > li .dc_area_right .box_desct{padding-bottom:8px;}
+		.dc_area > li .dc_area_right .box_desct:last-child{padding-bottom:0;}
+	
+
+
+	/*//수강혜택*/
+
+
+	/*강의리스트 수강월 탭*/
+	.day_lec{width:998px;margin-top:20px;overflow:hidden;height:50px;border:1px solid #ccc;border-bottom:1px solid #484848}
+	.day_lec li{width:332px;height:100%;text-align:center;float:left;line-height:50px;border-right:1px solid #ccc}
+	.day_lec li:last-child{border-right:none;}
+	.day_lec li a{display:block;width:100%;height:100%;}
+	.day_lec li.on a{background-color:#484848;color:#fff;}
+	.day_lec li.day_tab1{width:998px;}
+	.day_lec li.day_tab2{width:498px;}
+	.day_lec li.day_tab2:last-child{width:499px;}
+	.day_lec li.day_tab3{width:331px;}
+	.day_lec li.day_tab3:last-child{width:334px;}
+	.day_lec li.day_tab4{width:248px;}
+	.day_lec li.day_tab4:last-child{width:251px;}
+	.day_lec li.day_tab5{width:198px;}
+	.day_lec li.day_tab5:last-child{width:202px;}
+	/*강의리스트 수강월 탭*/
+
+
+	/*강의리스트 목록*/
+	.day_lec_wrap{width:100%;overflow:hidden;}
+	.day_lec{width:998px;margin-top:40px;overflow:hidden;height:50px;border:1px solid #ccc;border-bottom:1px solid #484848}
+	.day_lec li{width:332px;height:100%;text-align:center;float:left;line-height:50px;} 
+	.day_lec li a{display:block;width:100%;height:100%;}
+	.day_areas{padding:20px 10px;color:#6f6f6f;}
+	.day_lec li.on a{background-color:#484848;color:#fff;}
+
+
+	.lec_selt_wrap{width:1000px;position:fixed;top:0;opacity:0;z-index:999;}
+	.lec_selt{width:100%;height:50px;border:1px solid #ccc;box-sizing:border-box;overflow:hidden;}
+	.lec_selt li{width:15%;height:100%;float:left;border-left:1px solid #ccc;box-sizing:border-box;}
+	.lec_selt li.lec_first{width:10%;line-height:50px;text-align:center;background-color:#525252;color:#fff;border-left:none;font-size:16px;}
+	.lec_selt li select::-ms-expand {display:none}
+	.lec_selt li select{width:100%;height:100%;border:none;font-size:15px;padding-left:5%;outline:none; background: url("https://image.hackers.ac/images/lecture/lecture_new/select_con.png") no-repeat right #fff;
+    appearance:none;-moz-appearance:none; /* Firefox */-webkit-appearance:none; /* Safari and Chrome */
+    background-position-x: 130px;}
+	.lec_selt li select option:hover{color:red;background-color:#fff;}
+	.lec_selt li select:focus > option:checked{color:red;background-color:#fff;}
+	
+	
+	.lec_table table{text-align:center;}
+	.lec_table tr{border-bottom:1px solid #ccc;}
+	.lec_table th{padding:15px 0;}
+	.lec_table td{padding:15px 0;}
+	.lec_table td.font_b{font-weight:bold;}
+	.lec_table .lec_title{display:block;font-size:12px;text-align:left;line-height:21px;}
+	.lec_table .lec_title .main_title{font-size:14px;}
+	.lec_table .lec_title:hover .main_title{font-weight:bold;text-decoration:underline;}
+	.lec_table .lec_title .sub_title1{display:block;color:#777;}
+	.lec_table .lec_title .sub_title2{display:block;color:#aaa;}
+	.lec_table .g_color{color:#1e9b00;}
+	.lec_table .j_color{color:#188fdb;}
+	.lec_table .lec_btns{display:block;width:90px;height:35px;line-height:35px;margin:0 auto 5px;border-radius:5px;}
+	.lec_table .apply_btn{background-color:#e41917;color:#fff;transition:background-color 1.5s;border:1px solid #e41917;}
+	.lec_table .apply_btn:hover{background-color:#ce0907;}
+	.lec_table .basket_btn{background-color:#fff;border:1px solid #999;color:#999;}
+	.lec_table .basket_btn:hover{color:#e41917;border:1px solid #e41917;}
+	.lec_table .dline_btn{background-color:#484848;color:#fff;}
+	.lec_table .inent_btn{background-color:#e41917;color:#fff;}
+	.tuition span{display:block;text-align:center;}
+	.sale_txt{width:60%;margin:3px auto;padding:5px 0;background-color:#666;border-radius:15px;color:#fff;font-weight:normal;}
+	.tuition_line{font-size:12px;text-decoration:line-through;color:#999;}
+	.tuition_txt{color:#e41917;}
+	.font_blue{color:#6e93df}
+	.font_red{color:#e41917;}
+	
+
+	/*//강의리스트 목록*/
+
+
+	/* 인강 팝업창*/
+		.ipop_wrap{position:fixed;width:100%;height:100%;left:0;top:0;background-color:rgba(0,0,0,0.5);z-index:99999;display:none;}
+		.ipop_wrap .ipop_full{width:100%;height:100%;}
+		.ipop_wrap .ipop{width:600px;position:absolute;left:50%;margin-left:-300px;top:170px;background-color:#fff;border:2px solid #525252}
+		.ipop .ipop_top{background-color:#f5f5f5;text-align:center;padding:10px 20px 20px;}
+		.ipop .top_close{display:block;text-align:right;}
+		.ipop .top_close a{font-size:24px;}
+		.ipop .ipop_text{font-size:15px;padding:10px 0;line-height:25px;}
+		.ipop .ipop_text span{font-weight:bold;color:#e52321;border-bottom:1px solid #e52321;padding-bottom:1px;}
+		.ipop_btn{padding:10px 0;}
+		.ipop_btn a{display:inline-block;width:240px;height:50px;line-height:50px;border-radius:30px;color:#fff;font-weight:bold;}
+		.ipop_btn a.ha_a{background-color:#7e7e7e;margin-right:10px;}
+		.ipop_btn a.ha_i{background-color:#17a7b0;}
+		.ipop_bottom{padding:0 20px;}
+		.ipop_bottom i{display:block;text-align:center;font-size:15px;padding:20px 0;}
+		.ipop_bottom i span{font-weight:bold;}
+		.ipop_bottom .ipop_ban{width:100%;overflow:hidden;border:1px solid #ccc;box-sizing:border-box;border-bottom:none;border-left:none;}
+		.ipop_bottom .ipop_ban li{width:186px;height:123px;float:left;border-bottom:1px solid #ccc;border-left:1px solid #ccc;box-sizing:border-box;}
+		.ipop_bottom .ipop_ban li img{width:100%;height:100%;}
+		.bottom_ban{padding:20px 0;}
+
+	/*//인강 팝업창*/
+	/*수강신청 팝업*/
+	.apply_pop_wraper{position:fixed;width:100%;height:100%;left:0;top:0;z-index:99999;display:none;background-color:rgba(0,0,0,0.5)}
+	.apply_pop_wrap .apply_close{display:block;width:40px;height:40px;text-align:center;line-height:40px;background-color:#000;color:#fff;position:absolute;right:0;top:0;font-weight:bold;font-size:20px;}
+	.apply_pop_wrap_f{width:100%;height:100%;}
+	.apply_pop_wrap{width:636px;position:absolute;left:50%;margin-left:-300px;top:50px;background-color:#fff;border:2px solid #333;}
+	.apply_pop{width:100%;background-color:#f6f6f6;text-align:center;font-weight:bold;padding:20px 0 30px;}
+	.apply_pop p{line-height:25px;font-size:13px;padding-bottom:15px;}
+	.apply_pop p > span{color:#e41917;border-bottom:1px solid #e41917;padding-bottom:1px}
+	.apply_pop > a{display:block;width:380px;height:40px;line-height:40px;text-align:center;margin:0 auto;background-color:#484848;color:#fff;border-radius:20px;font-size:15px;}
+	.apply_sale {height:340px;padding:0 40px;overflow:auto;}
+	.apply_sale .sale_top{line-height:25px;text-align:center;padding:20px 0;}
+	.apply_sale .sale_top strong{display:block;font-size:19px;color:#e41917;}
+	.sale_middle{width:100%;height:90px;overflow:hidden;border-top:1px solid #ccc;}
+	.sale_middle > p{display:block;width:8%;float:left;height:100%;}
+	.sale_middle > p > input{width:18px;height:18px;margin-top:37px;}
+	.sale_middle label{display:block;width:80%;height:100%;float:left;}
+	.sale_middle label > span{display:block;line-height:20px;}
+	.apply_pop_wrap .sale_ch1{color:#999;margin-top:15px;}
+	.apply_pop_wrap .sale_ch2{font-size:15px;font-weight:bold;}
+	.apply_pop_wrap .sale_ch3{color:#888;}
+	.apply_pop_wrap .sale_ch3 span.cored{color:#e84e4d;}
+	.apply_pop_wrap .sale_ch3 .font_no{font-weight:400;}
+	.apply_btn_wrap{padding:20px 15px;border-top:1px solid #666;overflow:hidden;}
+	.apply_btn_wrap .apply_btn_left{width:460px;float:left;}
+	.apply_btn_wrap .apply_btn_left ul{width:100%;}
+	.apply_btn_wrap .apply_btn_left ul li{width:100%;overflow:hidden;padding-bottom:15px;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn1{width:80px;float:left;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn1 > span{display:block;width:80px;height:25px;margin-top:7px;border-radius:15px;line-height:25px;text-align:center;background-color:#666;color:#fff;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn2{width:360px;float:left;margin-left:20px;font-weight:bold;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn2 > span{display:block;line-height:20px;}
+	.apply_btn_wrap .apply_btn_right{width:126px;float:left;margin-left:10px;}
+	.apply_btn_right button{margin-top:15px;width:100%;}
+	.apply_btn_right button img{width:100%;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn2 .apply_money{font-size:17px;color:#e41917;font-weight:bold;}
+	.apply_btn_wrap .apply_btn_left ul li p.apply_btn2 .apply_money > span{font-size:15px;vertical-align:top;}
+	.apply_btn_wrap .apply_btn_left ul li.apply_mwrap{border-top:1px solid #ccc;padding-top:10px;}
+	.apply_btn_wrap .apply_btn_left ul li.apply_mwrap .apply_btn1 > span{margin-top:0;background-color:#e41917;}
+	
+	.apply_close2{width:100%;background-color:#909090;}
+	.apply_close2 ul{width:100%;overflow:hidden;}
+	.apply_close2 ul li{float:right;padding:8px 15px;color:#fff;}
+	.apply_close2 ul li.apply_cl1 a{color:#fff;display:block;padding:5px 20px;border:1px solid #fff;}
+	.apply_close2 ul li.apply_cl2{padding-top:13px;}
+
+	/*//수강신청 팝업*/
+
+	/*퀵메뉴*/
+		.quck_menu_wrap{width:192px;position:fixed;left:50%;top:0;margin-left:580px;z-index:99999;}
+		.new_qkmenu{width:190px;border:1px solid #ccc;margin-top:150px;line-height:50px;}
+		.new_qkmenu .join_menu{background-color:#484848;color:#fff;text-align:center;}
+		.new_qkmenu .join_menu span{font-size:14px;color:#ccc;}
+		.new_qkmenu .join_menu a{padding:17px 19px;color:#fff;font-size:14px;}
+		.new_qkmenu .lec_menu2{width:100%;background-color:#fff;}
+		.new_qkmenu .lec_menu2 li{overflow:hidden;border-top:1px solid #ccc;}
+		.new_qkmenu .lec_menu2 li.lec_menu_first a{font-weight:bold;color:#e41917;}
+		.new_qkmenu .lec_menu2 li a{ display:block;padding:0 12px;}
+		.new_qkmenu .lec_menu2 span{float:right;font-size:17px;color:#777;}
+		.new_qkmenu .lec_menu2 span img{margin-top:20px;}
+
+		/*퀵메뉴 최근 본 강의*/
+		.lately_lec{width:100%;margin-top:10px;background-color:#484848;color:#a6a6a6;}
+		.lately_lec .lately_lec_top{padding:10px;overflow:hidden;height:34px;line-height:34px;color:#cbcbcb;font-weight:bold;}
+		.lately_lec .lately_lec_top span{float:right;color:#ff5d5b;}
+		.lately_lec ul{width:100%;}
+		.lately_lec ul li{padding:5px 10px 0;height:70px;line-height:20px;border-top:1px solid #ccc;}
+		.lately_lec ul li > a{display:block;width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#e4e4e4;}
+		/*//퀵메뉴 최근 본 강의 */
+
+		.wrap_position{width:100%;margin-top:10px;}
+		.wrap_position ol{width:100%;background-color:#f5f5f5;border:1px solid #dfdfdf;border-bottom:none;}
+		.wrap_position ol li{width:100%;text-align:center;border-bottom:1px solid #dfdfdf;}
+		.wrap_position ol li a{display:block;width:100%;height:30px;line-height:30px;position:relative;color:#6f6f6f;font-weight:bold;}
+			.wrap_position ol li a .position_con{position:absolute;right:10px;top:0px;}
+
+	/*퀵메뉴*/
+	
+	
+	
+	
+	
+	
+	
+	
+	/*타이틀 영역*/
+	.titles{width:100%;height:80px;position:relative;border-bottom:1px solid #d4d4d4;}
+	.titles h2{font-size:26px;padding:40px 0 10px;}
+	.titles h2 > span{font-size:12px;color:#878787}
+	.titles .new_navi{position:absolute;right:10px;top:56px;overflow:hidden;font-size:12px;}
+	.titles .new_navi li{float:left;}
+	.titles .new_navi li.on a{font-weight:bold;}
+	.titles .new_navi li > span{padding:0 12px;}
+	/*//타이틀 영역*/
+
+	/*수강결제 정보영역*/
+	.payment_area_wrap{width:100%;}
+	.payment_area_wrap > h3{padding-top:30px;font-size:18px;color:#000;}
+	.payment_area_wrap > h3 span{font-size:12px;color:#6f6f6f}
+	.payment_area_wrap .payment_area1{width:100%;border:1px solid #484848;margin:15px 0 30px;}
+	.payment_area_wrap .payment_area1 .user_area{font-weight:bold;font-size:15px;}
+	.payment_area_wrap .payment_area1 tr{border-bottom:1px solid #ccc;}
+	.payment_area_wrap .payment_area1 tr:last-child{border-bottom:none;}
+	.payment_area_wrap .payment_area1 th{background-color:#f9f9f9;color:#737373;}
+	.payment_area_wrap .payment_area1 td{padding-left:20px;line-height:38px;}
+	.payment_area_wrap .payment_area1 td label{margin-right:40px;}
+
+	/*결제 정보 2영역*/
+	.payment_areasum{border:1px solid #484848;}
+	.payment_area_wrap .payment_area2{width:100%;text-align:center;}
+	.payment_area_wrap .payment_area2 th{line-height:47px;color:#737373;background-color:#f9f9f9;}
+	.payment_area_wrap .payment_area2 tr{border-bottom:1px solid #ccc;line-height:22px;}
+	
+	.payment_area_wrap .payment_area2 td{padding:15px 0;}
+	.payment_area_wrap .payment_area2 td.pay_cam{color:#666;}
+	.payment_area_wrap .payment_area2 td.pay_cam strong.g_color{display:block;color:#1e9b00;}
+	.payment_area_wrap .payment_area2 td.pay_cam strong.j_color{display:block;color:#188fdb;}
+	.payment_area_wrap .payment_area2 td.pay_lecname{font-weight:bold;}
+	.payment_area_wrap .payment_area2 td.discount_price span{display:block;}
+	.payment_area_wrap .payment_area2 td.discount_price span.text_price{font-size:11px;color:#e63736;}
+	.payment_area_wrap .payment_area2 td.coupon_menu a{display:block;width:90px;padding:7px 0;background-color:#e41917;color:#fff;border-radius:5px;margin:5px auto;}
+	.payment_area_wrap .payment_area2 td.coupon_menu.use1 a{background-color:#e41917}
+	.payment_area_wrap .payment_area2 td.coupon_menu.none1 a{background-color:#666;}
+	.payment_area_wrap .payment_area2 td.payment_text{color:#e41917;font-size:16px;font-weight:bold;}
+	/*//결제 정보 2영역*/
+	/*결제 정보 3영역*/
+		.payment_area_wrap .payment_area3{padding:15px;font-size:12px;color:#6f6f6f;background-color:#f9f9f9;}
+	/*//결제 정보 3영역*/
+	/*결제 정보 4영역*/
+	.payment_area_wrap .payment_area4{width:100%;position:relative;}
+	.payment_area_wrap .payment_area4 ol{width:996px;overflow:hidden;border:2px solid #484848}
+	.payment_area_wrap .payment_area4 ol li{width:331px;float:left;text-align:center;padding:20px 0;border-right:1px solid #ccc;}
+	.payment_area_wrap .payment_area4 ol li:last-child{border-right:none;width:332px;}
+	.payment_area_wrap .payment_area4 ol li span{display:block;line-height:25px;}
+	.payment_area_wrap .payment_area4 ol li span.pay_area1{color:#666;}
+	.payment_area_wrap .payment_area4 ol li span.pay_area2{font-size:19px;color:#000;font-weight:bold;}
+	.payment_area_wrap .payment_area4 ol li span.area_sum{color:#e41917}
+	.payment_area_wrap .payment_area4 .pay_con{display:block;width:23px;height:23px;position:absolute;top:53px;}
+	.payment_area_wrap .payment_area4 .pay_position1{left:322px;}
+	.payment_area_wrap .payment_area4 .pay_position2{left:655px;}
+	.payment_area_wrap .payment_area4 .pay_con img{width:100%;height:100%;}
+	
+	/*//결제 정보 4영역*/
+	/* //수강결제 정보영역*/
+
+	/*결제 수단 영역*/
+	.pay_way_wrap{width:100%;padding-top:50px;}
+	.pay_way_wrap .pay_way{width:100%;position:relative;}
+	.pay_way_wrap .pay_way h3{font-size:18px;padding-bottom:15px;}
+	.pay_way_wrap .pay_way ul{width:998px;border:2px solid #484848;overflow:hidden;}
+	.pay_way_wrap .pay_way ul li{width:150px;margin-left:30px;float :left;font-size:17px;padding:20px 0 10px;color:#666;}
+	.pay_way_wrap .pay_way ul li a{display:block;width:150px;height:25px;font-size:14px;color:#666;line-height:25px;border:1px solid #ccc;text-align:center;}
+	.pay_way_wrap .pay_way ul li a:hover{background-color:#ccc;color:#fff}
+	.pay_way_wrap .pay_way input[type=radio] { display:none; }
+	.pay_way_wrap .pay_way input[type=radio] + label { height:30px;display: inline-block; cursor: pointer;padding-left:25px;background: url('https://image.hackers.ac/images/lecture/lecture_new/radio_con_off.png')  no-repeat; }
+	.pay_way_wrap .pay_way input[type=radio]:checked + label { color:#000;background-image: url('https://image.hackers.ac/images/lecture/lecture_new/radio_con_on.png'); }
+	.pay_way_wrap .pay_way .bankck_time{display:none;position:absolute;right:28px;top:55px;font-size:10px;color:#d01715;}
+	.pay_way_wrap .pay_way .bankck_time a{height:23px;line-height:23px;border:1px solid #ccc;display:block;width:140px;text-align:center;color:#000;font-size:11px;margin-top:5px;}
+	.pay_way_wrap .pay_way .bankck_time a:hover{color:#fff;background-color:#ccc;}
+
+	/*//결제 수단 영역*/
+
+	/*수강 접수안내 영역*/
+	.lec_boxwrap{width:100%;padding-bottom:50px;}
+	.lec_boxwrap h3{font-size:18px;padding:25px 0 10px;}
+	.lec_boxwrap .lec_areabox{background-color:#f9f9f9;padding:20px;;height:250px;overflow:auto;border-top:1px solid #484848}
+	.lec_boxwrap .lec_areabox1{background-color:#f9f9f9;padding:20px;border-top:1px solid #484848;}
+	.lec_boxwrap > p{text-align:center;}
+	.lec_boxwrap > p.radio_box2{padding:30px 0;font-size:16px;;font-weight:bold;}
+	.lec_boxwrap > p.radio_box2 input[type=checkbox] { display:none; }
+	.lec_boxwrap > p.radio_box2 input[type=checkbox] + label { display: inline-block;height:35px; cursor: pointer;padding-left:25px;background: url('https://image.hackers.ac/images/lecture/lecture_new/radio_con_off.png') no-repeat; }
+	.lec_boxwrap > p.radio_box2 input[type=checkbox]:checked + label { background-image: url('https://image.hackers.ac/images/lecture/lecture_new/radio_con_on.png'); }
+	.lec_boxwrap > p.radio_box2 label span{padding-bottom:1px;border-bottom:1px solid #000;}
+	.lec_boxwrap .pay_buttonbox button{width:200px;height:50px;line-height:50px;color:#fff;border-radius:5px;font-size:16px;font-weight:bold;}
+	.lec_boxwrap .pay_buttonbox button#pay_reset{background-color:#666;margin-right:20px;}
+	.lec_boxwrap .pay_buttonbox button#pay_submit{background-color:#e41917}
+	/*//수강 접수안내 영역*/
+
+	/*쿠폰사용 팝업 영역*/
+	.coupon_pop_wrap{display:none;width:570px;border:2px solid #525252;position:fixed;left:50%;margin-left:-285px;top:200px;}
+	.coupon_pop_wrap .coupon_popt{background-color:#666;padding:15px;color:#fff;font-size:15px;overflow:hidden;font-weight:bold;}
+	.coupon_pop_wrap .coupon_popt a{float:right;}
+	.coupon_pop_wrap .coupon_pop{padding:15px;background-color:#fff;}
+	.coupon_pop_wrap .coupon_pop table{border-top:2px solid #ccc;border-bottom:1px solid #ccc;}
+	.coupon_pop_wrap .coupon_pop table td{padding:14px 0;font-size:15px;border-top:1px solid #ccc;font-weight:bold;color:#000;}
+	.coupon_pop_wrap .coupon_pop table .check_but{text-align:center;}
+	.coupon_pop_wrap .coupon_pop table .check_but input{width:16px;height:16px;}
+	.coupon_pop_wrap .coupon_pop table th{background-color:#f9f9f9;line-height:40px;color:#666;}
+	.coupon_pop_wrap .coupon_poptb{line-height:20px;padding-top:15px;}
+	.coupon_pop_wrap .coupon_poptb  > span{display:block;padding-left:15px;color:#6f6f6f;}
+	.coupon_pop_wrap .coupon_button{text-align:center;padding-top:15px;}
+	.coupon_pop_wrap .coupon_button a{display:inline-block;padding:5px 17px;color:#fff;border-radius:5px;font-weight:bold;}
+	.coupon_pop_wrap .coupon_button a.c_btn1{background-color:#e41917;}
+	.coupon_pop_wrap .coupon_button a.c_btn2{background-color:#666;}
+
+
+
+	/*//쿠폰사용 팝업 영역*/
+
+	
+	
+	
+	
+	
+	
+		/*타이틀 영역*/
+	.titles{width:100%;height:80px;position:relative;border-bottom:1px solid #d4d4d4;}
+	.titles h2{font-size:26px;padding:40px 0 10px;}
+	.titles h2 > span{font-size:12px;color:#878787}
+	.titles .new_navi{position:absolute;right:10px;top:56px;overflow:hidden;font-size:12px;}
+	.titles .new_navi li{float:left;}
+	.titles .new_navi li.on a{font-weight:bold;}
+	.titles .new_navi li > span{padding:0 12px;}
+	/*//타이틀 영역*/
+	/*결제완료 텍스트영역*/
+	.payment_area_wrap .pay_complete{width:100%;text-align:center;}
+	.payment_area_wrap .pay_complete .text_complete1{display:block;padding-top:20px;font-size:19px;line-height:45px;}
+	.payment_area_wrap .pay_complete .text_complete1 > span{color:#e41917;}
+	.payment_area_wrap .pay_complete .text_complete2{color:#878787;}
+	.payment_area_wrap .pay_complete .text_complete2 > span{padding-bottom:1px;border-bottom:1px solid #878787;}
+	/*//결제완료 텍스트 영역*/
+
+	/*결제완료 무통장 영역*/
+	.pay_complete1{width:100%;border:1px solid #484848;margin-top:30px;}
+	.pay_complete1 tr{border-bottom:1px solid #ccc;} 
+	.pay_complete1 tr:last-child{border-bottom:none;}
+	.pay_complete1 th{background-color:#f9f9f9;font-weight:normal;}
+	.pay_complete1 td{padding:15px 8px;font-weight:bold;}
+	.pay_complete1 td span.complete_color{color:#e63736;}
+	/*//결제완료 무통장 영역*/
+
+	/*신청내역 영역*/
+	.pay_complete2_wrap{width:100%;padding-bottom:20px;}
+	.pay_complete2_wrap h3{padding-top:30px;padding-bottom:10px;font-size:18px;}
+	.pay_complete2{width:100%;border:1px solid #484848;}
+	.pay_complete2 th{background-color:#f9f9f9;padding:15px 0;font-weight:normal;}
+	.pay_complete2 td{padding:15px 0;font-weight:bold;text-align:center;border-top:1px solid #ccc;font-size:14px;}
+	.pay_complete2 td.pay_lecture{text-align:left;line-height:22px;font-weight:normal;}
+	.pay_complete2 td.pay_lecture > span{display:block;}
+	.pay_complete2 td.pay_lecture .pay_sub1{color:#777;}
+	.pay_complete2 td.pay_lecture .pay_sub1 .g_color{color:#1e9b00;}
+	.pay_complete2 td.pay_lecture .pay_sub1 .j_color{color:#188fdb;}
+	.pay_complete2 td.pay_lecture .pay_sub2{color:#000;font-size:15px;font-weight:bold;}
+	.pay_complete2 td.pay_lecture .pay_sub3{color:#aaa;}
+	.pay_complete2 td.learn_more a{padding:10px 15px;border:1px solid #ccc;border-radius:5px;}
+	/*//신청내역 영역*/
+	
+	
+	
+	/*결제 정보 4영역*/
+	.payment_area_wrap .payment_area4{width:100%;position:relative;padding-top:20px;}
+	.payment_area_wrap .payment_area4 ol{width:996px;overflow:hidden;border:2px solid #484848}
+	.payment_area_wrap .payment_area4 ol li{width:331px;float:left;text-align:center;padding:20px 0;border-right:1px solid #ccc;}
+	.payment_area_wrap .payment_area4 ol li:last-child{border-right:none;width:332px;}
+	.payment_area_wrap .payment_area4 ol li span{display:block;line-height:25px;}
+	.payment_area_wrap .payment_area4 ol li span.pay_area1{color:#666;}
+	.payment_area_wrap .payment_area4 ol li span.pay_area2{font-size:19px;color:#000;font-weight:bold;}
+	.payment_area_wrap .payment_area4 ol li span.area_sum{color:#e41917}
+	.payment_area_wrap .payment_area4 .pay_con{display:block;width:23px;height:23px;position:absolute;top:53px;}
+	.payment_area_wrap .payment_area4 .pay_position1{left:322px;}
+	.payment_area_wrap .payment_area4 .pay_position2{left:655px;}
+	.payment_area_wrap .payment_area4 .pay_con img{width:100%;height:100%;}
+	
+	/*//결제 정보 4영역*/
+	/* //수강결제 정보영역*/
+	.payment_area_wrap .myclass_btn{display:block;width:200px;height:50px;line-height:50px;background-color:#e41917;margin:30px auto;color:#fff;border-radius:7px;text-align:center;font-size:16px;font-weight:bold;}

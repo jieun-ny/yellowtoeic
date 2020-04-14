@@ -1,0 +1,603 @@
+// Quick banner - S
+var quick_menu = $('#Outer_Quick');
+var quick_top = parseInt($('#Outer_Quick').css('top'));
+quick_menu.css('top', quick_top);
+// Quick banner - E
+
+// 로그인 롤링 배너 변수 - S
+var br_login_top_num = 0;  //롤링배너  인덱스
+var br_login_top_max = 1;	//롤링배너 개수
+var br_login_top_auto = null;	// 자동롤링 
+var br_login_top_time = 3000; // 시간
+
+var br_login_bottom_num = 0;  //롤링배너  인덱스
+var br_login_bottom_max = 1;	//롤링배너 개수
+var br_login_bottom_auto = null;	// 자동롤링 
+var br_login_bottom_time = 3000; // 시간
+// 로그인 롤링 배너 변수 - E
+ 
+// 퀵배너 스크롤링 이벤트 변수 - S
+var gnbHeight = 280;
+var tempHeight = 60;
+// 퀵배너 스크롤링 이벤트 변수 - E
+
+// 패밀리 사이트 바로가기 변수 
+var fam_list = 1;
+
+$(function(){
+    /* GNB 빠른 수강 */
+	if($(".header_wrap").length == 1){
+		//빠른 수강신청창 Default 호출.
+		var loc_no=$("input[name=loc]").val();
+        if(loc_no == 3){ fast_sugang(loc_no,21);}	// 대구토익. 
+        else if (loc_no == 2){ fast_sugang(loc_no,12);} 	// 종로 토익.
+		else { fast_sugang(loc_no,2); }	    // 강남 토익.
+
+		$("input[name=no]").click(function(){ // 빠른 수강 > 시험 클릭 제어 
+			loc_no=$("input[name=loc]").val();
+			var sel_no=$("input[name=no]:checked").val();
+			fast_sugang(loc_no,sel_no);
+		});
+
+		$("#gnb_all_disable").click(function(){
+			//alert('1');
+			$(".speed_lecture_box input[type=checkbox]").prop("checked",false);
+			$(".step3 dl label").removeClass("label_on");
+		});
+
+		$("#gnb_go_search").click(function(){
+			var sel_loc=$("input[name=loc]:checked").val();
+			var sel_no=$("input[name=no]:checked").val();
+			if(sel_loc=='2') $("input[name=no]:checked").val(gnb_search_no[sel_no]);
+			$("form[name=gnbSearchFrm]").submit();
+		});
+		
+		//전체메뉴보기
+		if($("#main_roll").length == 1){
+			$(".all_menu").mouseenter(function(){
+				if($(".all_menu_btn").hasClass("on") != 1){
+					$(".all_menu_btn").addClass("on");
+					$(".all_menu_area").slideDown(400);
+				}else{
+					$(".all_menu_area").slideUp(400,function(){
+						$(".all_menu_btn").removeClass("on");
+					});
+				}
+			});
+
+			$(".all_menu").mouseleave(function(){
+				$(".all_menu_area").slideUp(400,function(){
+					$(".all_menu_btn").removeClass("on");
+				});
+			});
+		}else{
+			$(".all_menu_btn").click(function(){
+				if($(this).hasClass("on") != 1){
+					$(this).addClass("on");
+					$(".all_menu_area").slideDown(400);
+				}else{
+					$(".all_menu_area").slideUp(400,function(){
+						$(".all_menu_btn").removeClass("on");
+					});
+				}
+			});
+		}
+        
+		//레이어 show
+		$(".js-show-btn").mouseenter(function(){
+			var btn = $(this);
+			var list = $(this).parent().find(">.js-show-box");
+			if($(this).hasClass("on") != 1){
+				select_show(list,btn);
+			}else{
+				select_hide(list,btn);
+			}
+		});
+		$(".js-show-area").mouseleave(function(){
+			var btn = $(this).find(">.js-show-btn");
+			var list = $(this).find(">.js-show-box");
+			if(btn.hasClass("on") == 1){
+				select_hide(list,btn);
+			}
+		});
+		
+    } // GNB 빠른 수강 E
+	
+    /* GNB 전체 메뉴 노출 */
+    $(".sub_list li a").mouseover(function(){
+        $(".all_menu_renew").show();
+        $(".sub_list .new").addClass("off");
+    });
+    $(".gnb_wrap").mouseleave(function(){
+        $(".all_menu_renew").hide();
+        $(".sub_list .new").removeClass("off");
+    });
+
+    // GNB 전체 메뉴 노출 - E 
+
+    // Family Site - S
+    if(getCookie('lnb_close_chk')=='1'){
+		//$(".header_wrap").addClass("close");
+		$(".header_wrap").animate({
+			"padding-left":"40"
+		},500,function(){
+			$(".header_wrap").addClass("close");
+		});//header_wrap_slide
+
+		$(".family_site_box").animate({
+			"margin-left":"-98"
+		},500,function(){
+			$(".family_site_box").addClass("close");
+			//$(window).trigger('resize');
+			if($("#main_top_slider").length=='1') $("#main_top_slider").data('plugin_slidesjs').update();
+			else if($("#main_vis_slider").length=='1') $("#main_vis_slider").data('plugin_slidesjs').update();
+			
+		});
+    }
+    
+	$(".family_site_box .family_site_close_btn").click(function(){
+
+		$(".header_wrap").animate({
+			"padding-left":"40"
+		},500,function(){
+			$(".header_wrap").addClass("close");
+		});//header_wrap_slide
+
+		$(".family_site_box").animate({
+			"margin-left":"-98"
+		},500,function(){
+			$(".family_site_box").addClass("close");
+			//$(window).trigger('resize');
+			if($("#main_top_slider").length=='1') $("#main_top_slider").data('plugin_slidesjs').update();
+			else if($("#main_vis_slider").length=='1') $("#main_vis_slider").data('plugin_slidesjs').update();
+		});
+		_setCookie2('lnb_close_chk',1,1);
+		
+    });
+    
+    $(".family_list li strong a").click(function(){
+		var li = $(this).parent().parent();
+		
+		if(li.hasClass("active") == 1){
+			li.find(".family_site_sub").slideUp();
+			li.removeClass("active");
+		}else{
+			$(".family_list > li").find(".family_site_sub").slideUp();
+			$(".family_list > li").removeClass("active");
+
+			li.addClass("active");
+			li.find(".family_site_sub").slideDown();
+		}
+	});
+	// Family Site - E
+	
+	// Footer 수상내역 - S
+	if($('.award-list .template-award-list').length != 0){
+		$.ajax({
+			url: "//www.hackers.ac/json/data.json",
+			dataType: 'jsonp',
+			jsonpCallback: "callback",
+			success: function(data) {
+				var template = $('.award-list .template-award-list');
+				$('.award-list').append(template.html());
+				$.each(data, function (index, item) {//each() 반복문을 사용하여 전달된 콜백함수의 값들을 미리선언한 배열에 각각 추가
+					var popup_img_ink = "javascript:window.open('"+item.popup_img+"', 'pop' , 'scrollbars=yes,width=500,height=700,top=100,left=200');";
+					if(item.link){
+						$(".evt_middle_bnr ul").append("<li><a href='"+item.link+"' target='_blank'><img class='slider-lazy-image' src='//gscdn.hackers.co.kr/champ/blank.png' data-original='"+item.img+"' alt='' /></a></li>");
+					}else{
+						$(".evt_middle_bnr ul").append("<li><img class='slider-lazy-image' src='//gscdn.hackers.co.kr/champ/blank.png' data-original='"+item.img+"' alt='' /></li>");
+					}
+					if(item.popup_img){
+						$(".evt_middle_bnr ul li").eq(index).append('<a href="'+popup_img_ink+'" class="popup-img"><img src="//gscdn.hackers.co.kr/hacademia/images/common/footer/slide/foot_btn.png"></a>');
+					}
+				});
+			},
+		});
+	}
+	// Footer 수상내역 - E
+
+	// 퀵배너 로딩 이벤트 
+	if($("#quick_menu").length == 1){
+		quick_unlock_control();
+	}
+
+	// SAT 패밀리사이트 마우스 벗어날때
+	if($(".fam-site").length == 1){
+		$(".fam-site dd").mouseleave(function(){
+			fam_site();
+		});
+	}
+
+});
+
+// SAT 패밀리사이트 클릭 - S
+function fam_site() {
+
+	if(fam_list == 1){
+		$(".fam-site dd").show();
+		$(".fam-site .state").html("▲");
+		fam_list = 0;
+	}else{  
+		$(".fam-site dd").hide();
+		$(".fam-site .state").html("▼");
+		fam_list = 1;
+	}
+}
+// SAT 패밀리사이트 클릭 - E
+
+// 퀵배너 스크롤링 이벤트  - S
+$(window).scroll(function() {
+	quick_unlock_control();
+});
+
+// 잠금
+function quick_unlock_control() {
+
+	var pos = parseInt($(document).scrollTop());
+	var top_pos = 0;
+
+	if( pos < gnbHeight-tempHeight ) {
+		top_pos = gnbHeight - pos;
+	} else {
+		top_pos = tempHeight;
+	}
+
+	/*
+	
+	$('#quick_menu').css({
+		'position': 'fixed',
+		'top': top_pos + 'px'
+	});*/
+}
+// 퀵배너 스크롤링 이벤트  - E
+
+// 빠른 수강 신청.
+function select_hide(list,btn){
+	$(list).hide();
+	$(btn).removeClass("on");
+}
+function select_show(list,btn){
+	$(btn).addClass("on");
+	$(list).show();
+}
+
+function fast_sugang(loc,subject,sub_class){
+	var dt = {"loc":loc,"subject":subject,"sub_class":sub_class};
+	var fast_su = {"lecture_class":"ki","level_class":"lv","lecture_day":"jg","lecture_time":"timeList"};
+	var fast_url = {"lecture_class":"tosher[]","level_class":"new_level[]","lecture_day":"lesson_week[]","lecture_time":"completion_term[]"};
+	$.ajax({
+		dataType : "json",
+		type:"post",
+		data : dt,
+		url: '/site/gnb_conf_test.php',
+		success : function(result) {
+
+			if(loc != 3){ 
+				$(".loc_con_wrap").html('<div class="ki_con" id="ki"></div>' +
+                    '<div class="lv_con mt20" id="lv"></div>' +
+                    '<div class="jg_con mt20" id="jg"></div>' +
+                    '<div class="timeList_con mt20" id="timeList"></div>'); // 초기 셋팅.
+			} else { // 대구만 다른 구조.
+				$(".loc_con_wrap").html('<div class="lv_con mt20" id="lv"></div><div class="timeList_con mt20" id="timeList"></div><div class="jg_con mt20" id="jg"></div><div class="ki_con mt20" id="ki"></div>'); // 초기 셋팅.
+			}
+			for(var k in result) { // 대분류 돌림.
+				if(k == "subject_name") continue;
+				if(k != "level_comment"){
+					var lec= "";
+					// 대구가 아니고 토스/오픽, GRE일시 수업종류 하나씩만 선택.
+					if(loc!= 3 &&(result.subject_name == "토스&오픽" || result.subject_name == "GRE" || result.subject_name == "중국어" )) { lec = "to"; }
+					$("#"+fast_su[k]).html("<h5></h5><ul></ul>"); // 각 구분별 초기 셋팅.
+					$("#"+fast_su[k]+" > h5").text(result[k].gubun_name);
+					for(var kk in result[k]){ // 소분류 돌림.
+						if(typeof(result[k][kk].name) == "undefined" || result[k][kk].name == "") continue;
+						if(k == "lecture_class" && result[k][kk].in != 1 && result[k][kk].in != 2 ) { // 종합반, 단과가 아님
+
+							if($.inArray(result[k][kk].code, ['7','8','28','29','30','31','32','33','34']) > -1){ // lec_name2 검색.
+								fast_url[k] = "lecture_name[]"; 
+							} else { // cate_nm 으로 검색.
+								fast_url[k] = "bigpart[]";	
+							}
+						}
+
+						var html = '<li><input type="checkbox" name="'+fast_url[k]+'" value="'+result[k][kk].in+'"';
+						// 수업종류에 따라 다른 경우.
+					    if(lec == "to" && k == "lecture_class"){ // 토스 or GRE 수업종류 하나씩만 선택.
+						    if(result[k][kk].name == "오픽"){ sub_class_2 = "opic"; } 
+						    else { sub_class_2 = result[k][kk].name; } // 한글 json 인식복잡.
+						    if(sub_class_2 == sub_class){ html += " checked ";} // 체크박스 체크.
+							html += ' onclick = "fast_sugang('+loc+','+subject+',\''+sub_class_2+'\')" ';			
+						}
+					    html += '>';
+						html += result[k][kk].name;
+						if(typeof(result[k][kk].level_comment) != "undefined"){ // level_comment 
+						html += '<br><em>'+result[k][kk].level_comment+'</em>';
+						}
+						html += '</li>';		
+
+						$("#"+fast_su[k]+" > ul").append(html); // 노출.
+					}
+				}
+			}
+		},
+	});
+}
+
+// 공통 함수
+function _setCookie( name, expiredays ){
+    var _todayDate = new Date();
+    var _value = 1;
+    _todayDate.setDate( _todayDate.getDate() + expiredays );
+    document.cookie = name + "=" + escape( _value ) + "; path=/; expires=" + _todayDate.toGMTString() + ";";
+}
+
+function _setCookie2(name,value,expiredays)
+{
+    var todayDate = new Date();
+    todayDate.setDate( todayDate.getDate() + expiredays );
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+}
+
+//get Cookie
+function getCookie(strName){
+	var strArg = String(strName + "=");
+	var nArgLen, nCookieLen, nEnd;
+	var i = 0, j;
+
+	nArgLen    = strArg.length;
+	nCookieLen = document.cookie.length;
+	if(nCookieLen > 0) {
+		while(i < nCookieLen) {
+			j = i + nArgLen;
+			if(document.cookie.substring(i, j) == strArg) {
+		nEnd = document.cookie.indexOf (";", j);
+		if(nEnd == -1) nEnd = document.cookie.length; return unescape(document.cookie.substring(j, nEnd));
+		}
+			i = document.cookie.indexOf(" ", i) + 1;
+			if (i == 0) break;
+		}
+	}
+	return("");
+}
+
+function onlynumber()
+{
+	var e = event.keyCode;
+	window.status = e;
+	if (e>=48 && e<=57) return;
+	if (e>=96 && e<=105) return;
+	if (e>=37 && e<=40) return;
+	if (e==8 || e==9 || e==13 || e==46) return;
+	event.returnValue = false;
+}
+
+// iframe Resize
+function resizeFrame(iframeObj,sc){
+	try {
+		var innerBody = iframeObj.contentWindow.document.body;
+		oldEvent = innerBody.onclick;
+		innerBody.onclick = function(){ 
+			resizeFrame(iframeObj, 1); oldEvent;
+		};
+	
+		var height ="";
+		if(iframeObj.contentDocument) {
+			height = iframeObj.contentDocument.documentElement.scrollHeight+10+'px'; //FF 3.0.11, Opera 9.63, and Chrome
+		} else { 
+			height = iframeObj.contentWindow.document.body.scrollHeight+10+'px'; //IE6, IE7 and Chrome
+		}
+
+		iframeObj.style.height = height;
+
+		if(sc!=1) this.scrollTo(0,0);
+		
+	}catch(e){}
+}
+
+/**
+ * @brief 즐겨찾기
+ * @param {String} title
+ */
+function addbookmark(title, url){
+	var browser = navigator.userAgent.toLowerCase();
+	if (!url) {
+		url = top.location.href;	
+	}
+
+	if (window.sidebar) { // Mozilla, Firefox, Netscape
+		window.sidebar.addPanel(title, url,"");
+	} else if (window.external){ // IE or chrome
+		if (browser.indexOf('chrome')==-1) { // IE
+			window.external.AddFavorite(url, title);
+		} else { // chrome
+			alert('CTRL+D 또는 Command+D를 눌러 즐겨찾기에 추가해주세요.');
+		}
+	} else if (window.opera && window.print) { // Opera - automatically adds to sidebar if rel=sidebar in the tag
+		return true;
+	} else if (browser.indexOf('konqueror')!=-1) { // Konqueror
+		alert('CTRL+B를 눌러 즐겨찾기에 추가해주세요.');
+	} else if (browser.indexOf('webkit')!=-1) { // safari
+		alert('CTRL+B 또는 Command+B를 눌러 즐겨찾기에 추가해주세요.');
+	} else {
+		alert('사용하고 계시는 브라우저에서는 이 버튼으로 즐겨찾기를 추가할 수 없습니다. 수동으로 링크를 추가해주세요.');
+	}
+}
+
+//숫자체크
+function numCheck(obj){
+	var strr = "0123456789";
+	{
+		//Number_Value = document.getElementById("number").value;
+		Number_Value = obj.value;
+		for (i = 0; i < Number_Value.length; i++) 
+		{
+			for (j = 0; j < strr.length; j++) 
+				if (Number_Value .charAt(i) == strr.charAt(j)) break;
+			if (j == strr.length) 
+			{
+				alert("숫자만 입력가능합니다.");
+				obj.focus();
+				obj.value = "";
+				return false;
+			}
+		}
+	}
+}
+
+// Footer 교재순위 탭 호출
+var book_state = 1;
+var state ="";
+function textbook_list_show(){
+	$(".textbook dd").toggle("normal");
+	
+	if(book_state == 1){
+		state = "닫기 ▲";
+		if($(".textbook dd").html().trim() == ""){
+			$.post("/book_content.php").done(function(data){
+				$(".textbook dd").html(data);
+			});
+		}
+		book_state = 0;
+	}else{
+		state = "열기 ▼";
+		book_state = 1;
+	}
+	$(".txt_book_state").html(state);
+}
+
+
+
+//레이어팝업 공통 닫기
+function close_layer(layer){
+	$("#"+layer).hide();
+}
+
+//레이어팝업 공통 열기
+function open_pop_layer(layer){
+
+	$(".layer_wrap#"+layer).removeClass("hidden");
+
+	if(layer=='login'){
+		br_login_top_max = $("#login_banner_01 ul li").length;
+		br_login_top_auto = setTimeout(login_top_roll,br_login_top_time);
+
+		br_login_bottom_max = $("#login_banner_02 ul li").length;
+		br_login_bottom_auto = setTimeout(login_bottom_roll,br_login_bottom_time);
+		
+		$('form[name=loginFrm] input[name=user_id]').focus();
+	}
+
+}
+
+//레이어팝업 공통 닫기
+function close_pop_layer(layer){
+	$(".layer_wrap#"+layer).addClass("hidden");
+}
+
+function login_top_roll(){
+	
+	br_login_top_num++;
+	if( br_login_top_num == br_login_top_max) br_login_top_num = 0;
+
+	$("#login_banner_01 ul li").hide();
+	$("#login_banner_01 p.btn_br_list a").removeClass("on");
+	$("#login_banner_01 ul li:eq("+br_login_top_num+")").show();
+	$("#login_banner_01 p.btn_br_list a:eq("+br_login_top_num+")").addClass("on");
+
+	if(br_login_top_auto) clearTimeout(br_login_top_auto);	
+	br_login_top_auto = setTimeout(login_top_roll,br_login_top_time);
+}
+
+function login_bottom_roll(){
+	
+	br_login_bottom_num++;
+	if( br_login_bottom_num == br_login_bottom_max) br_login_bottom_num = 0;
+
+	$("#login_banner_02 ul li").hide();
+	$("#login_banner_02 p.btn_br_list a").removeClass("on");
+	$("#login_banner_02 ul li:eq("+br_login_bottom_num+")").show();
+	$("#login_banner_02 p.btn_br_list a:eq("+br_login_bottom_num+")").addClass("on");
+
+	if(br_login_bottom_auto) clearTimeout(br_login_bottom_auto);	
+	br_login_bottom_auto = setTimeout(login_bottom_roll,br_login_bottom_time);
+}
+
+function chkLogin(idx){
+	if(idx == undefined) {
+		idx = 0;
+	}
+	var obj_id=document.getElementsByName('user_id')[idx];
+	var obj_pwd=document.getElementsByName('password')[idx];
+	if(obj_id.value=='' || obj_id.value=='아이디'){
+		alert('아이디를 입력해주세요');
+		obj_id.focus();
+		return false;
+	}
+	if(obj_pwd.value==''){
+		alert('패스워드를 입력해주세요');
+		obj_pwd.focus();
+		return false;
+	}
+	//로그인 체크시 쿠키 차단여부 확인하기 위하여 아래 쿠키 생성.
+	_setCookie2('cookie_error_chk',1,7);
+}
+
+/* 메인페이지의 영상 jw이용해서 쓸때 이거 쓰면되요 */
+/* jw_video('#빼고 영상넣을 아이디','영상 url','영상이미지',해당영상 자동재생우유무true/false) */
+function jw_video(a,b,c,d){
+	jwplayer(a).setup({
+		file: b,
+		image: c,
+		width: '100%',
+		height: '100%',
+		autostart:d,
+		repeat: false,
+		//aspectratio: '16:9',
+		stretching: 'uniform',
+		controls: true,
+		mute: true
+	});
+}
+
+// 개인정보 처리 방침, 이용약관 팝업
+function popup_terms(val){
+	if(val==1){//13일 부터 pop_personal_new2.html  로 변경
+		window.open('https://www.hackers.ac/site/popup/terms/pop_personal_new3.html');
+	}else if(val==2){
+		window.open('https://www.hackers.ac/site/popup/terms/pop_all_agree.html','','width=880,scrollbars=YES,height=700,status=no,resizable=no');
+	}
+}
+
+
+
+
+function bookmarks($this,tit){
+	var bookmarkURL = window.location.href;
+	var bookmarkTitle;
+	if(tit == undefined){
+		bookmarkTitle = document.title;
+	}else{
+		bookmarkTitle = tit;
+	}
+
+	var triggerDefault = false;
+	if(window.sidebar && window.sidebar.addPanel) {
+		// Firefox version < 23
+		window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+	}else if((window.sidebar && (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)) || (window.opera && window.print)){
+		// Firefox version >= 23 and Opera Hotlist
+		$this.attr('href', bookmarkURL);
+		$this.attr('title', bookmarkTitle);
+		$this.attr('rel', 'sidebar');
+		$this.off(e);
+		triggerDefault = true;
+	}else if(window.external && ('AddFavorite' in window.external)){
+		// IE Favorite
+		window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+	}else{
+		// WebKit - Safari/Chrome
+		alert((navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D 키를 눌러 즐겨찾기에 등록하실 수 있습니다.');
+	}
+	return triggerDefault;
+}
+
+

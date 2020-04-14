@@ -1,0 +1,162 @@
+/*
+	2015-07-14
+	family_site
+*/
+
+html{height:100%;}
+body {height:100%; margin:0; padding:0; font-size:13px; -webkit-text-size-adjust:none; font-family: 'Nanum Gothic', sans-serif; color:#595959;font-weight:normal}
+* {margin:0; padding:0;  font-family:'Nanum Gothic'; -webkit-print-color-adjust:exact; -webkit-text-size-adjust:none; /*font-weight:normal*/}
+
+table {border-collapse: collapse}
+img,fieldset {border:0;}
+img {margin-bottom:0; vertical-align:top}
+li,dt,dd {list-style:none}
+a {color:#595959; text-decoration:none; cursor:pointer}
+button {cursor:pointer; border:none}
+button span {display:none}
+/*b {font-weight:normal;}*/
+b a {font-weight:bold !important;color:#000 !important; font-weight:600;}
+em,address,var {font-style:normal}
+var {padding:0 3px}
+legend, caption {display:none}
+input, select {vertical-align:middle}
+a {font-family:'Nanum Gothic'; color:#2b2b2b; text-decoration:none}
+table,td,tr,div {font-family:'Nanum Gothic'; color:#2b2b2b;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, big, cite, code, del, dfn, em, img, ins, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {padding:0; margin:0; border:0 none}
+select, input, textarea {vertical-align:middle;font-family:Gulim, Arial, AppleGothic, verdana, sans-serif}
+form {font-family:Gulim, Arial, AppleGothic, verdana, sans-serif} 
+
+/* family_site */
+.family_site_box{border-right:1px solid #dedfe2;z-index:100002;background:#f2f2f2;width:159px;height:100%;position:absolute;left:0;top:0;padding-top:20px;font-family:'noto' !important;}
+.family_site_box,.family_site_box a{font-family:'noto' !important;}
+.family_site_box .login_line{background:none;text-align:left;color:#a7a7a7;padding:0 20px 0 30px;line-height:48px;height:48px;border-bottom:1px solid #dedfe2;}
+.family_site_box .login_line a{color:#101013 !important;font-size:11px;}
+
+.login_after_line{margin-top:45px;position:relative;z-index:111;color:#101013;font-size:12px;letter-spacing:-1px;padding:0 20px;height:61px;text-align:center;border-bottom:1px solid #dedfe2;}
+.login_after_line.new{margin-top:26px;position:relative;z-index:111;color:#101013;font-size:12px;line-height:15px;letter-spacing:-1px;padding:0 20px;height:77px;text-align:left;border-bottom:1px solid #dedfe2;}/* 151214 추가*/
+.family_site_box .select_box{margin-top:10px;}
+.family_site_box .select_box > a{display:block;font-size: 12px;color: #9a9a9a;/*width: 110px;*/height: 22px;padding-left:4px;line-height: 22px;background: url("//gscdn.hackers.co.kr/hacademia/images/common/bg_login.png") 95px 0 no-repeat;border: 1px solid #a0a0a0;}
+.family_site_box .select_list{display:none;border:1px solid #dedfe2;border-top:0;background:#c0c0c0;}
+.family_site_box .select_list li a{text-align:left;font-size:11px;letter-spacing:-1px;padding-bottom:3px;padding-top:3px;padding-left:5px;display:block;color:#fff;}
+.family_site_box .select_list li a:hover{background:#858585;color:#fff !important;}
+.login_name {color:#101013;font-weight:bold;}
+.family_site_box .family_site_open_btn{display:none;}
+/* 닫기 */
+.family_site_box.close{/*width:42px;*/overflow:hidden;border:0;background:#f2f2f2 url("//gscdn.hackers.co.kr/hacademia/images/common/bg_family_site_open.png") repeat-y right 0;}
+.family_site_box.close .close_area{display:none;}
+.family_site_box.close .family_site_open_btn{display:block;float:right;margin-top:124px;}
+
+.family_site_tit{font-size:0;*text-indent:0;text-indent:-9999em;display:block;border-bottom:1px solid #dedfe2;}
+/* 151214 수정 */
+.family_site_tit{margin-top:26px;padding-bottom:16px;height:61px;}
+.family_list{padding-bottom:40px;}
+.family_list strong{display:block;}
+.family_list strong a{color:#585858;font-size:14px;padding-left:25px;display:block;height:57px;line-height:57px; background:url("//gscdn.hackers.co.kr/hacademia/images/main/common/re_bg_btn.png") no-repeat 136px center;}
+.family_list > li{padding:0 !important;border-bottom:1px solid #e0e1e6;}
+.family_list li .family_site_sub{display:none;border-top:1px solid #e0e1e6;}
+.family_list li.on .family_site_sub{display:block;}
+
+.family_list li.active,.family_list li.on{background:#fff;}
+.family_list li .family_site_sub{overflow:hidden;padding:25px 0 20px;}
+.family_list li .family_site_sub li{padding-left:25px;margin-bottom:8px;}
+.family_list li .family_site_sub li a{color:#858585;font-size:12px;}
+.family_list li .family_site_sub li span{font-size:10px;}
+.family_list li .family_site_sub li.active a,
+.family_list li .family_site_sub li a:hover{color:#616161;font-weight:bold;}
+/*.family_list li.on.active strong a,
+.family_list li.active strong a{background:url("//gscdn.hackers.co.kr/hacademia/images/common/bg_family_site_sub.png") no-repeat 136px center;}
+*/
+
+/* 160126추가 */
+.family_list li.hackers_cs a, .family_list li.hackers_schol a{height:20px;padding:13px 0 11px 25px;font-size:11px;line-height:20px;background:#fafafa; }
+.family_list li.hackers_cs a em{display:block;padding-left:26px;background:url('//gscdn.hackers.co.kr/hacademia/images/main/common/re_bg_btn.png') no-repeat 0 -440px;}
+.family_list li.hackers_schol a em{display:block;padding-left:26px;color:#d11b17;background:url('//image.hackers.ac/images/common/icn_lnb_schol.png') no-repeat 0 50%;}
+
+
+
+
+
+/* lnb 펼침/접기 기능 */
+.family_site_box .family_active_btn{display:block;}
+.family_site_box .family_active_btn .blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0;}
+.family_site_box .family_active_btn .open_img{display:block;width:140px;height:22px;background:url("//image.hackers.ac/images/common/com_img.png") no-repeat -745px -678px;}
+.family_site_box .family_active_btn .close_img{display:none;position:absolute;top:15px;right:0;width:42px;height:195px;background: url("//image.hackers.ac/images/common/com_img.png") no-repeat -958px -505px;text-align:right;}
+/* active */
+.family_site_box.active{border:0;}
+.family_site_box.active .close_area{display:none;}
+.family_site_box.active .family_active_btn{padding-top:50px;}
+.family_site_box.active .open_img{display:none;}
+.family_site_box.active .close_img{display:block;}
+/* //lnb 펼침/접기 기능 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.on#language strong a{color:#d01716;} /* 어학 */
+.on#conversation strong a{color:#d01716;} /* 회화 */
+.on#group strong a{color:#d01716;} /* 그룹소개 */
+.on#community strong a{color:#d01716;} /* 커뮤니티 */
+.on#job strong a{color:#d01716;} /* 취업 */
+.on#pass strong a{color:#d01716;} /* 공무원 */
+.on#finance strong a{color:#d01716;} /* 자격증 */
+.on#hackersut strong a{color:#d01716;}/* 편입/평생교육 */
+
+/*.header_wrap.close{padding-left:40px;}*/
+.family_site_tit.new{width:140px;text-align:center;}
+.family_site_box.new{width:140px;}
+.family_site_box.new .login_line{position:relative;padding-left:15px;}
+.family_list.new strong a{padding-left:14px;}
+.family_list.new li .family_site_sub li{padding-left:14px;}
+.family_list strong a{background:url("//gscdn.hackers.co.kr/hacademia/images/main/common/re_bg_btn.png") no-repeat 100% -283px}
+.family_list li.on.active strong a,
+.family_list li.active strong a{background-position:100% -353px;}
+.facebook_btn.new{padding-left:14px;}
+.facebook_btn .sns_tit{background:url("//image.hackers.ac/images/common/com_img.png") no-repeat -350px -490px;width:65px;height:13px;display:block;font-size:0;text-indent:-9999em;*text-indent:0}
+.facebook_btn.new .sns_btn a{margin-right:7px;display:inline-block;*display:inline;*zoom:1;font-size:0;text-indent:-9999em;*text-indent:0;width:32px;height:28px;margin-right:0px;background:url("//image.hackers.ac/images/common/com_img.png") no-repeat -350px -510px;}
+.facebook_btn.new .sns_btn a.btn2{background-position:-387px -510px;}
+.facebook_btn.new .sns_btn a.btn3{background-position:-424px -510px;}
+.facebook_btn.new .sns_btn a.btn4{background-position:-350px -549px;}
+.facebook_btn.new .sns_btn a.btn5{background-position:-387px -549px;}
+.facebook_btn.new .sns_btn a.btn6{background-position:-424px -549px;}
+.facebook_btn.new .sns_btn a.btn7{background-position:-350px -589px;}
+.facebook_btn.new .sns_btn a.btn8{background-position:-387px -589px;}
+/* 160328 : 회원가입이벤트 추가 */
+.bul_e_join{font-size:0 !important;display:block;width:15px;height:13px;background:url("//image.hackers.ac/images/common/com_img.png") no-repeat -350px -648px;position:absolute;top:17px;right:23px;}
+.bul_e_join_txt{position:absolute;top:-10px;right:23px;}
+
+/* 170509 어학원 famliy_site 변경 */
+li.re_hackersac{background-color:#C00000 !important;}
+a.hackersac_a{color:#fff !important;}
+.re_siteSub{background-color:#fff !important; padding:20px 0 !important;}
+.re_siteSub li{padding:0 !important; margin:0 !important;}
+.re_siteSub li a{font-size:12px; vertical-align:middle; color:#858585; display:block; letter-spacing:-1px; padding:5px 0 5px 0 !important; margin-left:14px !important;}
+.re_siteSub li:hover{background-color:#F8E2E2 !important;}
+.re_siteSub li a:hover{font-weight:bold; color:#616161; font-size:12px;}
+
+/* 2019.7.1(어학원 패밀리) */ 
+.login_box{}
+.login_box li{height:40px;background:#f2f2f2;border-bottom:1px solid #e0e1e6;}
+.login_box li a{position:relative;padding:0 10px;display:block;height:40px;line-height:40px;color:#787878;}
+.login_box li a em{display:inline-block;width:20px;height:18px;background-image:url("//gscdn.hackers.co.kr/hacademia/images/common/icon/login_icon2.png");margin-right:8px;vertical-align:middle;}
+.login_box li a.lo_member em{background-position:left 0;}
+.login_box li a.lo_login em{background-position:left -17px;}
+.login_box li a.lo_logout em{background-position:left -34px;}
+.login_box li a.lo_basket em{background-position:left -51px;}
+.login_box li a.lo_info em{background-position:left -68px;}
+.login_box li a.lo_mypage em{background-position:left -85px;}
+.login_box li a.hackers_cs em{background-position:left -105px;}
+
+.hackers-site-menu li.on dt a{color:#d01715}
+.join_events{display:block;width:100%;line-height:45px;font-weight:400;color:#404040;position:relative;font-size:14px;text-align:center;font-family:'noto' !important;border-bottom:1px solid #e0e1e6;cursor: pointer;}
+.join_events > span{display:none;width:100%;position:absolute;left:0;top:0;line-height:45px;background-color:#f2f2f2;color:#d01716;font-weight:bold;font-family:'noto' !important;}
+
+

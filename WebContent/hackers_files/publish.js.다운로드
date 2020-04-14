@@ -1,0 +1,512 @@
+// 레이어 닫기
+function layer_close(el){
+	$(document).ready(function(){
+		$("#"+el).hide();
+	});
+}
+
+function layer_click_open(el) {
+	$(document).ready(function(){
+		$("#"+el).show();
+	});
+}
+
+// 레이어팝업
+function layer_open(el) {
+	$(document).ready(function(){
+		var temp = $('#' + el);
+		var bg = temp.prev().hasClass('layer_bg');	//dimmed 레이어를 감지하기 위한 boolean 변수
+		var id = temp.attr("id");
+		//$("#"+id);
+
+		if(bg){
+			$("#"+id).parent().fadeIn()
+			//$('.layer').fadeIn();	//'bg' 클래스가 존재하면 레이어가 나타나고 배경은 dimmed 된다. 
+		}else{
+			temp.fadeIn();
+		}
+
+		// 화면의 중앙에 레이어를 띄운다.
+		if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
+		else temp.css('top', '0px');
+		if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
+		else temp.css('left', '0px');
+
+		temp.find('.close').click(function(e){
+			if(bg){
+				$('.layer_n').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다. 
+			}else{
+				temp.fadeOut();
+			}
+			//e.preventDefault();
+		});
+
+		$('.layer_n .layer_bg').click(function(e){	//배경을 클릭하면 레이어를 사라지게 하는 이벤트 핸들러
+			$('.layer_n').fadeOut();
+			//e.preventDefault();
+		});
+	});
+}
+//javascript:layer_open('layer01')"
+
+
+$(document).ready(function(){
+	//tab id로 제어
+	if($(location).attr("search").length > 0){
+		var url = $(location).attr("search").split("mod=");
+		var nm = "#" + url[1];
+
+		$(".js-tab-type1 li a").each(function(){
+			if($(this).attr("target") != "_blank"){
+				var $div = $(this).parents(".js-tab-type1").parent();
+				var $li = $(this).parent().siblings("li");
+				var $id = $(this).attr("href");
+
+				if($id == nm){
+					$li.removeClass("on");
+					$(this).parent().addClass("on");
+
+					$(".js-tab-type1-con",$div).hide();
+					$($id).show();
+				}
+			}
+		});
+		
+		if(url.length == 1){
+			$(".js-tab-type2 li").eq(0).addClass("on");
+			$(".js-tab-type2-con").eq(0).show();
+		} else {
+			$(".js-tab-type2 li a").each(function(){
+				//if($(this).attr("target") != "_blank"){
+					var $div = $(this).parents(".js-tab-type2").parent();
+					var $li = $(this).parent().siblings(">li");
+					var $id = $(this).attr("href");
+
+					if($id == nm){
+						if($(this).parent().parent().parent().parent().hasClass("all") == 1){
+							$(".js-tab-type2 > li").removeClass("on");
+						}else{
+							$li.removeClass("on");
+						}
+						$(this).parent().addClass("on");
+						$(".js-tab-type2-con",$div).hide();
+						$($id).show();
+						if($('#star_teacher_tab').length > 0) goTeacherScroll("#star_teacher_tab");
+					}
+				//}
+			});
+		}
+	}
+
+ /* 모바일 config 모바일tab*/
+	//tab
+	$(".js-tab-type1 li a").click(function(ev){
+		var $this = $(this);
+		if($this.attr("target") != "_blank"){
+			ev.preventDefault();
+			var $li = $this.parent();
+			var $div = $this.parent().parent().parent();
+			var nm = $li.parent().find("li").index($li);
+            $li.siblings("li").removeClass("on");
+			$li.addClass("on");
+
+			/*$("> .js-tab-type1-con",$div).hide().removeCalss('on');*/
+
+			var $cur = $("> .js-tab-type1-con",$div).eq(nm);
+
+            $('.js-tab-type1-con',$div).hide().removeClass('on');
+
+            $cur.addClass('on').show();
+			var slider = $cur.find('.bxslider-default').data('slider')
+
+			if(slider) slider.reloadSlider();
+
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                config.resizeMap(-1);
+            }
+            var $ul = $cur.children('ul');
+            if($ul.length) {
+            	$ul.find('a').eq(0).trigger('click');
+			}
+			else if($cur.children('div').children('ul').length) {
+                $cur.children('div').children('ul').find('a').eq(0).trigger('click');
+			}
+		}
+	});
+
+    //tab
+    $(".js-tab-type2 li a").click(function(ev){
+        var $this = $(this);
+        if($this.attr("target") != "_blank"){
+            ev.preventDefault();
+            var $li = $this.parent();
+            var $div = $this.parent().parent().parent();
+            var nm = $li.parent().find("li").index($li);
+            $li.siblings("li").removeClass("on");
+            $li.addClass("on");
+
+			/*$("> .js-tab-type1-con",$div).hide().removeCalss('on');*/
+
+            var $cur = $("> .js-tab-type2-con",$div).eq(nm);
+
+            $('.js-tab-type2-con',$div).hide().removeClass('on');
+
+            $cur.addClass('on').show();
+            var slider = $cur.find('.bxslider-default').data('slider')
+
+            if(slider) slider.reloadSlider();
+
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                config.resizeMap(-1);
+            }
+            var $ul = $cur.children('ul');
+            if($ul.length) {
+                $ul.find('a').eq(0).trigger('click');
+            }
+            else if($cur.children('div').children('ul').length) {
+                $cur.children('div').children('ul').find('a').eq(0).trigger('click');
+            }
+            else if($cur.find('ul').length) {
+            	$cur.find('ul').eq(0).find('li a').eq(0).trigger('click');
+			}
+        }
+    });
+    $(".js-tab-type5 li a").click(function(ev){
+        var $this = $(this);
+        if($this.attr("target") != "_blank"){
+            ev.preventDefault();
+            var $li = $this.parent();
+            var $div = $('#star_teacher');
+            var str = $this.attr('href');
+            var nm = $li.parent().find("li").index($li);
+
+            $li.siblings("li").removeClass("on");
+
+            $('.tc_thumb_list').find('li').removeClass('on');
+            
+            $li.addClass("on");
+			/*$("> .js-tab-type1-con",$div).hide().removeCalss('on');*/
+
+            var $cur = $("> .js-tab-type2-con",$div).eq(nm);
+
+			//$('.js-tab-type2-con').hide().removeClass('on');
+			
+			$(str).siblings('.js-tab-type2-con').removeClass('on').hide();
+
+            $(str).addClass('on').show();
+
+            var slider = $cur.find('.bxslider-default').data('slider')
+
+            if(slider) slider.reloadSlider();
+
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                config.resizeMap(-1);
+            }
+            var $ul = $cur.children('ul');
+            if($ul.length) {
+                $ul.find('a').eq(0).trigger('click');
+            }
+            else if($cur.children('div').children('ul').length) {
+                $cur.children('div').children('ul').find('a').eq(0).trigger('click');
+            }
+            else if($cur.find('ul').length) {
+                $cur.find('ul').eq(0).find('li a').eq(0).trigger('click');
+            }
+            
+        }
+    });
+    if($('.js-tab-type5').length) {
+		var cur = $('.tc_thumb_list').find('a').removeClass('on').filter(function () {
+			return this.getAttribute('href')==='#'+tabDefaultValue;
+		}).click();
+	}
+
+	//tab 
+	$(".js-tab-type-over li a").mouseover(function(){ 
+		if($(this).attr("target") != "_blank"){
+			var $li = $(this).parent(); 
+			var $div = $(this).parent().parent().parent(); 
+			var nm = $li.parent().find("li").index($li); 
+			$li.siblings("li").removeClass("on"); 
+			$li.addClass("on"); 
+
+			$("> .js-tab-type-over-con",$div).hide(); 
+			$("> .js-tab-type-over-con",$div).eq(nm).show(); 
+			//return false; 
+		}
+	});
+
+	//tab 
+	$(".js-tab-type3 > ul > li > a").click(function(){
+		var $li = $(this).parent(); 
+		var $div = $(this).parent().parent().parent(); 
+		var nm = $li.parent().find("li").index($li); 
+		$li.siblings("li").removeClass("on"); 
+		//console.log($li);
+		//console.log($div);
+		$li.addClass("on"); 
+
+		$("> .js-tab-type3-con",$div).hide(); 
+		$("> .js-tab-type3-con",$div).eq(nm).show(); 
+		return false; 
+	});
+
+	//tab_id 부여
+	$(".js-tab-type2 > div > ul > li > a").click(function(){ 
+		var $div = $(this).parents(".js-tab-type2").parent();
+		//var $li = $(this).parent().siblings(">li");
+		var $li = $(".js-tab-type2 > div > ul > li");
+		if($(this).parent().parent().parent().parent().hasClass("all") == 1){
+			var $li = $(".js-tab-type2 > div > ul > li");
+		}
+		var $id = $(this).attr("href");
+
+		$li.removeClass("on");
+		$(this).parent().addClass("on");
+
+		$(".js-tab-type2-con",$div).hide();
+		$($id).show();
+		return false;
+
+	});
+	if($('.js-tab-type2').length) {
+		var m = window.tabNum? window.tabNum: 1;
+		$('.tab'+m).find('a').trigger('click');
+	}
+
+	$(".js-tab-type4").click(function(){
+		var $id = $(this).attr("href");
+		$(".js-tab-type4-con").hide();
+		$($id).show();
+		return false; 
+	});
+
+	//tab id로 제어
+	if($(location).attr("search").length > 0){
+		var url = $(location).attr("search").split("tab=");
+		var nm =  url[1];
+
+		$(".js-tab-id li a").each(function(){
+			//var $div = $(this).parents(".js-tab-id").parent();
+			var $li = $(this).parent().siblings("li");
+			var $id = $(this).attr("href");
+			
+			var val = new String($id);
+			var regex = /[^0-9]/g;
+			val = val.replace(regex, ''); //숫자만 추출
+			var tab_id = $id.split(val);
+
+			if(val == nm){
+				$li.removeClass("on");
+				$(this).parent().addClass("on");
+
+				$(".js-tab-id-con").hide();
+				//$(".js-tab-id-con",$div).hide(); 
+				$(tab_id[0]+val).show();
+			}
+		});
+	}
+	$(".js-tab-id li a").click(function(ev){
+		ev.preventDefault();
+		var $li = $(".js-tab-id li");
+		var $id = $($(this).attr("href"));
+
+		if($id.length) {
+			$li.removeClass("on");
+			$(this).parent().addClass("on");
+			$(".js-tab-id-con").hide();
+			$id.show();
+        }
+        else {
+			return ;
+		}
+		return false;
+	});
+
+	$(window).trigger('old-tab', ['js-tab-type']);
+//   퀵배너
+	function scroll(y){ 
+		window.scrollTo(0,y); 
+	}
+	var Outer_Quick = $('#Outer_Quick_mn');
+	//top 높이지정
+	var quick_top = 70;
+	Outer_Quick.css('top', 70);
+	$(window).scroll(function(){
+		Outer_Quick.stop();
+		if ($(window).scrollTop() == $(document).height() - $(window).height()){
+			// IE일 경우 예외처리
+			var browser=navigator.userAgent.toLowerCase();
+			if ( browser.indexOf('msie')==-1) {
+				var quick_bottom = 450 - $('#Outer_Quick_mn').height();
+			} else {
+				var quick_bottom = 650 - $('#Outer_Quick_mn').height();efl_champ
+			}
+			Outer_Quick.animate( { "top": $(document).scrollTop() + quick_bottom + "px" }, 800 );
+		} else {
+			if($(document).scrollTop() < 200){
+				var quick_top2 = 70 - $(document).scrollTop();
+				Outer_Quick.animate( { "top": $(document).scrollTop() + quick_top2 + "px" }, 800 );
+			}else{
+				Outer_Quick.animate( { "top": $(document).scrollTop() + 10 + "px" }, 800 ); // 스크롤시 브라우저 위쪽과 떨어지는 거리
+			}
+		}
+	});
+});
+
+function goTeacherScroll(move){
+	$(document).ready(function(){
+		var position=$( move+":visible").offset().top;
+		$("html, body").animate({scrollTop:position},1000);
+	});
+}
+
+/* 특강 적중레이어 */
+$(document).ready(function () {
+    $(".j_con_btn").click(function () {
+        var $this = $(this);
+        if (!$this.hasClass("on")) {
+            $('.j_con_center').show();
+            $('.j_con_top').addClass("on");
+            $this.addClass("on");
+        } else {
+            $('.j_con_center').hide();
+            $('.j_con_top').removeClass('on');
+            $this.removeClass('on');
+        }
+    });
+
+    $(".close_top_btn").click(function () {
+        $(".j_con_center").hide();
+        $(".j_con_top").removeClass("on");
+        $(".layer_btn2").removeClass("on");
+    })
+
+});
+
+/* 동현주임님 스피킹캠프 */
+/*$(document).ready(function(){
+
+	$('.tab_tit #tab_btn_01 area').click(function(){
+		var this_index = $(this).index();
+		$('.tab_tit > img').attr('src','//image.hackers.ac/images/event/2017/speaking_camp/v3/tab_btn_'+this_index+'.jpg');
+		$('.tab_content > div').eq(this_index).addClass('on').siblings().removeClass('on');
+		return false;
+	});
+
+	$('.tea_slideWrap').find('.first-list a').addClass('on');
+});*/
+
+/* toggle */
+/*$(document).ready(function(){
+	var $j_con_btn = $('.j_con_btn'),
+		$j_con_center = $('.j_con_center'),
+		sell = true,
+		selected = sell;
+
+	function j_isopen(selected){
+		if(selected){
+			$j_con_center.slideUp('slow');
+		}
+		else{
+			$j_con_center.slideDown('slow');
+		}
+		selected =! selected;
+	}
+	$j_con_btn.click(j_isopen);
+})*/
+
+/*
+
+ $(document).ready(function(){
+ tabcon_Wrap('#tabcon_Wrap01');
+ })
+ function tabcon_Wrap(sell){
+ if(!$(sell).length) return ;
+ var tab_container=$(sell);
+ var $tab_sell=tab_container.find('li');
+ var $tab_con=tab_container.find('.tab_contents');
+
+ $tab_sell.find('a').click(function(ev){
+ ev.preventDefault();
+
+ var $sellec=$(this);
+ var id_num=$sellec.attr('href');
+
+ $tab_con.hide();
+ $(id_num).show().find('.bxslider').data('slider').reloadSlider()
+ ;
+
+ $tab_sell.removeClass('on');
+ $sellec.parents('li').addClass('on');
+
+ })
+ }
+*/
+
+/*$(document).ready(function(){
+	reTabContent('#scheduleTab01');
+})
+
+function reTabContent(sell){
+	console.log($(sell));
+	var $sell_li = $(sell).find('li'),
+		content_sell = [];
+
+	$sell_li.find('a').each(function(){
+		content_sell.push($(this).attr('href'));
+	});
+
+	content_sellResult = content_sell.join(',');
+	console.log(content_sellResult);
+
+	var $conTentR = $(content_sellResult);
+
+	$sell_li.find('a').click(function(ev){
+		ev.preventDefault();
+		var $this_selection = $(this),
+			idNum = $this_selection.attr('href');
+
+		console.log($(idNum));
+
+		$conTentR.hide();
+		$(idNum).show();
+
+		$sell_li.removeClass('on');
+		$this_selection.parent('li').addClass('on');
+	})
+}*/
+
+/* 스피킹캠프 텝 */
+/*$(document).ready(function(){
+	$('.bxslider').bxSlider(
+		{mode: 'horizontal', pause: 3000, speed: 700, pager: false, controls: true, auto:false}
+	);
+
+	var tabList = ['.tabList_con01' , '.tabList_con02' , '.tabList_con03' , '.tabList_con04'];
+	var $teacher_listMap = $('#teacher_listMap');
+	var len = tabList.length;
+	for(var i = 0; i< len; ++i){
+		var tabBtn = tabList[i];
+		$(tabBtn).mouseenter(function (ev) {
+			console.log(ev);
+			var $teacher_content = $('.teacher_content');
+
+			var $contectSell = $(this);
+			var idNum = $contectSell.attr('href');
+
+			$teacher_content.hide();
+			$(idNum).show();
+
+			$('.bxslider').data('bxSlider').reloadSlider();
+
+			var num = idNum.match(/\d+/g)[0];
+			var path = '//image.hackers.ac/images/event/2017/speaking_camp/teacher_list'+num+'.jpg';
+			console.log(path);
+			$teacher_listMap.attr('src' , path);
+		})
+	}
+})*/
+
+
+

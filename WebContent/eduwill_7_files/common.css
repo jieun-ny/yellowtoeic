@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+/* text hidden */
+.hidde,
+.sr_only,
+.sr-only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+/* grid system */
+.grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+.grid:before,
+.grid:after { content: ''; display: table; }
+.grid:after { clear: both; }
+
+.grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+.grid .col-1 { width: 8.333333%; }
+.grid .col-2 { width: 16.666667%; }
+.grid .col-3 { width: 25%; }
+.grid .col-4 { width: 33.333333%; }
+.grid .col-5 { width: 41.666667%; }
+.grid .col-6 { width: 50%; }
+.grid .col-7 { width: 58.333333%; }
+.grid .col-8 { width: 66.666667%; }
+.grid .col-9 { width: 75%; }
+.grid .col-10 { width: 83.333333%; }
+.grid .col-11 { width: 91.666667%; }
+.grid .col-12 { width: 100%; }
+
+/* Facebook Icon Guide */
+.g_fb_button { position: absolute; right: 0; top: 20px; width: 38px; height: 38px; }
+.g_fb_button .hidden { position: absolute; z-index: -1; visibility: hidden; }
+.g_fb_button a { display: block; width: 38px; height: 38px; background: url('//img.eduwill.net/Img2/event/facebook/black/facebook_off.png') no-repeat 50% top; }
+.g_fb_button a:hover { background: url('//img.eduwill.net/Img2/event/facebook/black/facebook_on.png') no-repeat 50% top; }
+
+.g_fb_w_button { position: absolute; right: 0; top: 20px; width: 38px; height: 38px; }
+.g_fb_w_button .hidden { position: absolute; z-index: -1; visibility: hidden; }
+.g_fb_w_button a { display: block; width: 38px; height: 38px; background: url('//img.eduwill.net/Img2/event/facebook/white/facebook_off.png') no-repeat 50% top; }
+.g_fb_w_button a:hover { background: url('//img.eduwill.net/Img2/event/facebook/white/facebook_on.png') no-repeat 50% top; }
+
+.d_day { z-index: 1001; }
+
+/* consult-banner */
+.consult-banner { position: relative; width: 134px; line-height: 1.2; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; background-color: #ffde26; }
+.consult-banner .roboto { font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; }
+.consult-banner .holder { padding: 20px 14px; }
+.consult-banner .title { font-size: 18px; font-weight: 700; color: #000; }
+.consult-banner .title strong { display: block; font-family: 'Lato', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-weight: 700; font-size: 17px; font-weight: normal; color: #1388ff; }
+.consult-banner .tel { margin-top: 12px; line-height: .9; font-size: 30px; font-family: 'Montserrat', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-weight: 700; color: #000; letter-spacing: 0; word-break: break-word; word-break: keep-all; }
+.consult-banner .form-control { margin-top: 2px; }
+.consult-banner .form-control:first-child { margin-top: 8px; }
+.consult-banner .form-control .text { width: 100%; height: 28px; padding: 0 4px; text-align: left; border: 1px solid #505861; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px;  background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.consult-banner .form-control select.text { padding-right: 0; }
+.consult-banner .action { margin-top: 12px; }
+.consult-banner .action a { display: block; padding: 8px 0; background-color: #0b151f; }
+.consult-banner .action span { font-size: 13px; font-weight: 700; color: #ffde26; }
+.consult-banner .banner-close { position: absolute; top: 0; right: 0; width: 26px; height: 26px; background-color: #ffde26; }
+.consult-banner .banner-close:before,
+.consult-banner .banner-close:after { content: ''; position: absolute; top: 50%; left: 50%; border-radius: 2px; background-color: #9f7823; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.consult-banner .banner-close:before { width: 14px; height: 2px; margin: -1px 0 0 -7px; }
+.consult-banner .banner-close:after { width: 2px; height: 14px; margin: -7px 0 0 -1px; }
+
+.layer-consult.in { display: block; }
+.layer-consult { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 10000; display: none; width: 100%; height: 100%; text-align: center; background-color: rgba(0, 0, 0, .4); }
+.layer-consult .layer-wrap { position: absolute; top: 50%; left: 50%; z-index: 10001; display: block; width: 380px; height: auto; margin-left: -190px; line-height: normal; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; border: 2px solid #ffde26; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.layer-consult .layer-head { padding: 10px 0 12px; text-align: center; font-size: 24px; font-weight: 700; color: #000; background-color: #ffde26; }
+.layer-consult .layer-body { padding: 0 18px 28px; }
+.layer-consult .holder { margin-top: 12px; }
+.layer-consult .holder:first-child { margin-top: 20px; }
+.layer-consult .holder input { vertical-align: middle; }
+.layer-consult p { margin: 0; text-align: center; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; }
+
+.layer-consult .holder.is-user .grid { margin-top: 8px; }
+.layer-consult .holder.is-user .grid:first-child { margin-top: 0; }
+.layer-consult .holder.is-user label { width: 16%; text-align: left; line-height: 30px; font-size: 13px; color: #000; }
+.layer-consult .form-control { width: 84%; }
+.layer-consult .form-control .text { width: 100%; height: 30px; padding: 0 4px; text-align: left; border: 1px solid #d5d5d5; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-size: 13px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.layer-consult .form-control select.text { padding-right: 0; }
+.layer-consult .col:only-child { width: 100%; }
+.layer-consult .form-control .textarea { width: 100%; height: 70px; padding: 10px; resize: none; }
+
+.layer-consult .holder.is-user .time label { display: block; float: none; clear: both; width: 100%; }
+.layer-consult .holder.is-user .time .form-control { width: 50%; }
+.layer-consult .holder.is-user .time .datepicker { color: #000; }
+.layer-consult .holder.is-user .time .form-control:nth-child(2) { padding-right: 4px; }
+.layer-consult .holder.is-user .time .form-control:nth-child(3) { padding-left: 4px; }
+
+.ui-datepicker th,
+.ui-datepicker td,
+.ui-datepicker td span,
+.ui-datepicker td a { line-height: normal; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-size: 12px; }
+.ui-datepicker th { font-size: 13px; font-weight: 500; }
+
+.layer-consult .holder.is-select { text-align: center; line-height: 1.3; border: 2px solid #eaeaea; }
+.layer-consult .select { padding: 14px 0 15px; font-size: 15px; font-weight: 400; color: #000; background-color: #eaeaea; }
+.layer-consult .select label { display: inline-block; margin-left: 24px; }
+.layer-consult .select label:first-child { margin-left: 0; }
+.layer-consult .desc { font-weight: 400; }
+.layer-consult .desc strong { display: block; font-weight: 500; font-size: 13px; }
+.layer-consult .holder.is-select .desc { padding: 13px 0 15px; font-size: 12px; color: #1f3f99; }
+.layer-consult .holder.is-select .desc p { margin-top: 5px; color: #1f3f99; }
+.layer-consult .holder.is-agree { margin-top: 27px; }
+.layer-consult .holder.is-agree .desc { margin-top: 17px; font-size: 13px; color: #333; letter-spacing: 0; }
+
+.layer-consult .title { font-size: 14px; font-weight: 400; color: #000; }
+.layer-consult .table { width: 100%; margin-top: 9px; table-layout: fixed; border-bottom: 1px solid #d5d5d5; border-right: 1px solid #d5d5d5; }
+.layer-consult .table th,
+.layer-consult .table td { padding: 6px 0 7px; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-size: 12px; font-weight: 400; letter-spacing: -1px; border-top: 1px solid #d5d5d5; border-left: 1px solid #d5d5d5; }
+.layer-consult .table th { color: #666; background-color: #fafafa; }
+.layer-consult .table td { color: #999; }
+.layer-consult .notice { margin-top: 8px; font-size: 12px; color: #999; }
+
+.layer-consult .action { margin-top: 20px; text-align: center; font-size: 0; }
+.layer-consult .action a { display: block; padding: 11px 20px 12px; background-color: #1f3f99; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.layer-consult .action span { position: relative; display: block; text-align: center; font-size: 18px; font-weight: 700; color: #fff; }
+.layer-consult .action span:after { content: ''; position: absolute; top: 50%; right: 0; display: block; width: 6px; height: 6px; margin-top: -3px; border-top-width: 2px; border-top-style: solid; border-right-width: 2px; border-right-style: solid; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+
+.layer-consult .layer-close { position: absolute; top: 0; right: 0; width: 57px; height: 57px; }
+.layer-consult .layer-close:before,
+.layer-consult .layer-close:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; background-color: #000; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.layer-consult .layer-close:before { width: 20px; height: 1px; margin-left: -10px; }
+.layer-consult .layer-close:after { height: 20px; width: 1px; margin-top: -10px; }
+
+/* slogan */
+.slogan_wrap{background:url('//img.eduwill.net/Img2/Common/slogan/bg_slogan_pattern.gif') repeat 0 0;}
+.slogan_wrap .inner{
+    background:url('//img.eduwill.net/Img2/Common/slogan/bg_slogan_line.gif') no-repeat 50% 0;
+    text-align:center;
+}

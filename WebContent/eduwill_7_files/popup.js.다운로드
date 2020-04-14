@@ -1,0 +1,80 @@
+//24시간 기준 쿠키
+function setCookieCommonPopup( name, value, expiredays ) {
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+//0시 기준 쿠키
+function setCookieCommonPopupAtMidnight( name, value, expiredays ) {
+	var todayDate = new Date();   
+	todayDate = new Date(parseInt(todayDate.getTime() / 86400000) * 86400000 + 54000000);  
+	if( todayDate > new Date() ) {
+		expiredays = expiredays - 1;
+	}  
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"  
+}
+//----------------------------------------------
+
+//더이상 안보기
+function closeNoMorePopAuto(id){		
+	var divObj = document.getElementById(id).parentNode;
+	var idx = $(divObj).data("idx");
+	document.getElementById(id).style.display="none";	
+	setCookieCommonPopup("commonPopup_"+idx, "no", 365);
+}
+
+//오늘 하루 안보기
+function closeOneDayAuto(id) {
+	var divObj = document.getElementById(id).parentNode;
+	var idx = $(divObj).data("idx");
+	document.getElementById(id).style.display="none";
+	setCookieCommonPopup("commonPopup_"+idx, "no", 1);
+}
+
+//일주일 안보기
+function closeWeekDayAuto(id) {
+	var divObj = document.getElementById(id).parentNode;
+	var idx = $(divObj).data("idx");
+	document.getElementById(id).style.display="none";
+	setCookieCommonPopup("commonPopup_"+idx, "no", 7);
+}
+
+//오늘만 안보기(0시 기준)
+function closeMidnightAuto(id) {
+	var divObj = document.getElementById(id).parentNode;
+	var idx = $(divObj).data("idx");
+	document.getElementById(id).style.display="none";
+	setCookieCommonPopupAtMidnight("commonPopup_"+idx, "no", 1);
+}
+
+
+/*
+	엔진 > 사이트 > 사이트관리 > 팝업관리를 통해 생성된 팝업 클릭 로그 수집을 위함
+	2018-10-01, skkim2
+*/	
+$(document).on("click", ".autoPopupFromNgene a, .autoPopupFromNgene area", function() {
+	try {
+		var idx = $(this).closest(".autoPopupFromNgene").data("idx");
+		var progress = $(this).closest(".autoPopupFromNgene").data("progress");
+		var academy = $(this).closest(".autoPopupFromNgene").data("academy");
+		var loc = $(this).closest(".autoPopupFromNgene").data("loc");
+		var alt = $(this).attr("alt");
+		var link = $(this).attr("href").replace("http://", "//").replace("https://", "//");
+		
+		 $.ajax({
+			type: "post"
+			,url: "http://www.eduwill.net/logs/log4AutoPopup.asp"
+			,crossDomain : true
+			,data: { idx : idx, progress : progress, academy : academy, loc : loc, alt : escape(alt), link : escape(link) }
+			,dataType: "jsonp"
+			,success: function (data) {}
+			,error: function (data, status, err) {}
+		});
+	} catch (ex) {	
+		//console.log(ex);
+	} finally {		
+		//return false;
+	}
+});

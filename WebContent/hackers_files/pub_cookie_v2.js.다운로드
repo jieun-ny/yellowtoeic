@@ -1,0 +1,69 @@
+								
+	var pub_cookie = {
+		pub_cookie_class: document.getElementsByClassName('pub_cookie'),
+		cookie_pop_data: [],
+
+		/* 셋쿠키 */
+		pub_setCookie:function(cname, value, expire){
+			var todayValue = new Date();
+			// 오늘 날짜를 변수에 저장
+			todayValue.setDate(todayValue.getDate() + expire);
+			document.cookie = cname + "=" + encodeURI(value) + "; expires=" + todayValue.toGMTString() + "; path=/;";
+		},
+		/* 겟쿠키 */
+		pub_getCookie:function(name){
+			var cookieName = name + "=";
+			var x = 0;
+			while ( x <= document.cookie.length ) { 
+				var y = (x+cookieName.length); 
+				if ( document.cookie.substring( x, y ) == cookieName) { 
+					if ((lastChrCookie=document.cookie.indexOf(";", y)) == -1) 
+					lastChrCookie = document.cookie.length;
+					return decodeURI(document.cookie.substring(y, lastChrCookie));
+				}
+				x = document.cookie.indexOf(" ", x ) + 1; 
+				if ( x == 0 )
+				break; 
+			} 
+			return "";
+		},
+
+		/* 클릭한요소의 ()안에 지정해준cookie_name으로 cookie_value 가 cookie_pop_end 로 생성되고 해당팝업 none */
+		cookie_save:function(coo_name){
+			for (var i = 0; i < this.pub_cookie_class.length; i++) {
+				if( this.cookie_pop_data[i].cookie_name == coo_name ){
+					this.pub_setCookie(coo_name,'cookie_pop_end',this.cookie_pop_data[i].cookie_day);
+					this.pub_cookie_class[i].style.display='none';
+				}
+			}
+		},
+
+		/* 페이지 전체 쿠키팝업 체크하기 */
+		cookie_check:function(){
+			for (var i = 0; i < this.pub_cookie_class.length; i++) {
+				this.cookie_pop_data[i] = {
+					cookie_name:this.pub_cookie_class[i].getAttribute('cookie_name'),
+					cookie_day:Number(this.pub_cookie_class[i].getAttribute('cookie_day')),
+					cookie_value:this.pub_getCookie(this.pub_cookie_class[i].getAttribute('cookie_name'))
+				};
+			}
+			for (var i = 0; i < this.cookie_pop_data.length; i++) {
+				if( this.cookie_pop_data[i].cookie_value == 'cookie_pop_end' ){
+					this.pub_cookie_class[i].style.display='none';
+				}else{
+					this.pub_cookie_class[i].style.display='block';
+				}
+			}
+		},
+
+		/* 초기실행 */
+		init:function(){
+			this.cookie_check();
+		}
+	}
+
+$(document).ready(function(){
+	pub_cookie.init();
+	//console.log(pub_cookie.pub_cookie_class);
+	//console.log(pub_cookie.cookie_pop_data);
+});

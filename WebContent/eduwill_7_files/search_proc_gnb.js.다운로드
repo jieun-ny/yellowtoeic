@@ -1,0 +1,28 @@
+//검색 요청 함수
+function fn_SearchAction(){
+	//검색어 
+	var searchTxt = $(".search_input").val();
+	//console.log("search:::" + searchTxt);
+	
+	if(searchTxt != ""){
+		$(".search_input").val("");	//기존에 입력한 단어 지움
+		
+		//alert($("#searchProgress").val());
+		
+		var form = $('<form/>', {method : 'post', action : 'http://www.eduwill.net/Common/Search/index.asp'});
+		var field = $('<input/>', {type : 'hidden',name : 'searchTxt',value : searchTxt });
+		var field2 = $('<input/>', {type : 'hidden',name : 'searchProgress',value : $("#searchProgress").val() });
+		
+		form.append(field).append(field2);
+		$(document.body).append(form);
+		form.submit();
+	}
+	
+	
+}
+
+$(function(){
+	$("#section_header .search .btn").click(function(){
+		$(".search_input").focus();
+	});
+});

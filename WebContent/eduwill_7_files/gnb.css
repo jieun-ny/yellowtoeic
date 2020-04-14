@@ -1,0 +1,425 @@
+@charset "utf-8";
+
+/* Noto Sans */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 100;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Thin'), local('NotoSansKR-Thin'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-100.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* noto-sans-kr-300 - latin_korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 300;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Light'), local('NotoSansKR-Light'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-300.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* noto-sans-kr-regular - latin_korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 400;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* noto-sans-kr-500 - latin_korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 500;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Medium'), local('NotoSansKR-Medium'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-500.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* noto-sans-kr-700 - latin_korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 700;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-700.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* noto-sans-kr-900 - latin_korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 900;
+src: url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.eot'); /* IE9 Compat Modes */
+src: local('Noto Sans KR Black'), local('NotoSansKR-Black'),
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.woff2') format('woff2'), /* Super Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.woff') format('woff'), /* Modern Browsers */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('//contents.eduwill.net/font/noto-sans-kr/noto-sans-kr-v12-latin_korean-900.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+body.bg_gnbSub {background:#fff url(//img.eduwill.net/resources/common/web/images/gnb/bg_gnbSub.png) repeat-x 0 0 !important;}
+#section_header {background:#fff}
+#section_header * { font-family:"Noto Sans KR", sans-serif, '맑은고딕','Malgun Gothic','돋움', Dotum, '굴림', Gulim, Tahoma, sans-serif, verdana, AppleGothic; }
+#section_header li {list-style:none;}
+#section_header a {text-decoration:none}
+#section_header .responsive_wrap:after,
+#area_gnb .area_menu ul:after,
+#area_util .area_item .item .layer_wrap .item_box:after,
+#area_util .area_item .item .layer_wrap dl dd:after,
+#area_util .area_item .item .layer_wrap .appservice dl:after {content:""; display:block; clear:both}
+#section_header .responsive_wrap {min-width:1012px; max-width:1012px; width:1012px; margin:0 auto; zoom:1; /*position:relative;*/}
+/* 메인 및 서브의 레아이웃의 기준이 현재까지는 1012가 다수여서 max-width를 1012로 조정함 -180212 홍순연 */
+
+/* 상단메뉴 */
+#area_util {background:#f7f7f9 url(//img.eduwill.net/resources/common/web/images/gnb/bg_line1.png) repeat-x 0 100%; height:39px;}
+#area_util .responsive_wrap {background:#f7f7f9 url(//img.eduwill.net/resources/common/web/images/gnb/bg_line1.png) repeat-x 0 100%; height:39px}
+#area_util .btn {display:inline-block; height:38px; line-height:38px; font-size:13px; color:#484861; font-weight:400; letter-spacing:-0.5px; position:relative; vertical-align:top}
+#area_util .btn:after {content:""; display:block;}
+#area_util .area_item .btn {padding:0 15px;}
+#area_util .area_item .btn:hover {background:#f2f2f5;}
+#area_util .area_logo,
+#area_util .area_item {float:left;}
+#area_util .area_logo {position:relative}
+#area_util .area_logo h1 {top:0; height:38px}
+#area_util .area_logo a.btn {padding-right:17px;}
+#area_util .area_logo a img {position:relative; top: 9px; vertical-align:top; border:none}
+#area_util .area_item .online,
+#area_util .area_item .offline,
+#area_util .area_item .beginner {float:left; height:38px; position:relative; z-index:1001;} 
+#area_util .area_item .item a.btn {padding-right:35px; border-left:solid 1px #ececf1;}
+#area_util .area_item .item a.btn:after {width:9px; height:5px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow1.png) no-repeat 0 0; position:absolute; top:17px; right:15px;}
+#area_util .area_item .item a.btn.open {background:#fff; padding-bottom:1px; position:relative; z-index:10002; border:solid 1px #c9c9d8; border-width:0 1px; margin-right:-1px; }
+#area_util .area_item .beginner a.btn {padding-right:38px; border-left:solid 1px #ececf1;}
+#area_util .area_item .beginner a.btn:after {width:16px; height:16px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_mark1.png) no-repeat 0 0; position:absolute; top:50%; right:15px; margin-top:-8px;}
+#area_util .area_link {float:right;}
+#area_util .area_link .area_logout,
+#area_util .area_link .area_login,
+#area_util .area_link .area_sns {float:left;}
+#area_util .area_link .submit,
+#area_util .area_link .singup, 
+#area_util .area_link .area_sns > div,
+#area_util .area_link .user,
+#area_util .area_link .notice,
+#area_util .area_link .mypage,
+#area_util .area_link .basket,
+#area_util .area_link .myroom {float:left; height:38px; position:relative; z-index:101}
+#area_util .area_link .submit {font-size:0; text-align:left;}
+#area_util .area_link .submit.input {border-right:solid 1px #e9e9e9; padding-right:14px; height:45px}
+#area_util .area_link .submit.input * {vertical-align:top; }
+#area_util .area_link .submit.input .group1 {}
+#area_util .area_link .submit.input .group2 {padding-top:6px}
+#area_util .area_link .submit.input .input_ck {margin:3px 5px 0 0}
+#area_util .area_link .submit.input .input_label {margin:0 11px 0 0; display:inline-block;  font-size:13px; color:#484861; font-weight:300; }
+#area_util .area_link .submit.input .input_txt {margin:0 0 0 -1px; border:solid 1px #d2d6db; background:#f4f5f7; font-size:12px; color:#848b94; font-weight:300; height:23px; width:118px; text-indent:8px; line-height:23px;}
+#area_util .area_link .submit.input .add_naver .input_label {margin-right:37px}
+#area_util .area_link .submit.input .add_naver a.t_btn.btn2 {margin-left:34px}
+#area_util .area_link .submit.input a.btn {margin:7px 2px 0 5px; padding:0; background:#747c90; border-radius:2px; height:25px; line-height:25px; font-size:12px; color:#fff; font-weight:300; width:54px; text-align:center}
+#area_util .area_link .submit.input a.btn:after {display:none}
+#area_util .area_link .submit.input button.btn {margin:0 2px 0 5px; padding:0; background:#747c90; border-radius:2px; height:25px; line-height:25px; font-size:12px; color:#fff; font-weight:300; width:54px; text-align:center; border:none;}
+#area_util .area_link .submit.input a.t_btn {font-size:13px; color:#484861; font-weight:300; padding:0; letter-spacing:-0.5px}
+#area_util .area_link .submit.input a.t_btn.btn2 {color:#20409a; margin-left:22px}
+#area_util .area_link .submit.input .btn_naver,
+#area_util .area_link .submit.input .btn_kakao {padding:0 0 0 3px; display:inline-block; cursor:pointer}
+#area_util .area_link .submit.input .btn_kakao {padding:0 0 0 5px;}
+#area_util .area_link .submit.input .btn_naver img,
+#area_util .area_link .submit.input .btn_kakao img {height:25px;}
+#area_util .area_link .submit.input .btn_naver a,
+#area_util .area_link .submit.input .btn_kakao a {padding:0}
+#area_util .area_link .submit a {padding:0 10px 0 18px}
+#area_util .area_link .submit a:after {width:12px; height:13px; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_submit.png) no-repeat 0 0; position:absolute; top:50%; left:0px; margin-top:-6px;}
+#area_util .area_link .user a.btn {padding:0 25px 0 0}
+#area_util .area_link .user a.btn:after {width:5px; height:5px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow2.png) no-repeat 0 0; position:absolute; top:50%; right:12px; margin-top:-2px;}
+#area_util .area_link .notice {margin:0; padding:0; background:none;}
+
+#area_util .area_link .notice a.btn em {display:inline-block; height:16px; line-height:16px; min-width: 6px; padding: 0 5px; font-family:"Tahoma"; font-size:11px; color:#fff; font-weight:bold; text-align:center; background:#ec303d; border-radius:8px; margin-left:4px; vertical-align:1px; white-space: nowrap; text-indent:-1px; letter-spacing: 0;}
+#area_util .area_link .notice a.btn em.blink {background:#fff; color:#ec303d}
+.global #area_util .area_link .notice a.btn em.blink {background:#f7f7f9}
+#area_util .area_link .singup a,
+#area_util .area_link .mypage a {color:#20409a}
+#area_util .area_link .singup a,
+#area_util .area_link .notice a,
+#area_util .area_link .mypage a,
+#area_util .area_link .myroom a,
+#area_util .area_link .basket a {padding:0 11px 0 12px}
+#area_util .area_link .singup a:after,
+#area_util .area_link .notice a:after,
+#area_util .area_link .mypage a:after,
+#area_util .area_link .myroom a:after,
+#area_util .area_link .basket a:after {width:1px; height:15px; background:#dcdce4; position:absolute; top:50%; left:0px; margin-top:-7px;}
+#area_util .area_link .area_sns a.btn {margin:9px 0 0 5px; text-indent:-9999em; width:21px; height:21px;}
+#area_util .area_link .area_sns .favorite a.btn {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sns_favorite.png) no-repeat 0 0;}
+#area_util .area_link .area_sns .blog a.btn {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sns_blog.png) no-repeat 0 0;}
+#area_util .area_link .area_sns .post a.btn {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sns_post.png) no-repeat 0 0;}
+#area_util .area_link .area_sns .facebook {top:inherit; left:inherit; margin:0; z-index:auto;}
+#area_util .area_link .area_sns .facebook a.btn {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sns_facebook.png) no-repeat 0 0;}
+#area_util .area_link .area_sns .youtube {top:inherit; left:inherit; margin:0; z-index:auto;}
+#area_util .area_link .area_sns .youtube a.btn {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sns_youtube.png) no-repeat 0 0;}
+#area_util .area_link .area_sns .search {top:inherit; left:inherit; margin:0; z-index:auto; overflow:inherit; width: auto; border: none; background: none;}
+#area_util .area_link .area_sns .search a.btn { position:relative;background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_search_open.png) no-repeat right 0;width:52px;height:25px;padding-left:11px;margin-left:10px;margin-top:7px; -webkit-box-sizing: content-box; box-sizing: content-box; }
+#area_util .area_link .area_sns .search a.btn:after{width: 1px;height: 16px;background: #dcdce4; position: absolute;top: 50%;left: 0px;margin-top: -9px;}
+
+/*  GNB */
+#area_gnb {background:#fff url(//img.eduwill.net/resources/common/web/images/gnb/bg_line2.png) repeat-x 0 100%; height:85px;}
+#area_gnb .responsive_wrap {background:#fff url(//img.eduwill.net/resources/common/web/images/gnb/bg_line2.png) repeat-x 0 100%; height:85px;}
+#area_gnb .area_logo {float:left; padding-top:30px;}
+#area_gnb .area_logo h1 {width:auto; height:auto; position:inherit; overflow:auto}
+#area_gnb .area_logo h1 img {vertical-align:top;}
+#area_gnb .area_logo h1,
+#area_gnb .area_logo .item {float:left;}
+#area_gnb .area_logo .item {padding:0 0 0 12px}
+#area_gnb .area_logo .item a {line-height:1; font-size:23px; color:#000; font-weight:700; letter-spacing:-1px}
+#area_gnb .area_logo .item.lt-2 a {letter-spacing:-2px; font-size:21px;}
+#area_gnb .area_logo .item .icon {padding-left:3px; vertical-align:middle}
+#area_gnb .area_logo .item .icon.ebs img {vertical-align:middle; position:relative; top:-5px}
+#area_gnb .area_logo .item .icon.ac img {vertical-align:middle; position:relative; top:-5px}
+
+#area_gnb .area_menu {float:right; padding-top:34px;}
+#area_gnb .area_menu ul li { float: left; position: relative; margin-left: 20px; }
+#area_gnb .area_menu ul li a {font-size:17px; color:#000; font-weight:400; line-height:1; line-height:1.2\9; letter-spacing:-0.5px}
+#area_gnb .area_menu ul li a:hover {color:#2f6bda}
+#area_gnb .area_menu ul li.beta:after { content: 'Beta'; position: absolute; top: -15px; right: 0; font-family: cambria; font-size: 12px; font-weight: bold; font-style: italic; color: #ec303d; }
+#area_gnb .area_menu ul li.type1 a {color:#111}
+#area_gnb .area_menu ul li .icon {position:absolute; top:-23px; left:-2px; display:inline-block; width:66px; height:18px; text-indent:-9999em}
+#area_gnb .area_menu ul li .icon.sale10 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_10.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.sale5 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_5.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.sale13 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_13.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.sale15 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_15.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.sale18 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_18.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.sale2 {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_sale_2.gif) no-repeat 0 0;}
+#area_gnb .area_menu ul li .icon.newopen {background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_new_open.gif) no-repeat 0 0;}
+
+/*  GNB_배너 */
+#area_banner {background:#fff url(//img.eduwill.net/resources/common/web/images/gnb/bg_line3.png) repeat-x 0 100%; height:51px;}
+#area_banner .responsive_wrap {background:url(//img.eduwill.net/resources/common/web/images/gnb/bg_line3.png) repeat-x 0 100%; height:51px;}
+#area_banner a {display:block; width:100%; height:50px;}
+
+/* 글로벌메인 */
+#g_header {border-bottom:none !important}
+.global#section_header {height:82px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bg_line4.png) repeat-x 0 100%;}
+.global#section_header .responsive_wrap {width:1150px; max-width:none; background:#fff; height:82px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bg_line4.png) repeat-x 0 100%;}
+.global #area_util {height:80px; background:#fff}
+.global #area_util .area_logo a.btn {padding-right:20px;}
+.global #area_util .area_logo a.btn img {top:25px; }
+.global #area_util .area_logo .link_value {position:absolute; top:12px; left:120px}
+.global #area_util .area_logo .link_value.ewnew {position:absolute; top:18px; left:122px}
+.global #area_util .area_link {margin-top:18px;}
+.global #area_util .area_link .area_sns a.btn {margin-top:11px}
+.global #area_util .area_link .area_login {border-right: solid 1px #e9e9e9; height:45px;}
+.global #area_util .btn {font-size:15px; height:45px; line-height:43px; font-weight:400;}
+.global #area_util .area_link .user .layer_wrap,
+.global #area_util .area_link .blog .layer_wrap,
+.global #area_util .area_link .favorite .layer_wrap {top:40px}
+.global #area_util .area_link .notice a.btn:after,
+.global #area_util .area_link .basket a:after,
+.global #area_util .area_link .mypage a:after,
+.global #area_util .area_link .myroom a:after,
+.global #area_util .area_link .notice a:after {height:16px; margin-top:-9px}
+.global #area_util .area_link .area_sns .search a.btn{margin-top:9px;}
+.global #area_util .area_link .search .layer_wrap{width:1028px;}
+
+.global #area_util .area_link .area_sns {padding-left:9px;}
+.global #area_util .area_link .mypage a {color:#484861;}
+.global #area_util .area_link .myroom a {color:#20409a; font-weight:500}
+
+/* 레이어 - 온라인, 오프라인 과정선택 */
+#area_util .layer_wrap {display:none; z-index:1001;}
+#area_util .area_item .item.online .layer_wrap {width:696px;}
+#area_util .area_item .item.offline .layer_wrap {width:469px; left:-133px;}
+#area_util .area_item .item.offline .layer_wrap .tit {left:133px}
+#area_util .area_item .item .layer_wrap {position:absolute; top:38px; left:0; background:#fff;}
+#area_util .area_item .item .layer_wrap .layer_inner {border:solid 1px #c9c9d8}	
+#area_util .area_item .item .layer_wrap .item_box {padding:27px 24px 32px;}	
+#area_util .area_item .item .layer_wrap .item_box .group {float:left; padding-left:20px; border-left:solid 1px #ececf1}
+#area_util .area_item .item.online .layer_wrap .item_box .group {min-height:353px}
+#area_util .area_item .item.online .layer_wrap .item_box .group1 {padding-left:0; border-left:none; width:295px}
+#area_util .area_item .item.online .layer_wrap .item_box .group2 {width:125px;}
+#area_util .area_item .item.online .layer_wrap .item_box .group3 {}
+#area_util .area_item .item.offline .layer_wrap .item_box .group { min-height: 375px; }
+#area_util .area_item .item.offline .layer_wrap .item_box .group1 {padding-left:0; border-left:none; width:114px}
+#area_util .area_item .item.offline .layer_wrap .item_box .group2 {width:122px;}
+#area_util .area_item .item.offline .layer_wrap .item_box .group3 {}
+#area_util .area_item .item .layer_wrap .item_box dl {text-align:left; padding-top:30px}
+#area_util .area_item .item .layer_wrap .item_box dl:first-child {padding-top:0}
+#area_util .area_item .item .layer_wrap .item_box dl dt {line-height:1; font-size:14px; color:#111; font-weight:500; letter-spacing:-0.5px; padding-bottom:9px}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul {float:left; margin-left:35px;}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul:first-child {margin-left:0}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul li a {line-height:22px; font-size:13px; color:#888; font-weight:300; letter-spacing:-0.5px;}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul li a:hover {color:#111; font-weight:500; letter-spacing:-0.5px;}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul li.ac a {color:#111}
+#area_util .area_item .item .layer_wrap .item_box dl dd ul li .i_new {display:inline-block; width:11px; height:11px; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_new1.png) no-repeat 0 0; text-indent:-9999em; vertical-align:middle; position:relative; top:-1px; margin-left:4px}
+#area_util .area_item .item .layer_wrap .appservice {padding:23px 0 26px 24px; background:#f7f7f9; border-top:solid 1px #e3e3e3;}
+#area_util .area_item .item .layer_wrap .item_box + .appservice {border-top:none;}
+#area_util .area_item .item .layer_wrap .appservice dl {text-align:left;}
+#area_util .area_item .item .layer_wrap .appservice dl dt {line-height:1; font-size:16px; color:#111; font-weight:500; letter-spacing:-0.5px; padding-bottom: 6px; }
+#area_util .area_item .item .layer_wrap .appservice dl dd { float: left; width: 216px; margin-top: 16px; }
+#area_util .area_item .item .layer_wrap .appservice dl dd:hover a strong,
+#area_util .area_item .item .layer_wrap .appservice dl dd:hover a span {color:#111; font-weight:500}
+#area_util .area_item .item .layer_wrap .appservice dl dd a {display:block; height:48px; padding-left:63px; background-repeat: no-repeat; background-position: 0 0; }
+#area_util .area_item .item .layer_wrap .appservice dl dd.app1 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_app1.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.app2 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_app2_191108.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.app3 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_app3.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.app4 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_app4.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.app5 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_app5.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd a strong {display:block; padding-top:6px; line-height:1; font-size:14px; color:#111; font-weight:500; letter-spacing:-0.5px;}
+#area_util .area_item .item .layer_wrap .appservice dl dd a strong i {height:14px; border:solid .5px #767676; border-radius:3px; line-height:16px; font-size:11px; color:#111; letter-spacing:-0.5px; margin-left:8px; padding:0 2px; font-weight:300; font-style:normal; display:inline-block}
+#area_util .area_item .item .layer_wrap .appservice dl dd a span {display:block; padding-top:7px; line-height:1; font-size:13px; color:#888; font-weight:300; letter-spacing:-0.5px;}
+#area_util .area_item .item .layer_wrap .appservice dl dd.study1 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_web1.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.study2 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_web2.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.study3 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_web3.png'); }
+#area_util .area_item .item .layer_wrap .appservice dl dd.study4 a { background-image: url('//img.eduwill.net/resources/common/web/images/gnb/icon_web4.png'); }
+#area_util .area_item .item .layer_wrap .appservice + .appservice { padding-bottom: 44px; }
+
+/* 레이어 - 개인정보 */
+#area_util .area_link .user .layer_wrap {position:absolute; top:38px; left:50%; background:#fff; width:110px; margin-left:-63px;}
+#area_util .area_link .user .layer_wrap .layer_inner {border:solid 1px #c9c9d8;}	
+#area_util .area_link .user .layer_wrap .layer_inner:before {content:""; display:block; width:8px; height:7px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow3.png) no-repeat 0 0; position:absolute; top:-6px; left:50%; margin-left:-4px}
+#area_util .area_link .user .layer_wrap ul {padding:15px; text-align:left;}
+#area_util .area_link .user .layer_wrap ul li {margin-top:9px; line-height:1}
+#area_util .area_link .user .layer_wrap ul li:first-child {margin-top:0px;border-bottom:1px solid #c9c9d8;padding-bottom:10px;}
+#area_util .area_link .user .layer_wrap ul li:last-child{border-top:1px solid #c9c9d8;padding-top:10px;}
+#area_util .area_link .user .layer_wrap ul li a {line-height:1; font-size:13px; color:#484861; font-weight:300; letter-spacing:-0.5px;}
+#area_util .area_link .user .layer_wrap ul li a:hover {color:#111; font-weight:500;}
+
+/* 레이어 - 즐겨찾기 */
+#area_util .area_link .favorite .layer_wrap {position:absolute; top:38px; left:50%; background:#fff; width:116px; margin-left:-55px;}
+#area_util .area_link .favorite .layer_wrap .layer_inner {border:solid 1px #c9c9d8;}	
+#area_util .area_link .favorite .layer_wrap .layer_inner:before {content:""; display:block; width:8px; height:7px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow3.png) no-repeat 0 0; position:absolute; top:-6px; left:50%; margin-left:-4px}
+#area_util .area_link .favorite .layer_wrap ul {padding:15px; text-align:left;}
+#area_util .area_link .favorite .layer_wrap ul li {margin-top:9px; line-height:1}
+#area_util .area_link .favorite .layer_wrap ul li:first-child {margin-top:0px;}
+#area_util .area_link .favorite .layer_wrap ul li a {line-height:1; font-size:13px; color:#484861; font-weight:300; letter-spacing:-0.5px;}
+#area_util .area_link .favorite .layer_wrap ul li a:hover {color:#111; font-weight:500;}
+
+
+/* 레이어 - 알림 */
+#area_util .area_link .notice .layer_wrap {position:absolute; top:38px; left:50%; background:#fff; width:280px; margin-left:-140px;}
+#area_util .area_link .notice .layer_wrap .layer_inner {border:solid 1px #c9c9d8;}	
+#area_util .area_link .notice .layer_wrap .layer_inner:before {content:""; display:block; width:8px; height:7px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow3.png) no-repeat 0 0; position:absolute; top:-6px; left:50%; margin-left:-4px}
+#area_util .area_link .notice .layer_wrap .top {text-align:left; border-bottom:solid 1px #ebeef3; margin-bottom:-1px;}
+#area_util .area_link .notice .layer_wrap .top .more {display:inline-block; line-height:40px; font-size:13px; color:#484861; font-weight:400; letter-spacing:-0.5px; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_notice.png) no-repeat 0 13px; padding-left:21px; margin-left:15px}
+#area_util .area_link .notice .layer_wrap .top .layer_close {display:inline-block; width:10px; height:11px; background:url(//img.eduwill.net/resources/common/web/images/gnb/layerClose.png) no-repeat 0 0; text-indent:-9999em; position:absolute; top:16px; right:16px}
+#area_util .area_link .notice .layer_wrap .lst {text-align:left;}
+#area_util .area_link .notice .layer_wrap .lst dl {padding:14px 15px; line-height:18px; border-top:solid 1px #ebeef3; cursor:pointer;}
+#area_util .area_link .notice .layer_wrap .lst dl:hover {background:#f8f8f8}
+#area_util .area_link .notice .layer_wrap .lst dl dt {}
+#area_util .area_link .notice .layer_wrap .lst dl dt .i_case {display:inline-block; margin-right:4px; border:solid 1px #ec303d; background:#fff; border-radius:3px; width:28px; height:16px; line-height:16px; font-size:11px; color:#111; font-weight:400; text-align:center; letter-spacing:0}
+#area_util .area_link .notice .layer_wrap .lst dl dt .case1 {border:solid 1px #ec303d;}
+#area_util .area_link .notice .layer_wrap .lst dl dt .case2 {border:solid 1px #5366aa;}
+#area_util .area_link .notice .layer_wrap .lst dl dt .text {font-size:13px; color:#111; font-weight:400; letter-spacing:-0.5px}
+#area_util .area_link .notice .layer_wrap .lst dl dt .i_new {display:inline-block; margin-left:4px; width:7px; height:6px; text-indent:-9999em; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_new2.png) no-repeat 0 0; vertical-align:middle; position:relative; top:-2px}
+#area_util .area_link .notice .layer_wrap .lst dl dd {}
+#area_util .area_link .notice .layer_wrap .lst dl dd .user,
+#area_util .area_link .notice .layer_wrap .lst dl dd .date {font-size:12px; color:#888; font-weight:300; letter-spacing:-0.5px}
+#area_util .area_link .notice .layer_wrap .lst dl dd .date {padding-left:10px; margin-left:9px; position:relative;}
+#area_util .area_link .notice .layer_wrap .lst dl dd .date:after {content:""; display:block; width:1px; height:11px; background:#f0f0f0; position:absolute; top:4px; left:0;}
+#area_util .area_link .notice .layer_wrap .lst dl.confirm dt .i_case {border-color:#c9c9d8; color:#999}
+#area_util .area_link .notice .layer_wrap .lst dl.confirm dt .text {font-weight:300; color:#888888}
+#area_util .area_link .notice .layer_wrap .lst dl.confirm dd .user,
+#area_util .area_link .notice .layer_wrap .lst dl.confirm dd .date {color:#aaa}
+#area_util .area_link .notice .layer_wrap .lst dl.confirm {}
+#area_util .area_link .notice .layer_wrap .lst dl.confirm {}
+
+/* 레이어 - 블로그 */
+#area_util .area_link .blog .layer_wrap {position:absolute; top:38px; right:-52px; width:242px; margin-left:-118px;}
+#area_util .area_link .blog .layer_wrap .layer_inner {border:solid 1px #49a534; background:#5dbb47}	
+#area_util .area_link .blog .layer_wrap .layer_inner:before {content:""; display:block; width:8px; height:7px; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow4.png) no-repeat 0 0; position:absolute; top:-6px; right:58px; margin-left:-4px}
+#area_util .area_link .blog .layer_wrap ul {text-align:left; padding:15px 16px;}
+#area_util .area_link .blog .layer_wrap ul li {padding-top:9px;}
+#area_util .area_link .blog .layer_wrap ul li:first-child {padding-top:0px;}
+#area_util .area_link .blog .layer_wrap ul li a {display:block; font-size:13px; color:#fff; font-weight:700; letter-spacing:-0px; line-height:1; background:url(//img.eduwill.net/resources/common/web/images/gnb/bul_arrow5.png) no-repeat 100% 50%; }
+#area_util .area_link .blog .layer_wrap ul li a:hover {color:#d4fda9}
+
+/* 레이어 - 통합검색 */
+.global #area_util .area_link .search .layer_wrap .layer_inner{margin-top:0;}
+.global #area_util .area_link .search .layer_wrap {top:-8px;}
+.global #area_util .area_link .search .layer_wrap .layer_close{top:17px;}
+.global #area_util .area_link .search .layer_wrap .search_box:after {content:""; display:block; clear:both;position:absolute;right:-12px;top:2px;background-color:#e9e9e9;width:1px;height:45px;}
+.global #area_util .area_link .search .layer_wrap .search_box{margin-right:77px;}
+.global #area_util .area_link .search .layer_wrap .kin_box,
+.global #area_util .area_link .search .layer_wrap .search_box{position:relative;top:-4px;}
+.global #area_util .area_link .search .layer_wrap .search_box .search_input{width:478px;}
+
+#area_util .area_link .search .layer_wrap {text-align:left; position:absolute; top:39px; left: auto; right:0; width:640px; height:60px; border: none;z-index:1000;
+	/* -webkit-box-shadow: 5px 8px 12px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 5px 8px 12px 0px rgba(0,0,0,0.2);
+	box-shadow: 5px 8px 12px 0px rgba(0,0,0,0.2); */
+}
+
+
+.academy #area_util .area_link .search .layer_wrap{width:638px;}
+.academy #area_util .area_link .search .layer_wrap .search_box .search_input{width:320px;}
+.academy #area_util .area_link .search .layer_wrap .kin_box{padding-left:0;}
+
+.gov #area_util .area_link .search .layer_wrap,
+.lic #area_util .area_link .search .layer_wrap{width:810px;}
+
+#area_util .area_link .search .layer_wrap .layer_inner {background-color:#fff;padding:10px 0;margin-top:10px;}
+#area_util .area_link .search .layer_wrap .layer_inner:after{content:'';display:block;clear:both;}
+#area_util .area_link .search .layer_wrap .layer_close {display: block; width: 52px; height: 25px; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon_search_close.png) no-repeat 0 0; position: absolute; top: -32px; right: 0px; font-size:0;}
+#area_util .area_link .search .layer_wrap .layer_close:before,
+#area_util .area_link .search .layer_wrap .layer_close:after { display: none; }
+#area_util .area_link .search .layer_wrap .kin_box {float:left;padding-left:20px;}
+#area_util .area_link .search .layer_wrap .search_box {position:relative;float:right;zoom: 1; margin:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;clear:none !important;}
+#area_util .area_link .search .layer_wrap .search_box .search_input { padding:0 48px 0 24px; width: 400px; height: 48px; line-height:48px; font-size:16px; border: solid 1px #d2d6db;  -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background-color:#f4f5f7;border-radius:30px;color:#848b94;}
+#area_util .area_link .search .layer_wrap .search_box .search_input:focus {outline: none}
+#area_util .area_link .search .layer_wrap .search_box .search_input::-ms-clear {display:none}
+#area_util .area_link .search .layer_wrap .search_box .search_input::placeholder {color:#848b94; }
+#area_util .area_link .search .layer_wrap .search_box .search_input::-webkit-input-placeholder {color:#848b94; }
+#area_util .area_link .search .layer_wrap .search_box .search_input::-moz-placeholder {color:#848b94; }
+#area_util .area_link .search .layer_wrap .search_box .search_input:-ms-input-placeholder {color:#848b94; }
+#area_util .area_link .search .layer_wrap .search_box .search_input:-moz-placeholder {color:#848b94; }
+#area_util .area_link .search .layer_wrap .search_box  .search_btn {position:absolute;right:24px;top:50%;margin-top:-10px; width:20px; height:20px; background:url(//img.eduwill.net/resources/common/web/images/gnb/btn_search2.png) no-repeat 0 50%; font-size:0}
+
+/* 지식인 공인&공무원 분리 2019-12-10 */
+#area_util .area_link .search .layer_wrap .kin_box {}
+#area_util .area_link .search .layer_wrap .kin_box .text {float:left; padding-left:55px; background:url(//img.eduwill.net/resources/common/web/images/gnb/ci_kin.png) no-repeat 0 50%; background-size:45px; min-height: 45px; padding-top: 4px; box-sizing: border-box;}
+#area_util .area_link .search .layer_wrap .kin_box .text span {display:block;}
+#area_util .area_link .search .layer_wrap .kin_box .text .text1 {font-size:15px; color:#2a3890; font-weight:700; letter-spacing: -0.62px; line-height:19px;}
+#area_util .area_link .search .layer_wrap .kin_box .text .text2 {font-size:14px; color:#4c4c4c; font-weight:400; letter-spacing: -0.58px; line-height:17px; margin-top:2px;}
+#area_util .area_link .search .layer_wrap .kin_box .btn {float:left; padding:5px 0 0 16px; font-size:0;}
+#area_util .area_link .search .layer_wrap .kin_box .btn a {display:inline-block; margin-left:8px; box-sizing:border-box; height: 36px; border-radius: 6px; border: solid 1px #d2d6db; background-color: #ffffff; padding: 0 10px;}
+#area_util .area_link .search .layer_wrap .kin_box .btn a span {display:inline-block; line-height:34px; font-size:14px; color:#484861; font-weight:500; padding-right:12px; background:url(//img.eduwill.net/resources/common/web/images/gnb/icon-arrow-black.png) no-repeat 100% 50%; background-size:3px 7px;}
+#area_util .area_link .search .layer_wrap .kin_box .btn a:hover {border:solid 2px #fed605; padding:0 9px;}
+#area_util .area_link .search .layer_wrap .kin_box .btn a:hover span {line-height:32px; color:#000;}
+#area_util .area_link .search .layer_wrap .kin_box .btn a:first-child {margin-left:0;}
+
+
+/* etc.. */
+
+.guideTxt {font-family: 'Noto Sans KR'; font-size:18px; font-weight:600; min-width:1012px; max-width:1100px; margin:0 auto; text-align:left; padding:100px 0 20px; color:Red}
+.guideTxt:first-child {padding-top:20px}
+
+#hiddenRealTime,
+#hiddenLogFrame {display:block; height:0;}

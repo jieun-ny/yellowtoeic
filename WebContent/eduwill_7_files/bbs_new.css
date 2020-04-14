@@ -1,0 +1,72 @@
+@charset "euc-kr";
+@import url("//img.eduwill.net/resources/common/web/css/webfont.css");/* Notosans (º»°íµñ) */
+/* °ø½Ã»çÇ× ·¹ÀÌ¾îÆË¾÷ ½ºÅ¸ÀÏ */
+.g_notice_layer .ellipsis { display:inline-block; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+
+.g_notice_layer * { font-family:'Noto sans KR', 'Malgun gothic', '¸¼Àº °íµñ' !important;}
+.g_notice_layer { display:none; position:absolute; top:50%; left:50%; width:788px; min-height:730px; margin-left:-395px; margin-top:-365px; border:1px solid #000; z-index:100001; background:#fff;}
+.g_notice_layer.fixed { position:fixed;}
+.g_notice_layer.notice { top:50px; margin-top:0;}
+.g_notice_layer.review { margin-top:-355px;}
+.g_notice_layer .close_layer { position:absolute; top:8px; right:13px;}
+.g_notice_layer .layer_head { position:relative; height:50px; background:#3f4454;}
+.g_notice_layer .layer_head p { margin:0; padding:0;}
+.g_notice_layer .layer_head .title { padding:10px 0 0 20px; color:#fff; font-size:18px; text-align:left; font-weight:500;}
+.g_notice_layer .layer_body { padding:30px 34px 58px;}
+
+.g_notice_layer .inn_con.scroll_con { padding-right:4px; width:716px; height:596px; overflow-y:scroll; overflow-x:hidden;}
+.g_notice_layer .inn_con { width:720px; min-height:596px;}
+.g_notice_layer .inn_con .list_tbl { border-top:1px solid #727272;}
+.g_notice_layer .inn_con .list_tbl table thead th { height:38px; text-align:center; font-size:13px; color:#444; font-weight:300; vertical-align:middle; background:#f4f4f4; border-left:1px solid #dfdfdf; border-bottom:1px solid #dfdfdf;}
+.g_notice_layer .inn_con .list_tbl table tbody td { padding:10px 0; text-align:center; font-size:14px; font-weight:300; color:#000; border-left:1px solid #dfdfdf; border-bottom:1px solid #dfdfdf; vertical-align:middle;}
+.g_notice_layer .inn_con .list_tbl table tbody tr.noti td { background:#edf0f6;}
+.g_notice_layer .inn_con .list_tbl table tbody td.num, .g_notice_layer .inn_con .list_tbl table tbody td.date { font-family:'Verdana' !important; color:#888; font-size:12px;}
+.g_notice_layer .inn_con .list_tbl table tbody td.leftcon { text-align:left; padding-left:20px; color:#000;}
+.g_notice_layer .inn_con .list_tbl table tbody td.leftcon a { color:#000; font-weight:500; letter-spacing:-1px;}
+.g_notice_layer .inn_con .list_tbl table tbody td.leftcon a img { display:inline-block; margin-left:5px;}
+.g_notice_layer .inn_con .list_tbl table tbody td.leftcon a.ellipsis { width:98%;}
+.g_notice_layer .inn_con .list_tbl table tr th:first-child, .g_notice_layer .inn_con .list_tbl table tbody tr td:first-child { border-left:0 none;}
+.g_notice_layer .inn_con .view_tbl { border-top:1px solid #727272; border-bottom:1px solid #727272;}
+.g_notice_layer .inn_con .view_tbl table tr .bl { border-left:1px solid #dfdfdf;}
+.g_notice_layer .inn_con .view_tbl table tr .bbn { border-bottom:0 none;}
+.g_notice_layer .inn_con .view_tbl table th { height:38px; text-align:center; font-size:13px; color:#444; font-weight:400; vertical-align:middle; background:#f4f4f4; border-right:1px solid #dfdfdf;  border-bottom:1px solid #dfdfdf;}
+.g_notice_layer .inn_con .view_tbl table td { padding-left:20px; text-align:left; font-size:14px; font-weight:400; color:#000; border-bottom:1px solid #dfdfdf; vertical-align:middle;}
+.g_notice_layer .inn_con .view_tbl table td.title { color:#000; }
+.g_notice_layer .inn_con .view_tbl table td a.file { display:inline-block; padding-left:24px; font-size:13px; font-weight:400; color:#3f63bf; background:url('//img.eduwill.net/resources/common/web/images/bbslayer/ico_file.gif') 0 50% no-repeat;}
+.g_notice_layer .inn_con .view_tbl table td.date { font-family:'Verdana' !important; color:#888; font-size:12px;}
+.g_notice_layer .inn_con .view_tbl .view_con { padding:20px 20px 20px 0; height:450px; line-height:22px; color:#000; font-size:14px; font-weight:300; overflow-y:scroll;}
+.g_notice_layer .inn_con .write_tbl { border-top:1px solid #727272;}
+.g_notice_layer .inn_con .write_tbl table th { height:34px; text-align:center; font-size:12px; color:#666; font-weight:300; vertical-align:middle; background:#f4f4f4; border-right:1px solid #dfdfdf;  border-bottom:1px solid #dfdfdf;}
+.g_notice_layer .inn_con .write_tbl table td { padding:5px; text-align:left; font-size:13px; font-weight:300; color:#666; border-bottom:1px solid #dfdfdf;}
+.g_notice_layer .inn_con .write_tbl table td input { padding:5px; width:100%; height:27px; font-family:'µ¸¿ò', 'dotum'; color:#000; letter-spacing:-1px; box-sizing:border-box; border:1px solid #dedede;}
+.g_notice_layer .inn_con .write_tbl table td textarea { padding:15px; width:100%; height:480px; font-family:'µ¸¿ò', 'dotum'; color:#000;  letter-spacing:-1px; box-sizing:border-box; border:1px solid #dedede; resize:none; line-height:18px;}
+.g_notice_layer .inn_con .write_tbl table td .grade { margin:0 0 0 5px;}
+.g_notice_layer .inn_con .search { position:relative; overflow:hidden; margin-bottom:10px; width: auto; float: none;height: auto;border: 0 none;background-image: none;}
+.g_notice_layer .inn_con .search .search_fr { float:right;}
+.g_notice_layer .inn_con .search select { display:inline-block; float:left; margin-right:5px; padding:2px 5px; height:32px; font-family:'µ¸¿ò', 'dotum'; font-size:12px; color:#888; border:1px solid #dedede;}
+.g_notice_layer .inn_con .search input { display:inline-block; float:left; padding:6px 10px; width:143px; height:32px; font-family:'µ¸¿ò', 'dotum'; box-sizing:border-box; border:1px solid #dedede; border-right:0 none;}
+.g_notice_layer .inn_con .search a { display:inline-block; float:left; width:47px; height:32px; font-size:13px; color:#fff; letter-spacing:-1px; text-align:center; line-height:32px; background:#393d44;}
+.g_notice_layer .inn_con .paging { margin:20px 0 0; text-align:center; line-height:20px; vertical-align:middle;}
+.g_notice_layer .inn_con .paging a { display:inline-block; width:20px; height:20px; vertical-align:middle;}
+.g_notice_layer .inn_con .paging a:hover , .g_notice_layer .inn_con .paging a.on { color:#3f63bf; font-weight:600;}
+.g_notice_layer .inn_con .btn_group { padding:10px 0 0; text-align:right;}
+.g_notice_layer .inn_con .btn_group a { display:inline-block; width:78px; height:28px; font-size:13px; color:#333; font-weight:500; text-align:center; line-height:28px; border:1px solid #3f4454;}
+.g_notice_layer .inn_con .btn_group a.btn_bbs02 { color:#fff; background:#3f4454;}
+
+.g_notice_layer .page_control { margin:30px 0 0;}
+.g_notice_layer .page_control ul { border-top:1px solid #ddd;}
+.g_notice_layer .page_control ul li {position:relative; height:38px; border-bottom:1px solid #ddd;}
+.g_notice_layer .page_control ul li:after { content:' '; clear:both; display:block; overflow:hidden;}
+.g_notice_layer .page_control ul li > div { float:left; height:38px; line-height:38px;}
+.g_notice_layer .page_control ul li > div.subj { padding-left:44px; width:58px; font-size:13px; color:#666; font-weight:400; text-align:left;}
+.g_notice_layer .page_control ul li > div.subj.up { background:url('//img.eduwill.net/resources/common/web/images/bbslayer/ico_up.gif') 19px center no-repeat;}
+.g_notice_layer .page_control ul li > div.subj.down { background:url('//img.eduwill.net/resources/common/web/images/bbslayer/ico_down.gif') 19px center no-repeat;}
+.g_notice_layer .page_control ul li > div.post_title { width:498px;}
+.g_notice_layer .page_control ul li > div.post_title a { display:inline-block; width:490px; font-size:13px; color:#333; font-weight:400; line-height:38px; text-align:left; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.g_notice_layer .page_control ul li > div.post_title span { display:inline-block; width:490px; text-align:left; color:#888; font-size:13px;}
+.g_notice_layer .page_control ul li > div.post_date { width:120px; text-align:center; font-family:'Verdana' !important; color:#888; font-size:12px;}
+
+.g_notice_black { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; filter:alpha(opacity=50); z-index:100000;}
+
+/* 20180808 */
+.g_notice_layer .layer_body .view_con a { display:inline; }

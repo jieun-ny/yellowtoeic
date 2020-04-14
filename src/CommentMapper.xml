@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.CommentMapper">
+<cache />
+<sql id="BaseColumns">
+num AS num,
+boardid AS boardid,
+memberid AS memberid,
+subject AS subject,
+reg_date AS reg_date,
+ref AS ref,
+re_step AS re_step,
+re_level AS re_level,
+content AS content,
+filename AS filename,
+readcount AS readcount
+</sql>
+
+<sql id="memberColumns">
+memberid AS memberId,
+name AS name,
+password AS password,
+email AS email,
+address AS address,
+phone AS phone,
+birthday AS birthday,
+regdate AS regdate,
+test_result AS test_result,
+test_day AS test_day
+</sql>
+
+<sql id="replyColumns">
+num AS num,
+memberid AS memberid,
+boardid AS boardid,
+grade AS grade,
+content AS content,
+reg_date AS reg_date
+</sql>
+
+<insert id="insertReply" parameterType="Reply">
+INSERT INTO treply
+VALUES(num,#{memberid},#{boardid},#{grade},#{content},now())
+</insert>
+
+<update id="insertDday" parameterType="Tmember">
+UPDATE tmember set test_day = #{test_day}
+where memberid = #{memberid}
+</update>
+
+
+
+<select id="selectAllReply" parameterType="String" resultType="Reply">
+SELECT * 
+FROM treply
+WHERE boardid = #{boardid}
+</select>
+
+
+<insert id="writePro" parameterType="BoardList">
+INSERT INTO boardlist
+VALUES(num,#{boardid},#{memberid},#{subject},now(),1,0,0,#{content},'',0)
+</insert>
+
+
+
+
+
+
+<update id="updateMember" parameterType="Tmember">
+UPDATE TMEMBER SET name = #{name},password = #{password},email = #{email}
+,address = #{address},phone = #{phone},birthday = #{birthday}
+where memberid = #{memberid}
+</update>
+
+<delete id="deleteMember" parameterType="Tmember">
+DELETE FROM TMEMBER WHERE memberid = #{memberid}
+</delete>
+
+
+
+<select id="selectCommentBymemberid" parameterType="hashmap" resultType="BoardList">
+SELECT
+num AS num,
+boardid AS boardid,
+memberid AS memberid,
+subject AS subject,
+reg_date AS reg_date,
+ref AS ref,
+re_step AS re_step,
+re_level AS re_level,
+content AS content,
+filename AS filename,
+ifnull(readcount,0) AS readcount
+FROM BOARDLIST
+<where>
+<if test="memberid!=null">
+memberid = #{memberid}
+</if>
+</where>
+</select>
+
+<select id="selectCommentByboardid" parameterType="hashmap" resultType="BoardList">
+		select * from BOARDLIST where boardid= #{boardid} order by num desc limit #{startRow} ,#{endRow}
+	</select>
+	
+<select id="countAllbyboardid" parameterType="String" resultType="int">
+SELECT
+ifnull(count(*),0)
+FROM BOARDLIST
+where boardid = #{boardid}
+
+</select>
+
+
+<select id="content" parameterType="hashmap" resultType="BoardList">
+SELECT
+*
+FROM BOARDLIST
+where boardid = #{boardid}
+and num = #{num}
+</select>
+
+
+<update id="readcount" parameterType="hashmap">
+UPDATE BOARDLIST SET readcount = ifnull(readcount,0)+1
+where boardid = #{boardid} and num = #{num} 
+</update>
+
+
+<update id="updatePro" parameterType="BoardList">
+update boardlist
+set subject = #{subject}, content =#{content}
+where num = #{num} and boardid=#{boardid}
+</update>
+
+<select id="updatecheck" parameterType="hashmap" resultType="String">
+select m.password from tmember m, boardlist b where b.num = #{num} and m.memberid = b.memberid and b.boardid=#{boardid}
+</select>
+
+
+<delete id="deletePro" parameterType="Integer">
+delete from boardlist where num = #{num}
+</delete>
+
+<select id="selectAvarge" resultType="Integer" parameterType="String">
+select ifnull(round(avg(grade),0),1) from treply where boardid =#{boardid};
+</select>
+
+<insert id="addcal" parameterType="hashmap" >
+INSERT INTO tcal 
+VALUES(#{memberid},#{dcal},#{list})
+</insert>
+
+</mapper>

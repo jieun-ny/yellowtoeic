@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.loginMapper">
+<cache />
+<sql id="memberColumns">
+memberid AS memberid,
+name AS name,
+password AS password,
+email AS email,
+address AS address,
+phone AS phone,
+birthday AS birthday,
+regdate AS regdate,
+test_result AS test_result,
+test_day AS test_day
+</sql>
+
+<select id="selectIdpassword" parameterType="hashmap" resultType="Tmember">
+SELECT    <include refid="memberColumns"/>   
+FROM TMEMBER
+WHERE memberid = #{memberid}
+and password = #{password}
+</select>
+
+<select id="selectduplicateId" parameterType="String" resultType="Tmember">
+SELECT    <include refid="memberColumns"/>   
+FROM TMEMBER
+WHERE memberid = #{memberid}
+</select>
+
+
+<select id="selectMemberBymemberid" parameterType="String" resultType="Tmember">
+SELECT<include refid="memberColumns"/>
+FROM TMEMBER
+WHERE memberid = #{memberId}
+</select>
+
+
+
+<insert id="joinMember" parameterType="Tmember">
+INSERT INTO TMEMBER(
+memberid,
+name,
+password,
+email,
+address,
+phone,
+birthday,
+regdate)
+VALUES(#{memberid},#{name},#{password},#{email},#{address},#{phone},#{birthday},now())
+</insert>
+
+<select id="selectCalender" parameterType="hashmap" resultType="Tcal">
+SELECT DATE_FORMAT(dcal, '%d') as dd, list
+from tcal where memberid = #{memberid}
+and DATE_FORMAT(dcal, '%Y')=#{yy} and DATE_FORMAT(dcal, '%c')=#{mm};
+</select>
+<select id="selectCalender2" parameterType="hashmap" resultType="Tcal">
+SELECT DATE_FORMAT(test_day, '%d') as dd
+from tmember where memberid = #{memberid}
+and DATE_FORMAT(test_day, '%Y')= #{yy} and DATE_FORMAT(test_day, '%c')=#{mm};
+</select>
+<select id="selectCalenderdaily" parameterType="Tcal" resultType="Tcal">
+SELECT list
+from tcal where memberid = #{memberid}
+and dcal = #{dcal}
+</select>
+<delete id="deletecal" parameterType="Tcal">
+delete from tcal where memberid = #{memberid}
+and dcal = #{dcal} and list = #{list}
+</delete>
+
+</mapper>

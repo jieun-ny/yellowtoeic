@@ -1,0 +1,59 @@
+/****************************************************
+* 배너 이용률 현황을 파악하기 위한 공통함수
+* 작성자 : 안치성
+* 작성일 : 2014-12-23
+*****************************************************/
+$(function(){
+	$("a[hit=on]").live("click", function(){
+		var bm_idx = $(this).attr("bm_idx");
+		var positionNum = $(this).attr("positionNum");
+		if(bm_idx != "" && positionNum != ""){
+			hitProcess(bm_idx, positionNum);
+		}
+	});
+
+	$("area[hit=on]").live("click", function(){
+		var bm_idx = $(this).attr("bm_idx");
+		var positionNum = $(this).attr("positionNum");
+		if(bm_idx != "" && positionNum != ""){
+			hitProcess(bm_idx, positionNum);
+		}
+	});
+
+	$("input[hit=on]").live("click", function(){
+		var bm_idx = $(this).attr("bm_idx");
+		var positionNum = $(this).attr("positionNum");
+		if(bm_idx != "" && positionNum != ""){
+			hitProcess(bm_idx, positionNum);
+		}
+	});
+});
+
+// 배너 Hit처리 프로세스
+function hitProcess(bm_idx, positionNum){
+	var callUrl = "/zPublic/module/common/bannerHit.asp?bm_idx=" + bm_idx + "&positionNum=" + positionNum;
+	//alert(callUrl);
+	ajaxProcess(callUrl);
+}
+
+// 공통 Ajax 처리
+function ajaxProcess(callUrl){
+	$.ajax({
+		type:"GET",
+		async:true,			// true-비동기, false-동기
+		url:callUrl,
+		crossDomain:false,
+		dataType:"json",
+		timeout:3000,
+		cache:false,
+		data:"",
+		success:function(data, textStatus, jqXHR){
+			//ajaxResult1(data);
+		},
+		error:function(xhr, msg, e){
+			//var html = "Failed-" + xhr.status +"-"+ xhr.statusText + " : " + msg + " : " + e;
+			//alert(html);
+			//ajaxError();
+		}
+	});
+}

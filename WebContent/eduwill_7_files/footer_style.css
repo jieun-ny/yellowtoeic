@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+#footer.renew {border-top:solid 1px #191919 !important; margin-top:0 !important; width:100%; font-family:'돋움', Dotum; text-align:left; letter-spacing:0; position:relative; background:#fff !important}
+#footer.renew * {font-family:'돋움', Dotum;}
+#footer.renew a {text-decoration:none;}
+#footer.renew address {letter-spacing:0}
+#footer.renew .ft_inner { width:1036px; /*width:900px;*/ margin:0 auto; position:relative; overflow:hidden}
+#footer.type1000 .ft_inner {width:1000px; margin:0 auto}
+
+#footer.renew .util {height:46px;}
+#footer.renew .util ul {zoom:1;}
+#footer.renew .util ul:after {content:""; display:block; clear:both}
+#footer.renew .util ul li {float:left; font-size:12px; color:#666; line-height:50px}
+#footer.renew .util ul li a {font-size:12px; color:#666}
+#footer.renew .util ul li.co1 a {color:#27358f}
+#footer.renew .copyright {zoom:1; float:none; width:100%; border-top:solid 1px #e1e1e1; padding:25px 0; margin:0; position:relative;}
+#footer.renew .copyright:after {content:""; display:block; clear:both}
+#footer.renew .copyright .logo {position:absolute; top:0; left:0; width:170px; height:38px;}
+#footer.renew .copyright .addr {padding-left:125px; font-style:normal;}
+#footer.renew .copyright .addr p {font-size:11px; color:#a0a0a0; line-height:16px; font-family:'돋움', Dotum; font-weight:normal; margin-top:10px}
+#footer.renew .copyright .addr p.t2 {padding-top:4px}
+#footer.renew #familysite {position:absolute; top:9px; left:50%; margin-left:314px}
+#footer.renew #familysite a.openbtn {display:block; text-align:center; width:108px; height:26px; border:solid 1px #e3e3e3; padding-right:26px; background:url(//www.eduwill.net/Img2/common/ew/bul_familysite02.gif) 100% 0 no-repeat;}
+#footer.renew #familysite a.openbtn span {font-size:12px; color:#8f8f8f; line-height:30px; }
+
+#footer.renew #partner {position:absolute; top:9px; left:50%; margin-left:169px}
+#footer.renew #partner a.openbtn {display:block; text-align:center; width:108px; height:26px; border:solid 1px #e3e3e3; padding-right:26px; background:url(//www.eduwill.net/Img2/common/ew/bul_familysite02.gif) 100% 0 no-repeat;}
+#footer.renew #partner a.openbtn span {font-size:12px; color:#8f8f8f; line-height:30px; }
+
+#footer.renew .awards {border-top:solid 1px #d3d3d3; background:#f9f9f9; padding-bottom:20px}
+#footer.renew .awards .aw01 {border-bottom:solid 1px #e5e5e5}
+#footer.renew .awards .aw02 {border-bottom:non}
+#footer.renew .awards .aw03 {border-bottom:none}
+#footer.renew .awards ul {zoom:1; height:63px;}
+#footer.renew .awards ul:after {content:""; display:block; clear:both}
+#footer.renew .awards li {float:left; width:128px; padding-top:20px}
+
+#footer.renew .footer_layer {background:#fff; z-index:20; border:solid 1px #e3e3e3; min-height:178px;}
+#footer.renew .footer_layer .closebtn a {text-indent:-9999em; position:absolute; top:9px; right:11px; display:block; width:15px; height:15px; background:url(//www.eduwill.net/Img2/common/ew/btn_fsClose.png) 0 0 no-repeat;}
+#footer.renew .footer_layer .cont { padding-bottom:15px;}
+#footer.renew .footer_layer .cont dl {}
+#footer.renew .footer_layer .cont dl dt {background:#eee; color:#27358f; height:34px; line-height:37px; text-align:center; font-size:14px; font-weight:bold}
+#footer.renew .footer_layer .cont dl dd {zoom:1;}
+#footer.renew .footer_layer .cont dl dd:after {content:""; display:block; clear:both}
+#footer.renew #pop_familysite {width:652px; position:absolute; top:0; left:50%; margin-left:-203px}
+#footer.renew #pop_familysite .cont dl dd {padding:14px 0 0 25px; position:relative}
+#footer.renew #pop_familysite .cont dl dd .grp {float:left;}
+#footer.renew #pop_familysite .cont dl dd .grp.grp1 {width:124px; }
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 {width:500px; }
+#footer.renew #pop_familysite .cont dl dd .grp em {font-size:11px; color:#212121; line-height:17px; letter-spacing:0; }
+#footer.renew #pop_familysite .cont dl dd .grp em a {color:#212121;}
+#footer.renew #pop_familysite .cont dl dd .grp span {font-size:11px; color:#999; line-height:17px; letter-spacing:0;}
+#footer.renew #pop_familysite .cont dl dd .grp span a {color:#999;}
+#footer.renew #pop_familysite .cont dl dd .grp.grp1 em { display: block; margin-top: 3px !important; font-style: normal; }
+#footer.renew #pop_familysite .cont dl dd .grp.grp1 em:first-child { margin-top: 0 !important; }
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 ul li {margin-top:3px;}
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 ul li:first-child {margin-top:0}
+#footer.renew #pop_familysite .cont dl dd .grp ul li {zoom:1;}
+#footer.renew #pop_familysite .cont dl dd .grp ul li:after {content:""; display:block; clear:both}
+#footer.renew #pop_familysite .cont dl dd .grp ul li em {float:left; width:98px; font-style:normal}
+#footer.renew #pop_familysite .cont dl dd .grp ul li em.autoW {width:auto}
+#footer.renew #pop_familysite .cont dl dd .grp ul li div {float:left; width:400px;}
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span {float:left;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(7) {margin-top:3px}
+}
+@-moz-document url-prefix(){
+	#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(7) {margin-top:3px}
+}
+
+/*
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(8),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(9),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(10),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(11),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(12),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(13),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(14),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(15),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(16),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(17),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(18),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(19),
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span:nth-child(20){margin-top:3px;}
+*/
+
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span{margin-top:3px;}
+
+#footer.renew #pop_familysite .cont dl dd .grp ul li div span a {}
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 .pos01 {position:absolute; top:131px; left:395px}
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 .pos01 em {width:87px}
+#footer.renew #pop_familysite .cont dl dd .grp.grp2 .pos01 div { width:150px;}
+#footer.renew #pop_email {width:652px; position:absolute; top:0; left:50%; margin-left:-203px}
+#footer.renew #pop_email .cont dl dd div {padding:35px 0 0 155px; height:117px; background:url(//www.eduwill.net/Img2/common/ew/bg_popemail.png) 30px 30px no-repeat;}
+#footer.renew #pop_email .cont dl dd div p {line-height:18px; font-size:12px; color:#888; letter-spacing:-1px;}
+#footer.renew #pop_email .cont dl dd div p.t2 {padding-top:12px;}
+#footer.renew #pop_email .cont dl dd div span {color:#dd0000}
+
+#footer.renew #pop_partner {width:898px;position:absolute; top:0; left:50%; margin-left:-450px; }
+#footer.renew #pop_partner.footer_layer .closebtn a {background:url(//www.eduwill.net/Img2/common/ew/btn_fsClose02.png) 0 0 no-repeat}
+#footer.renew #pop_partner.footer_layer .cont dl dd  {padding:6px 0 5px 12px}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl {position:relative; float:left; width:155px; border-right:solid 1px #e3e3e3; padding-right:12px; margin-right:12px;}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl.noline {border-right:none; margin-right:0; padding-right:0}
+
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dt {color:#3f4b91; font-size:13px; font-family:'맑은 고딕', '맑은고딕', 'Malgun gothic', '돋움', Dotum; background:#fffffc; border-bottom:solid 1px #e3e3e3; height:24px; line-height:24px; text-align:left; padding-left:6px}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dd {padding:5px 0}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dd li {line-height:24px}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dd li a {color:#888; margin-left:5px; font-size:11px}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dd li img {vertical-align:middle}
+#footer.renew #pop_partner.footer_layer .cont dl dd dl dd .more {position:absolute; top:6px; right:19px}

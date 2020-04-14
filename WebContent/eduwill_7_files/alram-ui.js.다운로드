@@ -1,0 +1,58 @@
+$(function(){
+	
+	//±ôºýÀÓÈ¿°ú
+	var alarmElement = $(".is_alarm em");
+	var alarmShown = true;	
+	//setInterval(alarmToggle, 500);
+	function alarmToggle() {
+	   if(alarmShown) {
+		   alarmElement.addClass('blink');
+		   alarmShown = false;
+	   } else {
+		   alarmElement.removeClass('blink');
+		   alarmShown = true;
+	   }
+	}
+	
+	//½ºÅ©·ÑAPI
+	/*
+	setTimeout(scrollCustom, 2000);
+	function scrollCustom() {
+		console.log('e')
+		
+		$('#alarmLayer .alarmList').mCustomScrollbar({
+			theme: 'minimal-dark',
+			callbacks:{
+				onScroll:function() {
+					
+				}
+			}			
+		});
+	}*/
+	/*
+	$('#alarmLayer .alarmList').mCustomScrollbar({
+		theme: 'minimal-dark',
+		callbacks:{
+			onScroll:function() {
+				
+			}
+		}			
+	});*/
+	
+	//list toggle
+	/*
+	$("#alarmLayer li").on("click", function(){
+		if($(this).hasClass("close")) {
+			$(this).addClass("open").removeClass("close").find("dd").slideDown(200).parents("li").siblings("li").addClass("close").removeClass("open").find("dd").hide()
+			
+		} else {
+			$(this).addClass("close").removeClass("open").find("dd").slideUp(200)
+		}
+
+		console.log('sss')
+	})
+	*/
+	$("#alarmWrap .dim").on("click", function(){
+		$("#alarmWrap").hide()
+	})
+})

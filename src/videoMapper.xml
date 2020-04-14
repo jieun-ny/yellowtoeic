@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.videoMapper">
+
+<select id="getArticleCount" parameterType="hashmap" resultType="int">
+select ifnull(count(*),0) from lecture where teacher=#{teacher} and subject_name= #{subject_name}
+</select>
+
+<select id="getArtcles" parameterType="hashmap" resultType="dbBoardDataBean">
+select * from lecture where teacher=#{teacher} and subject_name= #{subject_name} order by num desc limit #{startRow}, #{endRow}
+</select>
+
+<select id="insert_max"  resultType="int">
+select ifnull(max(num)+1,1) from lecture
+</select>
+
+<insert id="insert" parameterType="int">
+insert into lecture values (#{num},#{teacher},#{subject_name},#{class_name},#{filename})
+</insert>
+
+<select id="getId" parameterType="hashmap" resultType="String">
+select student_id from class where num = #{num} and student_id =#{student_id}
+</select>
+
+<select id="getTime" parameterType="hashmap" resultType="String">
+select video_time from class where student_id=#{student_id} and num=#{num}
+</select>
+
+<select id="getFilename" parameterType="int" resultType="String">
+select filename from lecture where num = #{num}
+</select>
+
+<select id="getnumid" parameterType="hashmap" resultType="hashmap">
+select num, student_id from class where num = #{num} and student_id = #{student_id}
+</select>
+
+<update id="timeupdate" parameterType="hashmap">
+update class set video_time=#{video_time} where num = #{num} and student_id = #{student_id}
+</update>
+
+<insert id="timeinsert" parameterType="hashmap">
+insert into class values (#{num},#{student_id},#{video_time})
+</insert>
+
+</mapper>

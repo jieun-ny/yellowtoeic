@@ -1,0 +1,173 @@
+/************************************************************************************************************************************************************
+* 작성자 : 안치성
+* 작성일 : 2014-06-09
+* 용  도 : 자주사용하는 스크립트 모음
+************************************************************************************************************************************************************/
+
+// jQuery 가 없을경우 추가함.
+window.jQuery || document.write('<scr'+'ipt type="text/JavaScript" src="/common/js/jquery/jquery-1.7.2.min.js"><\/scr'+'ipt>');
+
+/*********************************************************************************************************
+* URL을 통해 프로세스에 필요한 정보를 추출
+*********************************************************************************************************/
+var _progress = "";										// 아이템 과정정보를 담는 변수
+var _documentUrl = document.location.href;				// 현재 웹페이지의 Full Url
+var _url = _documentUrl;
+	_url = _url.replace("http://", "");
+	_url = _url.replace("https://", "");
+	_url = _url.replace("//", "/");
+
+var _dir = _url.split("/");
+if (_dir.length > 2){
+	progress = _dir[1];									// 아이템 과정 추출
+}
+
+var _contextPath = _url;		// Context Path
+_contextPath = _contextPath.replace(_dir[0], "");		// www.eduwill.net, test.eduwill.net, db.eduwill.net 등등 제거
+
+
+/*********************************************************************************************************
+* 가격 - 3자리 콤마
+*********************************************************************************************************/
+function numberFormat(num) {
+	num = unNumberFormat(num);
+	var pattern = /(-?[0-9]+)([0-9]{3})/;
+	while(pattern.test(num)){
+		num = num.replace(pattern,"$1,$2");
+	}
+
+	return num;
+}
+
+/*********************************************************************************************************
+* 콤마 제거
+*********************************************************************************************************/
+function unNumberFormat(num) {
+	return (num.replace(/\,/g,""));
+}
+
+
+
+/*********************************************************************************************************
+* 로그인 프로세스 진행
+*********************************************************************************************************/
+function gotoLogin(){
+	var url = "/" + progress + "/Join/Login/?iURL=" + _contextPath;
+	document.location.href = url;
+}
+
+
+/*********************************************************************************************************
+* 회원가입 프로세스 진행
+*********************************************************************************************************/
+function gotoJoin(){
+	var url = "/" + progress + "/Join/Regist/Mem_Join_Agr.asp";
+	document.location.href = url;
+}
+
+
+/*********************************************************************************************************
+* 현재 페이지 reload
+*********************************************************************************************************/
+function refresh(){
+	var url = document.location.href;
+	document.location.href = url;
+}
+
+
+/*********************************************************************************************************
+* 나의 강의실로 이동
+*********************************************************************************************************/
+function gotoClassroom(){
+	var url = "/" + progress + "/Myroom/Classroom/Myroom_index.asp";
+	document.location.href = url;
+}
+
+
+/*********************************************************************************************************
+* 비로그인시 confirm확인 후 로그인 프로세스 진행
+*********************************************************************************************************/
+function needLogin(){
+	if(confirm("로그인 후 신청하실 수 있습니다.\n로그인하시겠습니까?")){
+		gotoLogin();
+	}else{
+		return false;
+	}
+}
+
+function needLogin2(){
+	if(confirm("로그인 후 이용하실 수 있습니다.\n로그인하시겠습니까?")){
+		gotoLogin();
+	}else{
+		return false;
+	}
+}
+
+
+/*********************************************************************************************************
+* 상품 장바구니 담기 및 수강신청
+* 작성일 : 2013-08-27
+* 작성자 : 안치성
+* 파라미터
+*	1. userId : 회원ID
+*	2. productCode : 상품코드
+*	3. type : 유형(1-장바구니담기, 2-수강신청)
+* 사용방법 : <a href="#" onClick="setBasketProcess('<%=session("id")%>', '15C0Z0024C', 2); return false;" alt="수강신청">
+*********************************************************************************************************/
+function setBasketProcess(userId, productCode, type){
+	productCode = productCode + ":A";
+
+	// 로그아웃 상태 - 로그인 페이지로 이동하여 로그인시키고 바로 상품을 장바구니에 담기도록 처리함. 
+	if(userId == ""){
+		document.location.href = "/" + progress + "/Join/Login/?iURL=/" + progress + "/Purchase/Basket/Basket_Process.asp?Product=" + productCode;
+
+	// 로그인 상태 - 장바구니 담는 페이지로 데이터를 전송
+	}else{
+		$("form[id=productForm2014] > input[id=product]").val(productCode);
+		$("form[id=productForm2014]").attr("action", "/" + progress + "/Purchase/Basket/Basket_Process.asp?LogData=Y");
+		$("form[id=productForm2014]").attr("target", "commonFrame2014");
+		$("form[id=productForm2014]").submit();
+
+		// 수강신청일 경우 결제페이지로 이동함.
+		if(type == 2){
+			document.location.href = "/" + progress + "/Purchase/Basket/MyBasketOrder.asp";
+		}
+	}
+	return false;
+}
+
+// 공통Frame
+//document.write('<iframe name="commonFrame2014" id="commonFrame2014" width="0" height="0" border="0" marginwidth="0" marginheight="0"></iframe>');
+document.write('<iframe name="commonFrame2014" id="commonFrame2014" width="0" height="0" border="0" marginwidth="0" marginheight="0" style="width:0px; height:0px; border:0px; margin:0px;"></iframe>');
+
+//상품 장바구니 담기에 사용될 Form 
+document.write('<form name="productForm2014" id="productForm2014" method="post" target="commonFrame2014">');
+document.write('	<input type="hidden" id="product" name="Product" value="">');
+document.write('</form>');
+
+
+$(function(){
+
+	// 로그인 프로세스 이벤트 리스너
+	$(".gotoLogin").live("click", function(){
+		gotoLogin();
+	});
+
+	// 회원가입 프로세스 이벤트 리스너
+	$(".gotoJoin").live("click", function(){
+		gotoJoin();
+	});
+
+	// 로그인 필요 이벤트 리스너
+	$(".needLogin").live("click", function(){
+		needLogin();
+	});
+
+	// 로그인 필요 이벤트 리스너
+	$(".needLogin2").live("click", function(){
+		needLogin2();
+	});
+});
+
+
+//Aqua_TeacherSample1('<%=sample_encode("KO14")%>','<%=sample_encode(2)%>' ,'<%=sample_encode("G0")%>','<%=sample_encode("KO")%>');

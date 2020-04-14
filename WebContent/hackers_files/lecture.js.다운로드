@@ -1,0 +1,463 @@
+var my_sel_lec = "close";
+var lecture_flag = false;           
+var lecture_key = 1;
+/*
+$(window).scroll(function(){ // 수강신청 호출 
+    var show_loc = $(".footer");
+    if(show_loc.length){
+        var show_loc_top = show_loc.offset().top - 500;
+        var cur_loc = $(window).height() + $(window).scrollTop();
+
+        if( cur_loc >= show_loc_top && lecture_flag){
+            lecture_flag = false;
+            lecture_list(lecture_key++,lec_dt);
+        }
+    }
+}); 
+*/
+$(document).ready(function() {  
+    // 내게 맞는 레벨 찾기
+
+    $("#all_disable").click(function() {
+        $(".srch_my_lec input:checkbox").attr("checked",false);
+    });
+
+    $("#go_search").click(function() {
+        $("form[name=searchFrm]").submit();
+    });
+
+    $("#go_fast_search").click(function() {
+        if($("input[name=search_keyword]").val() == '' || $("input[name=search_keyword]").val() == '강의명/선생님을 입력하세요' ) {
+            alert('강의명/선생님을 입력하세요');
+            $("input[name=search_keyword]").focus();
+            return;
+        }
+
+        $("form[name=fastSearchFrm]").submit();
+    });
+
+    // 선생님으로 검색 셀렉트 박스
+    $("#teacher_sel").change(function() {
+        var selected = $(this).children(":selected");
+        var length = $("input[name='teacher_sel[]']").length;
+
+        //선택한 선생님 정보와 이미 선택되어 있는 선생님 정보를 비교해서 이미 있는 데이터면 return 시킨다.
+        for( var i=0; i < length+1; i++ ) {
+            var tc_sel = $("input[id='teacher_sel"+ (i+1) +"']").val();
+
+            if( tc_sel == selected.val() ) {
+                alert('이미 선택한 선생님입니다.'); return;
+            }
+        }
+
+        //선택한 선생님 정보를 select box 옆에 추가한다 (단, 최대 5개까지만 추가 가능함)
+        var append = '<dd>';
+        append += '<input type="checkbox" id="teacher_sel' + (length+1) + '" name="teacher_sel[]" value="' + selected.val() + '" checked />';
+        append += '<label for="teacher_sel' + (length+1) + '">' + selected.val() + '<a href="javascript:" onclick="teacher_del.bind($(this))()" class="teacher_sel_del">X</a></label>';
+        append += '</dd>';
+
+        if(selected.text() != "선생님으로 검색") {
+            if(length < 5) {
+                $(this).parent().parent().append(append);
+                getLectureList();
+            } else {
+                alert("최대 5명까지 선택할 수 있습니다.");
+            }
+        }
+    });
+
+    var lv  = $(".lavel").html();
+    if(lv){ //레벨 위치 수정
+        $(".lavel").eq(0).remove();
+        $("#sbj_srch").prepend("<li  class='lavel'>"+lv+"<li>");
+        //레벨 마지막 화살표
+        $(".lavel").eq(0).find("dd").last().attr("class","last");
+    }
+
+    setInterval(btn_apply_ch, 1000);
+
+    // 레이어 팝업 슬라이드
+    $('.pop_slide_box .tab_btn a').click(function(){
+        var this_index = $(this).parent().index();
+        $(this).parent('li').addClass('on').siblings().removeClass('on');
+        $('.pop_slide_box .pop_tab_con > div').eq(this_index).addClass('on').siblings().removeClass('on');
+    
+        pop_slide.destroySlider();
+        pop_slide_box();
+        return false;
+    });
+
+    placement_test(false); // 나에게 맞는 레벨 찾기(토플)
+});
+
+lecInfoPop = function(no,jijum,subject_no) {
+    popUpWin = window.open('/site/lecture/lecture_info.php?small='+no+'&jijum='+jijum+'&subject_no='+subject_no,'lecinfo','width=717,scrollbars=YES,height=700,status=no,resizable=yes');
+};
+
+div_hidden = function(id) {
+    var view_Obj = document.getElementById(id);
+    div_all_hidden();
+    view_Obj.style.display='';
+    view_Obj.focus();
+};
+
+div_all_hidden = function() {
+    var obj = $(".table-base div");
+    for(q=1; q<obj.length; q++) {
+        if(obj[q].id) {
+            if(obj[q].id.indexOf("deDiv_") != -1) {
+                obj[q].style.display='none';
+            }
+        }
+    }
+
+    for(q=1; q<obj.length; q++) {
+        if(obj[q].id) {
+            if(obj[q].id.indexOf("CPDiv_") != -1) {
+                obj[q].style.display='none';
+            }
+        }
+    }
+};
+
+pop_div = function (u, a, b) {
+    pop_div_close();
+    pop(u+'?'+a,b);
+};
+
+pop_div_close = function(){
+    var obj = document.getElementsByTagName("DIV");
+
+    for(q=1; q<obj.length; q++) {
+        if(obj[q].name) {
+            if(obj[q].name.indexOf("deDiv_") != -1) {
+                obj[q].style.display='none';
+            }
+        }
+    }
+};
+
+pop = function(a, b) {
+    popUpWin = window.open(a, '', b);
+};
+
+btn_apply_ch = function() {
+    var txt =["인강신청","대기불가"];
+    $('.btn_mdi.b_g').toggleClass("ov");
+    $('.btn_mdi.gre').toggleClass("ov");
+
+    $('.btn_mdi.ingang').each(function(){
+        ($(this).text() == txt[0]) ? $(this).text(txt[1]) : $(this).text(txt[0]);
+    });
+
+    if($('.btn_mdi.red').css('display')=='none') {
+        $('.btn_mdi.red').css('display', '');
+        $('.btn_mdi.nondis').css('display', 'none');
+    } else {
+        $('.btn_mdi.red').css('display', 'none');
+        $('.btn_mdi.nondis').css('display', '');
+    }
+};
+
+
+
+//수강료 혜택 팝업 - S
+function info_layer_pop_open(className, elem){
+    $('.layer_pop').hide();
+    $('.layer_btn').removeClass('on');                
+    $(elem).closest('li').addClass('on');
+    $('.'+className).show();
+    return false;
+}
+
+function info_layer_pop_close(className){
+    $('.layer_btn').removeClass('on'); 
+    $('.'+className).hide();
+}
+//수강료 혜택 팝업 - E
+
+//강의선택열고닫기
+function open_lecsel_list(idx) {
+	
+	if(my_sel_lec == "close"){
+		$(".srch_mylec>a").addClass("open");
+		my_sel_lec = "open";
+	}else{
+		$(".srch_mylec>a").removeClass("open");
+		my_sel_lec = "close";
+	}
+
+	$(".srch_sel_list").toggle();
+}
+
+// 강의 호출  - S
+function lecture_list(idx, lec_dt){
+    lec_dt.idx = idx;
+    $.post("/site/lecture/include/lecture_list.ajax.php",lec_dt,function(data){
+        $("#lecture_list tbody").append(data);
+        $("tr").fadeIn("slow",function(){
+            if(data.trim() != ""){
+                lecture_flag = true;
+            }
+        });
+    });
+}
+// 강의 호출  - E
+
+// 빠른 수강신청 호출 - S
+function lecture_fast_sugang(params){
+    var dt = params.dt;
+    var fast_su = params.fast_su;
+    var fast_url = params.fast_url;
+
+    $.ajax({
+        dataType : "json",
+        type:"post",
+        data : dt,
+        url: '/site/gnb_conf_test.php',
+        success : function(result) {
+			//console.log(result);
+            var srch_html   = '';
+            var num=0;
+             for(var k in result) {
+                if(k != 'subject_name'){
+                    if(k == 'level_class')          { srch_html +="<li class='lavel'>"; }
+                    else if(k == 'lecture_class')   { srch_html +="<li class='lecture_class'>"; }
+                    else                            { srch_html +="<li>"; }
+                    srch_html +="<dl><dt>"+result[k]['gubun_name']+"</dt>";
+
+                    for(var kk in result[k]) {
+                        if(kk != 'gubun_name'){
+                            var long_txt    = '';
+                            var hide_dd = '';
+                            if(k == 'level_class'){
+                                // 긴글자(토익스피킹,한달완성, 스팩완성, 리스닝&스피킹)
+                              if($.inArray(result[k][kk]['code'], ['8','9','24','25','26','27','38','39']) > -1){
+                                  long_txt    = "class='long_txt'";
+                              }
+                              if(result[k][kk]['name']==""){
+                                  hide_dd = " style='display:none;'";
+                              }else{
+                                  hide_dd = " style='display:;'";
+                              }
+                              srch_html +="<dd "+long_txt + hide_dd+"><label><input type='checkbox' name='"+fast_url[k]+"' value='"+result[k][kk]['in']+"'><br><strong>"+result[k][kk]['name']+"</strong><span>"+result[k][kk]['level_comment']+"</span></label></dd>";
+                            }else{
+                                var fast_name   = fast_url[k];
+                                if(k == 'lecture_class' && result[k][kk]['in']!=1 && result[k][kk]['in'] !=2){
+                                    if($.inArray(result[k][kk]['code'], ['7','8','28','29','30','31','32','33','34','42']) > -1){
+                                        fast_name   = 'lecture_name[]';
+                                    }else{
+                                        fast_name   = 'bigpart[]';
+                                    }
+                                }
+
+                                if(k == 'lecture_class'){
+                                    // 긴글자(토익스피킹,한달완성, 스팩완성, 리스닝&스피킹)
+                                  if($.inArray(result[k][kk]['code'], ['11','15','28','31']) > -1){
+                                      if(result[k][kk]['code']=='31'){
+                                          long_txt  = "class='long_txt2'";
+                                      } else {
+                                          long_txt    = "class='long_txt'";
+                                      }
+                                  }
+
+                                  if (result[k][kk]['code'] == '43') {
+                                      long_txt = long_txt+" style='width:120px' ";
+                                  }
+
+                                  srch_html +="<dd "+long_txt +"><label><input type='checkbox' name='"+fast_name+"' value='"+result[k][kk]['in']+"' ";
+
+                                  if($.inArray(result['subject_name'], ['GRE', '토스&오픽','중국어']) > -1){
+                                      srch_html += "onclick=change_lv('"+num+"',"+dt.subject+")";
+                                  }
+                                  srch_html += ">"+result[k][kk]['name']+"</label></dd>";
+                                  num++;
+
+                                }else if(k == 'lecture_day'){
+                                    if(result[k][kk]['in'] == 5 || result[k][kk]['in'] == 6 ){
+                                        long_txt    = "class='long_txt'";
+                                    }
+                                    srch_html +="<dd "+long_txt+"><label><input type='checkbox' name='"+fast_name+"' value='"+result[k][kk]['in']+"' >"+result[k][kk]['name']+"</label></dd>";
+                                }else{
+                                    srch_html +="<dd style='width:118px;'><label><input type='checkbox' name='"+fast_name+"' value='"+result[k][kk]['in']+"'>"+result[k][kk]['name']+"</label></dd>";
+                                }
+                            }
+                        } // end of if gubun_name
+                    } // end of for kk
+                    srch_html +="</dl></li>";
+
+                } // end of if subject_name
+            } // end of for k
+            $("#sbj_srch").html(srch_html);
+            setTimeout(check_arr, 300);
+
+        } // end of success
+    });
+
+}
+
+ 
+// 빠른 수강신청 호출 - E
+
+// 레이어 팝업 슬라이드 - S
+function pop_dim(){
+    $('.pop_slide_box_dim,.pop_slide_box').css('display','block');
+    pop_slide_box();
+}
+
+function pop_dim_close(){
+    $('.pop_slide_box_dim,.pop_slide_box').css('display','none');
+    pop_slide.destroySlider();
+}
+
+function pop_slide_box(){
+    pop_slide = $('.pop_slide_box .on .bxslider').bxSlider({
+        slideWidth: 668,
+        auto:false,
+        controls: true,
+        pager : false
+    });
+}
+// 레이어 팝업 슬라이드 - E
+
+function placement_test(sellectd){
+    var $Placement_btn=$('#Placement_btn');
+    var $Placement_pop_wrap=$('#Placement_pop_wrap');
+    var $Placement_close=$('#Placement_close');
+    var $Placement_pop_bg=$('#Placement_pop_bg');
+    var sell = sellectd;
+
+    function isopen(){
+        if(sell){
+            $Placement_pop_wrap.fadeOut();
+        }else{
+            $Placement_pop_wrap.fadeIn();
+        }
+        sell =! sell;
+    }
+    $Placement_btn.click(isopen);
+    $Placement_close.click(isopen);
+    $Placement_pop_bg.click(isopen);
+}
+
+
+function layer_pop_hide(){
+    $("#bnr_layer").remove();
+}
+
+// 청강 결제 - S
+function zeroLecture(no, campus, lesson_name){
+    if(confirm(lesson_name+' 신청하시겠습니까?')){
+        $.ajax({
+            url:"/site/payment/zero.php",
+            type:"POST",
+            data:{'no':no,'campus':campus,'lesson_name':lesson_name},
+            success : function(data){
+                alert(data);
+                //self.close();
+                if(data=='로그인 후 신청해주시기 바랍니다.') open_pop_layer('login');
+            }
+        });
+    }
+}
+// 청강 결제 - E
+
+// 수강료 0원이면서 청강이벤트가 아닐경우 - S
+function payment_zero(no, campus, lesson_name) {
+    if (confirm(lesson_name + ' 신청하시겠습니까?')) {
+        $.ajax({
+            url: "/site/payment/payment_zero.php",
+            type: "POST",
+            data: {'no': no, 'campus': campus, 'lesson_name': lesson_name},
+            success: function (data) {
+                alert(data);
+                //self.close();
+                if (data == '로그인 후 신청해주시기 바랍니다.') open_pop_layer('login');
+            }
+        });
+    }
+}
+// 수강료 0원이면서 청강이벤트가 아닐경우 - E
+
+
+// SAT 팝업 버튼 - S
+function satLayer(lec_no){
+    scroll(0);
+    $('input[name=lec_code]').val(lec_no);
+    layer_open('layer01');
+}
+// SAT 팝업 버튼 - E
+
+function scroll(y){
+    window.scrollTo(0,y);
+}
+
+
+function change_lv(num,subject_no){
+    var tsop_vl,tsop_st,tsop_sp = [];
+    if(subject_no == 4 || subject_no == 13) { 
+        var tsop_vl= [[3,4,5],[3,4,9]];
+        var tsop_st= [['입문','기본','중급'],['입문','기본','중/고급']];
+        var tsop_sp= [['','Lv.6 목표','Lv.7 이상 목표'],['','IM~IH 이상 목표','AL 이상 목표']];
+
+        for(var i=0; i<=2; i++){
+            var dd1 = $(".lavel dd").eq(i);
+            dd1.children("label").children("input").val(tsop_vl[num][i]);
+            dd1.children("label").children("strong").html(tsop_st[num][i]);
+            dd1.children("label").children("span").html(tsop_sp[num][i]);
+        }
+    } else if(subject_no==6){
+
+        var tsop_vl= [[3,4,7],[4,7,0],[4,10,0],[3,7,0]];
+        var tsop_st= [['입문','기본','실전'],['기본','실전',''],['기본','중급+실전',''],['입문','실전','']];
+
+        if(num==0 && $(".lavel").eq(0).find("dd").size()<3){
+            $(".lavel").eq(0).find("dd").last().attr("class","test");
+            $(".lavel").eq(0).find("dl").append("<dd class='last'><label><input type='checkbox' name='new_level[]' value='7'><br><strong>실전</strong><span></span></label></dd>")
+        }
+        for(var i=0; i<=2; i++){
+            var dd1 = $(".lavel dd").eq(i);
+            dd1.children("label").children("input").val(tsop_vl[num][i]);
+            dd1.children("label").children("strong").html(tsop_st[num][i]);
+            if(tsop_vl[num][i] == 0){
+                dd1.remove();
+            }
+        }
+        //레벨 마지막 화살표
+        $(".lavel").eq(0).find("dd").last().attr("class","last");
+    } else if(subject_no==10){
+        tsop_vl= [[21,22,23,24,0],[25,26,27,28,29],[30,31,32,33,29],[36,0,0,0,0],[37,0,0,0,0]];
+        tsop_st= [["기초회화","기초회화+HSK","원어민 중급회화","원어민 고급회화",""],["HSK3급","HSK4급","HSK5급", "HSK6급", "HSK+TSC"],["TSC 3-4급","TSC 3-6급","TSC 4-6급","TSC 5-7급","HSK+TSC"],["중국뉴스/신문청취","","", "", ""],["HSKK","","", "", ""]];
+        for(var i=0; i<=4; i++){
+           dd1 = $(".lavel dd").eq(i);
+           dd1.children("label").children("input").val(tsop_vl[num][i]);
+           dd1.children("label").children("strong").html(tsop_st[num][i]);
+            if(tsop_vl[num][i] == 0){
+               dd1.hide();
+            }else{
+               dd1.show();
+			}
+		}
+        //$(".lavel").eq(0).find("dd").last().attr("class","last"); 
+    } else if(subject_no==15){
+        tsop_vl= [[21,22,0,0,0],[25,26,0,0,0]];
+        tsop_st= [["기초회화","기초회화+HSK","","",""],["HSK3급","HSK4급","", "", ""]];
+        for(var i=0; i<=tsop_vl.length; i++){
+            dd1 = $(".lavel dd").eq(i);
+            dd1.children("label").children("input").val(tsop_vl[num][i]);
+            dd1.children("label").children("strong").html(tsop_st[num][i]);
+            if(tsop_vl[num][i] == 0){
+                dd1.hide();
+            }else{
+                dd1.show();
+            }
+        }
+    }
+   
+    var cnt = $(".srch_my_lec .lecture_class input[type='checkbox']");
+    for(var i=0; i<cnt.size(); i++){
+        cnt.eq(i).prop("checked",false);
+    }
+
+    cnt.eq(num).prop("checked",true);
+}

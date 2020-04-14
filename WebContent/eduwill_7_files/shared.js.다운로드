@@ -1,0 +1,162 @@
+var gov2Folder = "gov2"
+
+// GNB 클릭카운트 로그
+function fnMovegoGovTop1(menu, url) {
+	window.document.getElementsByTagName("hiddenFrame").src = "/Common/In_Log_Count.asp?menu="+menu+"&Pro="+gov2Folder;
+	//document.hiddenFrame.location.href = "/Common/In_Log_Count.asp?menu="+menu+"&Pro="+gov2Folder;
+	location.href = url;
+}
+
+// 9급공무원 GNB 클릭카운트 로그
+function fnLogNum(Pro,Idx) {
+	window.document.getElementsByTagName("hiddenFrame").src = "/Gov2/In_Log.asp?Pro="+Pro+"&Idx="+Idx;
+	//document.hiddenFrame.location.href = "/Gov2/In_Log.asp?Pro="+Pro+"&Idx="+Idx;
+}
+
+// 상단 즐겨찾기, 트위터등 클릭 카운트 로그
+function toBltwNum(Sel) {
+	window.document.getElementsByTagName("hiddenFrame").src = "/Basic/inc/InLog.asp?Sel="+Sel;
+	//document.hiddenFrame.location.href = "/Basic/inc/InLog.asp?Sel="+Sel;
+}
+
+// 즐겨찾기
+function addFavoritesEduwill(obj){
+	window.external.AddFavorite('http://www.eduwill.net/Gov2', '(주)에듀윌-자격증/공무원 교육 No.1');
+	
+	if (confirm ("즐겨찾기 설정이 완료되었습니다.\n\n바로 로그인 하세요. 에듀윌 포인트 500점이 적립됩니다.\n\n로그인 하시겠습니까?")) {		
+		location.href="/Gov2/Join/Login/?plusPoint=F&iURL=/gov2/default.asp" ;		
+	}
+}
+
+//바탕화면 설치하기 저장
+function setBatang1() {
+	location.href = "http://www.eduwill.net/Common/CallCenter/Program/Quickeduwill.exe";
+	setTimeout(setbatang2, 100);
+}
+
+function get_version_of_IE () { 
+
+		 var word; 
+		 var version = "N/A"; 
+
+		 var agent = navigator.userAgent.toLowerCase(); 
+		 var name = navigator.appName; 
+
+		 // IE old version ( IE 10 or Lower ) 
+		 if ( name == "Microsoft Internet Explorer" ) word = "msie "; 
+
+		 else { 
+			 // IE 11 
+			 if ( agent.search("trident") > -1 ) word = "trident/.*rv:"; 
+
+			 // Microsoft Edge  
+			 else if ( agent.search("edge/") > -1 ) word = "edge/"; 
+		 } 
+
+		 var reg = new RegExp( word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})" ); 
+
+		 if (  reg.exec( agent ) != null  ) version = RegExp.$1; 
+
+		 return version; 
+	} 
+
+// 시작페이지 눌렀을때 로그인 체크 후 포인트 적립 //IsJisaDomainCookie(Request.Cookies("j_name"))
+function setStartPageEduwill(obj) {
+	if (get_version_of_IE() > 9){
+			alert('시작페이지 설정은 IE7,8,9 버전만 이용 가능합니다');
+		}else{
+			obj.style.behavior='url(#default#homepage)';
+			obj.setHomePage('http://WWW.eduwill.net/7even');
+			
+			if (confirm ("시작페이지 설정이 완료되었습니다.\n\n바로 로그인 하세요. 에듀윌 포인트 1,000점이 적립됩니다.\n\n로그인 하시겠습니까?")) {		
+				location.href="/gov2/Join/Login/?plusPoint=S&iURL=/gov2/main_100419.asp" ;		
+			}	
+		}
+}
+
+// 즐겨찾기
+function goFavorite(type) {
+	if (type == "1") {
+		$("#pop").show();
+	} else {
+		$("#pop").hide();
+	}
+}
+
+// 트위터
+function goTwitter(){
+	window.open('http://twitter.com/eduwillnet');
+	toBltwNum("T");
+}
+
+// 페이스북
+function goFaceBook(){
+	window.open('http://www.facebook.com/eduwillnet');
+	toBltwNum("F");
+}
+
+// 블로그
+function goBlog(){
+	window.open('http://blog.eduwill.net/');
+	toBltwNum("B");
+}
+
+// 공용 윈도우 오픈	
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+	  window.open(theURL,winName,features);
+}
+
+//팝업창
+function PopOpen(turl,name,iwidth,iheight){
+	// window.open(경로,창이름,옵션[가로,세로,리사이즈 가능여부,스크롤바 가능여부, top창위치, left창위치])
+	window.open(turl,name,"width=" + iwidth + ", height=" + iheight + ", resizable=no,scrollbars=yes,top=50,left=50");
+}
+
+//팝업창 타입2
+function PopOpen2(turl,name,iwidth,iheight,scroll){
+	// window.open(경로,창이름,옵션[가로,세로,리사이즈 가능여부,스크롤바 가능여부, top창위치, left창위치])
+	window.open(turl,name,"width=" + iwidth + ", height=" + iheight + ", resizable=no,scrollbars=" + scroll + ",top=50,left=50");
+}
+
+function Aqua_etc_Left(idx,seq) {
+	var aa=document.player_etcL;
+	aa.etc_idx.value=idx;
+	aa.etc_seq.value=seq;
+
+	if (navigator.appVersion.substr(navigator.appVersion.indexOf('MSIE ')+5,3)=='6.0') {
+		aa.target='player_etcL';
+		aa.action='/common/player_aqua/player_etc1.asp';			
+		window.open('', 'player_etcL', 'width=670, height=690, top=0, left=0, location=no, status=no, scrollbars=no, resizable=no, menubar=no');
+		aa.submit();
+	} else {
+		aa.target='player_etcL';
+		aa.action='/common/player_aqua/player_etc1.asp';			
+		window.open('', 'player_etcL', 'width=670, height=690, top=0, left=0, location=no, status=no, scrollbars=no, resizable=no, menubar=no');
+		aa.submit();
+	}
+}
+
+function GoEventUrl() {
+	location.href = "/Gov2/Product/Event/Event_121022.asp";
+}
+
+// 제휴 및 인증안내
+function alliance(n){
+  for(i=1;i<=2;i++){
+	  if(i==n){
+	  document.getElementById('alliance0'+n).style.display="block";
+	  }else{
+	  document.getElementById('alliance0'+i).style.display="none";
+		}
+	}
+}
+// 패밀리 사이트
+function family(n){
+  for(i=1;i<=2;i++){
+	  if(i==n){
+	  document.getElementById('family0'+n).style.display="block";
+	  }else{
+	  document.getElementById('family0'+i).style.display="none";
+		}
+	}
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="mybatis.dao.ExamMapper">
+	<cache />
+	<select id="getExam" parameterType="int" resultType="Exam_RC">
+		SELECT
+			*
+		FROM Exam
+		WHERE exam_num = #{exam_num}
+	</select>
+	
+	<select id="getExamCount" resultType="int">
+		SELECT
+			count(*) 
+		FROM Exam
+	</select>
+	
+	<insert id="insertExamUser"	parameterType="Exam_user">
+		insert into Exam_user values(#{exam_num}, #{selected_ans}, #{id})
+	</insert>
+	
+	<select id="getAnswers_RC" parameterType="int" resultType="Exam_RC">
+		SELECT  
+			*
+		FROM exam e, exam_user u 
+		WHERE e.exam_num = u.exam_num 
+		AND u.exam_num <![CDATA[ <= ]]> #{totalnum}
+	</select>
+	
+	<select id="getAnswers_LC" parameterType="int" resultType="Exam_LC">
+		SELECT  
+			*
+		FROM exam_lc e, exam_user u 
+		WHERE e.exam_num = u.exam_num 
+		AND u.exam_num <![CDATA[ <= ]]> #{totalnum}
+	</select>
+	
+	<delete id="deleteuser">
+		delete from exam_user 
+	</delete>
+	
+</mapper>	

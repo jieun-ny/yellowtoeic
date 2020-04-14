@@ -1,0 +1,78 @@
+$(document).ready(function () {
+    /*유저 로그인후 목록 보기*/
+    $(".tab_user").mouseover(function () {
+        $(".head_pop").show();
+    })
+    $(".head_pop").mouseout(function () {
+        $(".head_pop").hide();
+    }).mouseover(function () {
+        $(".head_pop").show();
+    })
+    /* //유저 로그인후 목록 보기*/
+	
+
+
+    /*GNB 메뉴 */
+    $(".top_gnbs > li").click(function () {
+        var gindex = $(this).index();
+        $(".top_gnbs > li").removeClass("on");
+        $(this).addClass("on")
+        $(".gnb_tab > li").removeClass("on");
+        $(".gnb_tab > li:eq(" + gindex + ")").addClass("on");
+    })
+    /*//GNB 메뉴*/
+
+    /*고객센터 메뉴*/
+    var snum = 1
+    $(".service_gnb").click(function () {
+        if (snum == 1) {
+            $(".service_gnb").css({"backgroundColor": "#d01715", "color": "#fff"}).children("span").html("▲");
+            $(".service_pop").show();
+            snum = 0
+        } else {
+            $(".service_gnb").css({"backgroundColor": "#fff", "color": "#000"}).children("span").html("▼");
+            $(".service_pop").hide();
+            snum = 1
+        }
+    })
+    /*//고객센터 메뉴*/
+});
+
+function cpn_check(rtn_url) {
+    var input_cpn_num = $("#input_cpn_num");
+    if (input_cpn_num.val() == '') {
+        alert("인증번호를 입력하세요.");
+        input_cpn_num.focus();
+        return;
+    }
+    console.log(input_cpn_num.val());
+    $.ajax({
+        url: '/site/ajax/coupon_ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            proc: 'check',
+            cpn_num: input_cpn_num.val()
+        },
+        success: function (data) {
+            switch (data.result) {
+                case 'none' :
+                    alert(data.msg);
+                    input_cpn_num.focus();
+                    break;
+                case 'ok'   :
+                    alert(data.msg);
+                    location.href = data.link_url;
+                    break;
+                case 'have' :
+                    alert(data.msg);
+                    input_cpn_num.focus();
+                    break;
+                case 'logout' :
+                    alert(data.msg);
+                    location.href = "/site/?st=login&rtnUrl="+rtn_url;
+                    break;
+            }
+        }
+    });
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/*** util  **********************/
+
+.hd_wrap .toplist, .section_link, .category_list dd { zoom: 1; }
+.hd_wrap .toplist::before, .hd_wrap .toplist::after, .section_link::before, .section_link::after, .category_list dd::before, .category_list dd::after { content: ""; display: table; }
+.hd_wrap .toplist::after, .section_link::after, .category_list dd::after { clear: both; }
+
+#header { z-index: 10000 !important; } /* header가 최상단, 레이어 팝업 z-index값 header보다 아래로 */
+#header .hd_wrap .toplist { float: none !important; text-align: right; }
+#header .hd_wrap .toplist .sns,
+#header .hd_wrap .toplist .section_link { float: right !important; }
+#header .hd_wrap .toplist .sns { padding-top: 2px; }
+#header .hd_wrap .toplist .sns a img,
+#header .toplist .social .b_sns { vertical-align: top; }
+
+.section_link > * { line-height: 1.2; font-size: 12px; }
+.section_link { position: relative; z-index: 1; text-align: left; font-family: '맑은 고딕', Malgun Gothic, '돋움', Dotum, '굴림', Gulim, sans-serif; }
+.section_link .item { display: inline-block; float: left; margin-left: 7px; }
+.section_link .item .action { display: inline-block; height: 22px; line-height: 22px; }
+.section_link .item > .action { height: 18px; line-height: 18px; margin: 0; padding-left: 6px; border: 1px solid #c5c5c5; box-sizing: border-box; -webkit-box-sizing: border-box; cursor: pointer;  }
+.section_link .item > .action span { display: inline-block; line-height: normal; margin-top: -1px; padding-right: 6px; vertical-align: top; font-weight: bold; font-size: 11px; color: #888; }
+.section_link .item .action.is_view span { padding-right: 19px; background: url('/Img2/common/set_view.png') no-repeat right -1px; }
+.section_link .item.in .action.is_view span { background-position: right -19px; }
+
+.section_link .item.is_academy .category_list { right: 0; }
+
+.section_link .item .core { display: none; }
+.section_link .item.in .core { display: block; }
+
+/* layer */
+.category_list { position: absolute; top: 27px; right: 78px; z-index: 9999; width: 397px; overflow: hidden; border: 1px solid #c5c5c5; background-color: #fff; }
+.category_list dl { padding: 8px; }
+.category_list dt { display: block; width: 100%; padding: 3px 10px 5px; line-height: 1.2; font-size: 14px; font-weight: bold; color: #848484; border-radius: 2px; border: 1px solid #c5c5c5; background-color: #f9f9fa; box-sizing: border-box; -webkit-box-sizing: border-box; }
+.category_list dd { margin: 10px 0; line-height: 1.2; }
+.category_list li { float: left; width: 32%; height: 24px; line-height: 24px; letter-spacing: -1px; }
+.category_list li:nth-of-type(3n), 
+.category_list li:nth-child(3n){ width: 36%; }
+.category_list li:only-child { width: auto; }
+.category_list li a { position: relative; display: block; padding-left: 15px; font-size: 12px; color: #848484; background: url('/Img2/common/icon_dot.png') no-repeat left center; }
+.category_list li .icon_new { vertical-align: bottom; }
+.category_list li a:hover { color: #f26521; }
+
+.icon_new { display: inline-block; width: 18px; height: 18px; line-height: 18px; background: url('/Img2/common/ew/img_new_14px.gif') no-repeat 0 0; }
+.icon_new em { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+.layer_close { text-align: right; }
+.layer_close .action { font-size: 12px; color: #848484; }
+.layer_close .action span { display: block; padding-right: 31px; background: url('/Img2/common/icon_close.png') no-repeat right center; }
+
+/* 사회복지사 Gate */
+.social_main .section_link { float: right; margin-top: 22px; }
+
+/* 한식조리기능사 */
+.page_cook .section_link { float: right; margin-top: 14px; }
+.page_cook .section_link .category_list { right: 0; }
+
+/* 기타 공무원 (세무직 등) : simple header */
+.event_edoc .section_link { float: right; padding-top: 15px; }
+.event_edoc .section_link .category_list { top: 41px; right: 0; }

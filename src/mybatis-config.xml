@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<typeAliases>
+<typeAlias type="model.BoardList" alias="BoardList"/>
+<typeAlias type="model.Reply" alias="Reply"/>
+<typeAlias type="model.Tmember" alias="Tmember"/>
+<typeAlias type="model.Tcal" alias="Tcal"/>
+<typeAlias type="model.LecturePrinterDto" alias="LecturePrinterDto"/>
+<typeAlias type="model.OwnLecturePrinterDto" alias="OwnLecturePrinterDto"/>
+<typeAlias type="model.dbBoardDataBean" alias="dbBoardDataBean"/>
+<typeAlias type="model.Exam_RC" alias="Exam_RC"/>
+<typeAlias type="model.Exam_LC" alias="Exam_LC"/>
+<typeAlias type="model.Exam_user" alias="Exam_user"/>
+<typeAlias type="model.lReply" alias="lReply"/>
+<typeAlias type="model.FeedBackDto" alias="FeedBackDto"/>
+</typeAliases>
+
+<environments default="development">
+<environment id="development">
+<transactionManager type="JDBC"/>
+<dataSource type="POOLED">
+<property name="driver" value="com.mysql.jdbc.Driver"/>
+<property name="url" value="jdbc:mysql://localhost:3306/jspdb"/>
+<property name="username" value="scott"/>
+<property name="password" value="1111"/>
+</dataSource>
+</environment>
+</environments>
+
+<mappers>
+<mapper resource="CommentMapper.xml"/>
+<mapper resource="loginMapper.xml"/>
+<mapper resource="videoMapper.xml"/>
+<mapper resource="mapper/LecturePrintMapper.xml"/>
+<mapper resource="dao/ExamMapper.xml"/>
+<mapper resource="mapper/FeedbackMapper.xml"/>
+</mappers>
+</configuration>

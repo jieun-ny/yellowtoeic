@@ -1,0 +1,85 @@
+@charset "euc-kr";
+
+/* Noto Sans */
+/* 
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 100;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Thin.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Thin.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Thin.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Thin.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Thin.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 300;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Light.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Light.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Light.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Light.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Light.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 400;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Regular.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Regular.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Regular.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Regular.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 500;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Medium.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Medium.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Medium.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Medium.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Bold.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Bold.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Bold.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Bold.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 900;
+	src: url('//contents.eduwill.net/font/NotoSansKR-Black.eot');
+	src: local('※'), url('//contents.eduwill.net/font/NotoSansKR-Black.eot?#iefix') format('embedded-opentype'), url('//contents.eduwill.net/font/NotoSansKR-Black.woff2') format('woff2'), url('//contents.eduwill.net/font/NotoSansKR-Black.woff') format('woff'), url('//contents.eduwill.net/font/NotoSansKR-Black.otf') format('opentype');
+} */
+
+.layerWrap#alarmLayer * { font-family: 'Noto Sans KR'; }
+
+/* 알림서비스 */
+#alarmWrap .dim {position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; filter:alpha(opacity=50); z-index:10003}
+.layerWrap#alarmLayer {position:fixed; width:800px; height:638px; top:50%; left:50%; margin:-320px 0 0 -400px; border:solid 1px #363636; border-radius:6px; background:#f3f4f7; z-index:10004; box-shadow: rgba(0, 0, 0, 0.17) 8px 8px 20px 0px;}
+.layerWrap#alarmLayer .inner {border-radius:6px; background:none; text-align:left; width:800px;}
+#alarmLayer .top {padding:20px 30px; background:#fff; border-radius:6px 6px 0 0; height:auto }
+#alarmLayer .top .t1 {font-size:18px; font-weight:500; padding:0; line-height:29px;}
+#alarmLayer .top .btn_alarm {position:absolute; top:20px; right:50px; font-size:0}
+#alarmLayer .top .btn_alarm a {display:inline-block; margin-left:5px; border:solid 1px #c9c9c9; border-radius:2px; height:27px; line-height:26px; font-size:13px; color:#111; font-weight:400; padding:0 13px; }
+#alarmLayer .top .btn_alarm a:hover {border-color:#949494}
+#alarmLayer .top .btn_alarm a.btn_refresh {text-indent:-9999em; text-align:left; width:27px; padding:0; background:url('//img.eduwill.net/resources/common/web/images/gnb/bg_alarm_refresh.png') no-repeat 50% 50%;}
+#alarmLayer .top .closeLayer {position:absolute; top:26px; right:20px;}
+#alarmLayer .top .closeLayer a {padding-right:0; display:block; width:17px; height:17px; text-indent:-9999em; background:url('//img.eduwill.net/resources/common/web/images/gnb/icon_layerclose.png') no-repeat 0 0;}
+#alarmLayer .cont {padding:15px 8px 25px 16px; background:none; position:relative;}
+#alarmLayer .alarmList {max-height:529px; overflow-y:auto; padding-right:8px}
+#alarmLayer .alarmList ul li {border:solid 1px #c7cbd8; border-radius:5px; margin-top:7px; background:#fff; padding:0 14px; position:relative;}
+#alarmLayer .alarmList ul li:hover {border:solid 1px #2e5be5}
+#alarmLayer .alarmList ul li:hover .subj {color:#2e5be5}
+#alarmLayer .alarmList ul li:first-child {margin-top:0}
+#alarmLayer .alarmList ul li dl dt {padding:16px 160px 17px 45px; margin:0 -14px; border-radius:5px 5px 0 0; background:url('//img.eduwill.net/resources/common/web/images/gnb/ico_alarm_uncheck.png') 17px 17px no-repeat; cursor:pointer}
+#alarmLayer .alarmList ul li dl dt .subj {font-size:15px; color:#111; font-weight:400; line-height:18px}
+#alarmLayer .alarmList ul li dl dt .date {font-size:15px; color:#989dab; font-weight:100; position:absolute; top:18px; right:39px; line-height:1; }
+#alarmLayer .alarmList ul li .delete {display:block; position:absolute; top:21px; right:17px; text-indent:-9999em; width:9px; height:9px; background:url('//img.eduwill.net/resources/common/web/images/gnb/btn_alarm_del.png') 0 0 no-repeat;}
+#alarmLayer .alarmList ul li dl dd {display:none; border-top:solid 1px #e2e5ee}
+#alarmLayer .alarmList ul li dl dd .text {font-size:14px; color:#111; font-weight:400; line-height:25px; padding:20px 10px} 
+#alarmLayer .alarmList ul li.checks {border-color:#ebedf1; height:auto; display:block;}
+#alarmLayer .alarmList ul li.checks dl dt {background:#ebedf1 url('//img.eduwill.net/resources/common/web/images/gnb/ico_alarm_check.png') 17px 17px no-repeat;}
+#alarmLayer .alarmList ul li.checks dl dt .subj {color:#757a8b}
+#alarmLayer .alarmList ul li.checks.open dl dt {background-color:#fff}
+#alarmLayer .alarmList ul li.open {border-color:#2e5be5 !important; }
+#alarmLayer .alarmList ul li.open dt {background:url('//img.eduwill.net/resources/common/web/images/gnb/ico_alarm_uncheck.png') 17px 17px no-repeat !important;}
+#alarmLayer .alarmList ul li.open dl dt .subj {color:#2e5be5 !important;}
+#alarmLayer .listMore {background:#fff; border:solid 1px #c7cbd8; border-radius:3px; width:119px; height:34px; text-align:left; line-height:34px; cursor:pointer; margin:20px auto 0} 
+#alarmLayer .listMore span {font-size:15px; color:#111; font-weight:400; margin-left:28px; padding-left:19px; background:url('//img.eduwill.net/resources/common/web/images/gnb/bg_moreBtn2.png') 0 5px no-repeat;}
+#alarmLayer .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {left:15px;}
+#alarmLayer .nodata {padding:200px 0 0 0; margin:0; background:none; position:absolute; top:0; left:0; width:100%;}
+#alarmLayer .nodata p {font-size:15px; color:#757a8b; font-weight:300; padding-top:57px; background:url('//img.eduwill.net/resources/common/web/images/gnb/bg_alarm_nodata.png') 50% 0 no-repeat; text-align:center}

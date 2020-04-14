@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybastis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace = "toeicsite.mapper.LecturePrintMapper"><!-- 쿼리이상무 -->
+ <cache/>
+ <select id="getAllLectures" resultType="LecturePrinterDto">
+ 	SELECT *
+ 	FROM lectures
+ </select>
+ 
+ <select id="getFilteredLectures" parameterType="string" resultType="LecturePrinterDto">
+	select *from lectures a, (select purchased_lectures  from ownLectures where(member_id=#{memberid})) b 
+	where a.subject_name = b.purchased_lectures;
+</select>
+ 
+<select id="getOtherLectures" parameterType="string" resultType="LecturePrinterDto">
+	select * from lectures where subject_name not in(select subject_name from lectures a, (select purchased_lectures  from ownlectures where(member_id= #{memberid} )) b
+    where a.subject_name = b.purchased_lectures)
+</select>
+<select id="checkRemain" parameterType="hashmap" resultType="OwnLecturePrinterDto">
+	select * from ownlectures where ( purchased_lectures = #{purchasedlectures} and member_id= #{memberid} )
+</select>
+
+<insert id ="insertlectures" parameterType="hashmap">
+	insert into ownlectures 
+	(
+	member_id,
+	startDay, 
+	endDay,
+	purchased_lectures
+	) 
+	values(#{memberid}, now(), Date_add(now(),interval 60 day),#{purchasedlectures} )
+</insert>
+
+ </mapper>

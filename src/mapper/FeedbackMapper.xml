@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybastis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace = "toeicsite.mapper.FeedbackMapper">
+<!-- 쿼리작성부 -->
+<resultMap id="feedbackCon" type="FeedBackDto">
+	
+</resultMap>
+ <select id="getAllFeedbacks" resultType="FeedBackDto">
+ 	SELECT *
+ 	FROM feedbackboard
+ </select>
+<insert id="insertFeedback" parameterType="hashmap">
+    insert into feedbackboard (member_id, content, reg_date)
+values (#{memberid}, #{content}, now());
+</insert>
+
+
+<select id="getThreeFeedback" parameterType="Long" resultType="FeedBackDto">
+   select * from feedbackboard  order by reg_date desc limit #{RowCnt},10
+</select>
+
+</mapper>

@@ -1,0 +1,91 @@
+var logging = function (e) {
+    if (e) {
+        try {
+            var progress = _progress; 
+			var academy = typeof _academy == "undefined" ? '' : _academy;
+            var divEle;
+            var reduceX = 0;
+            var reduceY = 0;
+
+            switch (progress) {
+                case "G": divEle = $("#divBanner"); reduceX = 140; reduceY = 0; break;      //9급공무원
+                case "7": divEle = $(".main_wrap"); reduceX = 141; reduceY = 15; break;     //7급공무원  
+                case "L": divEle = $(".main_wrap"); reduceX = 134; reduceY = -4.5; break;   //공인중개사
+                case "J": divEle = $(".main_wrap"); reduceX = 134; reduceY = -4.5; break;   //주택관리사
+                case "B": divEle = $(".main_wrap"); reduceX = 135; reduceY = 1; break;      //검정고시
+                case "X": divEle = $(".main_wrap"); reduceX = 135; reduceY = 1; break;      //전산세무회계
+                case "Q": divEle = $(".main_wrap"); reduceX = 135; reduceY = 1; break;      //전기기사
+                case "6": divEle = $(".main_wrap"); reduceX = 135; reduceY = 1; break;      //건축/토목기사
+				
+                case "C": divEle = $("#divBanner"); reduceX = 141; reduceY = 20; break;      	//경찰공무원				
+				case "T": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//계리직공무원
+				case "3": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//전기기능사
+				case "S": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//사회복지사1급
+				case "A": divEle = $(".main_wrap"); reduceX = 134; reduceY = -2; break;      	//행정사
+				case "V": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//직업상담사
+				case "5": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//ERP정보관리사
+				case "U": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//재경관리사
+				case "1": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//한경/매경
+				case "F": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//유통관리사
+				case "M": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//물류관리사
+				case "D": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//도로교통사고감정사
+				case "8": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//TOKL/KBS 한국어/글쓰기
+				case "P": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//농산물품질관리사
+				case "E": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//한자능력검정
+				case "H": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//한국사능력검정
+				case "I": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//IT자격증
+				case "9": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//조경기사
+				
+				case "K": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//경비지도사
+
+				case "Z": divEle = $(".main_section"); reduceX = 134; reduceY = 1; break;      	//취업
+
+				case "Y": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//소방
+
+				case "W": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//학원
+				case "_106": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//건축기사
+				case "_107": divEle = $(".main_wrap"); reduceX = 134; reduceY = 1; break;      	//토목기사
+            }
+
+            var positionX = e.pageX - divEle.offset().left + reduceX;
+            var positionY = e.pageY - divEle.offset().top + reduceY;
+        
+
+            var aTitle, aHref, imgSrc, imgAlt;
+            var tagName = $(this)[0].tagName;
+            switch (tagName) {
+                case "A":
+                    aTitle = $(this).attr("title");
+                    aHref = $(this).attr("href");
+                    imgAlt = $(this).find("img").attr("alt");
+                    imgSrc = $(this).find("img").attr("src");
+                    break;
+                case "AREA":
+                    aTitle = $(this).attr("alt");
+                    aHref = $(this).attr("href");                
+                    imgAlt = $(this).parents(0).find('img').attr("alt");
+                    imgSrc = $(this).parents(0).find('img').attr("src");
+                    break;
+            }
+			var url="/logs/log4MainBanner.asp";
+
+			if (progress=="_106" ||  progress=="_107" )
+			{
+				 url="//www.eduwill.net/logs/log4MainBanner.asp";
+			}
+            $.ajax({
+                type: "post"
+                ,url: url
+                ,data: { progress: progress, academy: academy, aTitle: escape(aTitle), aHref: aHref, imgSrc: imgSrc, imgAlt: escape(imgAlt), positionX: positionX, positionY: positionY, pysicalType : '-999' }
+                ,dataType: "json"
+                ,success: function (data) {}
+                ,error: function (data, status, err) {}
+            });
+        } catch (ex) {
+            //console.log(ex);
+        } finally {
+            //return false;
+        }
+    }
+};
+$('.GTMClick').on('click', logging);
